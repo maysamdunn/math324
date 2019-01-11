@@ -1,4 +1,4 @@
-\documentclass[11pt,twoside,a4paper,fleqn]{article}
+\documentclass[14pt,twoside,a4paper,fleqn]{article}
 \usepackage{amsmath,mathtools,latexsym,semantic,amsthm,cancel}
 \theoremstyle{plain}
 %theorems and lemmas with numbering
@@ -18,6 +18,13 @@
 \newtheorem*{thm}{Theorem}
 %for uncounted lemmas:
 \newtheorem*{lem}{Lemma}
+
+\usepackage{parskip}
+\setlength{\parindent}{14pt}
+
+\usepackage{setspace}
+\doublespacing
+% \onehalfspacing
 
 
 
@@ -40,60 +47,64 @@
 
 \tableofcontents
 \newpage
-\section{Lecture 0}
 \section{Lecture 1}
-
 \section{Lecture 2}
+
+\newpage
+%Lecture 3
+\section{Lecture 3}
 %Markov's Inequality
 \subsection{Markov's Inequality}
 Let $X$ be a random variable and $h$ be a \textbf{non-negative} function; ie:
 	\begin{equation*}
 	h:R->R^{+}\ \cup\ \{0\}\tab[0.5cm]=\tab[0.5cm] [0,\infty)
 	\end{equation*}
-Suppose $E(h(x))\ < \infty$ ,then for some $\lambda > 0$ , we have:
+Suppose $E(h(X))\ < \infty$ ,then for some $\lambda > 0$ , we have:
 	\begin{equation}\label{markov}
-	P(h(x) \geq \lambda)\ \leq\ \frac{E[h(x)]}{\lambda}
+	P(h(X) \geq \lambda)\ \leq\ \frac{E[h(X)]}{\lambda}
 	\end{equation}
 \begin{proof}
 Suppose $X$ is a continuous random variable:
 	\begin{equation*}
 	\begin{split}
-	E[h(x)] &= \int_{x} h(x)d_x(x)dx \\
-		&=\Big(\int_{x:h(x)\geq\lambda}h(x)f_x(x)dx + \int_{x:h(x) < \lambda}h(x)f_x(x)dx\Big) \\
-		&\geq \int_{x:h(x)\geq\lambda}h(x)f_x(x)dx\tab[4cm] \underline{since}\ h\geq 0\\
-		&\geq\lambda \int_{x:h(x\geq\lambda}f_x(x)dx = \lambda\ P(h(x)\geq \lambda)\\
-		\implies P(h(x)\geq \lambda) \leq \frac{E(h(x))}{\lambda}
+	E[h(x)] &= \int_{x} h(x)f_{_X}(x)dx \\
+		&=\Big(\int_{x:h(x)\geq\lambda}h(x)f_{_X}(x)dx + \int_{x:h(x) < \lambda}h(x)f_{_X}(x)dx\Big) \\
+		&\geq \int_{x:h(x)\geq\lambda}h(x)f_{_X}(x)dx\tab[4cm] \underline{since}\ h\geq 0\\
+		&\geq\lambda \int_{x:h(x\geq\lambda}f_{_X}(x)dx = \lambda\ P(h(X)\geq \lambda)\\
+		\implies P(h(X)\geq \lambda) \leq \frac{E(h(X))}{\lambda}
 	\end{split}
 	\end{equation*}
 \emph{The proof for the discrete case is similar.}
 \end{proof} 
+
 %Tchebushev's Inequality
 \subsection{Tchebyshev's Inequality}
 \emph{Tchebyshev's Inequality} is a special case of Markov's Inequality. \mbox{Consider $h(x) = (x-\mu)^2$}, then:
 	\begin{equation*}
 	\begin{split}
-	P(\vert x-\mu \vert \geq \lambda) &= P((x-\mu)^2 \geq \lambda^2)\\
-		&\leq \frac{E[(x-\mu)^2]}{\lambda^2}\tab[2cm]if\ E[(x-\mu)^2]<\infty
+	P(\vert X-\mu \vert \geq \lambda) &= P((X-\mu)^2 \geq \lambda^2)\\
+		&\leq \frac{E[(X-\mu)^2]}{\lambda^2}\tab[2cm]if\ E[(X-\mu)^2]<\infty
 	\end{split}
 	\end{equation*}
-Let $\mu = E(X)$, then $E[(x-\mu)^2] = Var(X)$ denoted by $\sigma_x^2$. We therefore have:
+Let $\mu = E(X)$, then $E[(X-\mu)^2] = Var(X)$ denoted by $\sigma_{_X}^2$. We therefore have:
 	\begin{equation}\label{tchev_sigma}
-		P(\vert x-\mu_x \vert \geq \lambda) \leq \frac{\sigma_x^2}{\lambda^2}\tab[2cm] where\ \mu_x = E(x)
+		P(\vert X-\mu_{_X} \vert \geq \lambda) \leq \frac{\sigma_{_X}^2}{\lambda^2}\tab[2cm] where\ \mu_{_X} = E(X)
 	\end{equation}
 Now consider $\lambda= K\sigma_x$ where $K$ is a known number. Then:
 	\begin{equation}\label{tchev}
-		P(\vert x-\mu_x\vert \geq K\sigma_x) \geq \frac{\sigma_x^2}{K^2\sigma_x^2}=\frac{1}{K^2}
+		P(\vert X-\mu_{_X}\vert \geq K\sigma_{_X}) \geq \frac{\sigma_{_X}^2}{K^2\sigma_{_X}^2}=\frac{1}{K^2}
 	\end{equation}
 
 This is called \textbf{Tchbyshev's Inequality}. 
 \begin{example}
 Suppose $K=3$.\hfill\newline
-$$P(\vert X-\mu_x\vert \geq 3\ \sigma_x) \leq \frac{1}{9}$$
+$$P(\vert X-\mu_x\vert \geq 3\ \sigma_{_X}) \leq \frac{1}{9}$$
 In other words, at least $88\%$ of the observations are within $3$ standard deviation from the population mean.
 \end{example}
+
 Going back to the our example:
 $$X_i \sim (\mu, 1)\tab[0.5cm],\tab[0.5cm] \bar X_n = \frac{1}{n}\sum_{i=1}^{n} X_i$$
-We want to study $P(\epsilon \geq \lambda) = P(\vert \bar{X}_n - \mu\vert \geq \lambda)$, first we note that: $$E(X_i)=\mu\ \ \ ,\ i=1,2,\ldots,n$$
+We want to study $P(\epsilon \geq \delta) = P(\vert \bar{X}_n - \mu\vert \geq \delta)$, first we note that: $$E(X_i)=\mu\ \ \ ,\ i=1,2,\ldots,n$$
 Then:
 	\begin{equation*}
 	\begin{split}
@@ -108,7 +119,7 @@ Now:
 	\begin{equation*}
 	\begin{split}
 	Var(\bar{X}_n) &= Var\big(\frac{1}{n} \sum_{i=1}^{n} X_i \big) = \frac{1}{n^2}Var\big(\sum_{i=1}^{n}X_i \big)\\
-	&=\frac{1}{n^2}\Big[\sum_{i=1}^{n} Var(X_i) +\sum_{1\leq i<j\leq n}\ \sum_{1\leq i<j\leq n} Cov(X_i, X_j) \Big]\tab using\ Thm\ 5.12(b)-page\ 271\\
+	&=\frac{1}{n^2}\Big[\sum_{i=1}^{n} Var(X_i) +\sum_{1\leq i<j\leq n}\ \sum_{1\leq i<j\leq n} Cov(X_i, X_j) \Big]\ \ \ using\ Thm\ 5.12(b)-page\ 271\\
 	&=\frac{1}{n^2}\sum_{i=1}^{n}Var(X_i)\tab[2cm]since\ \coprod_{1}^{n}X_i\\
 	&=\frac{1}{n^{\cancel{2}}} \cancel{n} Var(X) = \frac{Var(X)}{n} \tab since\ x_{i}s\ are\ identically\ distributed\\
 	&=\frac{\delta_X^2}{n}\tab[12cm](**)
@@ -126,7 +137,11 @@ $$Cov(X,Y) = E[XY] - E(X)E(Y)$$
 thus: 
 $$X\coprod Y\implies Cov(X,Y)=0.$$
 \end{remark*}
-recall that $X\coprod Y$ means X and Y are independent, i.e. \mbox{$f_{_{X,Y}}(x,y)=f_{_X}(x)f_{_Y}(y)$} where $f_{_{X,Y}},f_{_X} and f_{_Y}$ represent respectively the /////TODO\\
+recall that $X\coprod Y$ means X and Y are independent, i.e. \mbox{$f_{_{X,Y}}(x,y)=f_{_X}(x)f_{_Y}(y)$} where $f_{_{X,Y}},f_{_X} and f_{_Y}$ represent respectively the %%missed words%%%/////TODO\\
+
+
+
+
 We therefore have:
 \begin{equation}\
 P(\vert\bar{X}_n - \mu\vert \geq \delta) \leq \frac{1}{n\delta^2}
@@ -162,7 +177,7 @@ Define $\zeta(x) = x(1-x)\ for\ 0 < x < 1$. Then:
 	(Note that $\zeta^{"}(x) = -2$ for all $0 < x < 1$)
 	
 	
-	%Draw the graph
+	%The graph is missing
 	
 	
 We therefore find:
@@ -178,7 +193,6 @@ This is of course conservative since $p(1-p)\leq \frac{1}{4}$.
 
 
 \newpage
-\section{Lecture 3}
 \section{Lecture 4}
 \section{Lecture 5}
 \section{Lecture 6}
