@@ -1,0 +1,105 @@
+\documentclass[11pt,twoside,a4paper,fleqn]{article}
+\usepackage{amsmath,mathtools,latexsym,semantic,amsthm}
+\theoremstyle{plain}
+%theorems and lemmas with numbering
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[theorem]
+
+%theorem and lemmas without numbering
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+
+%for uncounted definitions:
+\newtheorem*{definition}{Definition}
+%for uncounted theorems:
+\newtheorem*{thm}{Theorem}
+%for uncounted lemmas:
+\newtheorem*{lem}{Lemma}
+
+
+
+
+
+\title{MATH324 (Statistics) -- Lecture Notes\\McGill University}
+\date{Winter 2019}
+\author{Masoud Asgharian}
+
+
+\begin{document}
+
+\maketitle
+
+%newcommands:
+%       newcommand{\COMMAND}{REPLACEDCOMMAND}
+\newcommand{\nexists}{\not\exists}
+%	tab command
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\tableofcontents
+\newpage
+\section{Lecture 0}
+\section{Lecture 1}
+
+\section{Lecture 2}
+\subsection{Markov's Inequality}
+Let $X$ be a random variable and $h$ be a \textbf{non-negative} function; ie:
+	\begin{equation*}
+	h:R->R^{+}\ \cup\ \{0\}\tab[0.5cm]=\tab[0.5cm] [0,\infty)
+	\end{equation*}
+Suppose $E(h(x))\ < \infty$ ,then for some $\lambda > 0$ , we have:
+	\begin{equation}
+	P(h(x) \geq \lambda)\ \leq\ \frac{E[h(x)]}{\lambda}
+	\end{equation}
+\begin{proof}
+Suppose $X$ is a continuous random variable:
+	\begin{equation*}
+	\begin{split}
+	E[h(x)] &= \int_{x} h(x)d_x(x)dx \\
+		&=\Big(\int_{x:h(x)\geq\lambda}h(x)f_x(x)dx + \int_{x:h(x) < \lambda}h(x)f_x(x)dx\Big) \\
+		&\geq \int_{x:h(x)\geq\lambda}h(x)f_x(x)dx\tab[4cm] \underline{since}\ h\geq 0\\
+		&\geq\lambda \int_{x:h(x\geq\lambda}f_x(x)dx = \lambda\ P(h(x)\geq \lambda)\\
+		\implies P(h(x)\geq \lambda) \leq \frac{E(h(x))}{\lambda}
+	\end{split}
+	\end{equation*}
+\emph{The proof for the discrete case is similar.}
+\end{proof} \hfill\newline
+Now consider $h(x) = (x-\mu)^2$, then:
+	\begin{equation*}
+	\begin{split}
+	P(\vert x-\mu \vert \geq \lambda) &= P((x-\mu)^2 \geq \lambda^2)\\
+		&\leq \frac{E[(x-\mu)^2]}{\lambda^2}\tab[2cm]if\ E[(x-\mu)^2]<\infty
+	\end{split}
+	\end{equation*}
+Let $\mu = E(X)$, then $E[(x-\mu)^2] = Var(X)$ denoted by $\sigma_x^2$. We therefore have:
+	\begin{equation}
+		P(\vert x-\mu_x \vert \geq \lambda) \leq \frac{\sigma_x^2}{\lambda^2}\tab[2cm] where\ \mu_x = E(x)
+	\end{equation}
+Now consider $\lambda= K\sigma_x$ where $K$ is a known number. Then:
+	\begin{equation}
+		P(\vert x-\mu_x\vert \geq K\sigma_x) \geq \frac{\sigma_x^2}{K^2\sigma_x^2}=\frac{1}{K^2}
+	\end{equation}
+
+
+
+
+
+\subsection{Chebyshev's Inequality}
+Chebyshev's Inequality is a special case of Markov's Inequality.
+
+
+
+\newpage
+\section{Lecture 3}
+\section{Lecture 4}
+\section{Lecture 5}
+\section{Lecture 6}
+\section{Lecture 7}
+\section{Lecture 8}
+\section{Lecture 9}
+\section{Lecture 10}
+\section{Lecture 11}
+\section{Lecture 12}
+
+
+
+\end{document}
