@@ -1,13 +1,16 @@
 \documentclass[11pt,twoside,a4paper,fleqn]{article}
-\usepackage{amsmath,mathtools,latexsym,semantic,amsthm}
+\usepackage{amsmath,mathtools,latexsym,semantic,amsthm,cancel}
 \theoremstyle{plain}
 %theorems and lemmas with numbering
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
 \newtheorem{lemma}{Lemma}[theorem]
+\newtheorem{remark}{Remark}[section]
 
 %theorem and lemmas without numbering
 \newtheorem*{theorem*}{Theorem}
 \newtheorem*{lemma*}{Lemma}
+\newtheorem*{remark*}{Remark}
 
 %for uncounted definitions:
 \newtheorem*{definition}{Definition}
@@ -41,13 +44,14 @@
 \section{Lecture 1}
 
 \section{Lecture 2}
+%Markov's Inequality
 \subsection{Markov's Inequality}
 Let $X$ be a random variable and $h$ be a \textbf{non-negative} function; ie:
 	\begin{equation*}
 	h:R->R^{+}\ \cup\ \{0\}\tab[0.5cm]=\tab[0.5cm] [0,\infty)
 	\end{equation*}
 Suppose $E(h(x))\ < \infty$ ,then for some $\lambda > 0$ , we have:
-	\begin{equation}
+	\begin{equation}\label{markov}
 	P(h(x) \geq \lambda)\ \leq\ \frac{E[h(x)]}{\lambda}
 	\end{equation}
 \begin{proof}
@@ -62,8 +66,10 @@ Suppose $X$ is a continuous random variable:
 	\end{split}
 	\end{equation*}
 \emph{The proof for the discrete case is similar.}
-\end{proof} \hfill\newline
-Now consider $h(x) = (x-\mu)^2$, then:
+\end{proof} 
+%Tchebushev's Inequality
+\subsection{Tchebyshev's Inequality}
+\emph{Tchebyshev's Inequality} is a special case of Markov's Inequality. \mbox{Consider $h(x) = (x-\mu)^2$}, then:
 	\begin{equation*}
 	\begin{split}
 	P(\vert x-\mu \vert \geq \lambda) &= P((x-\mu)^2 \geq \lambda^2)\\
@@ -71,20 +77,103 @@ Now consider $h(x) = (x-\mu)^2$, then:
 	\end{split}
 	\end{equation*}
 Let $\mu = E(X)$, then $E[(x-\mu)^2] = Var(X)$ denoted by $\sigma_x^2$. We therefore have:
-	\begin{equation}
+	\begin{equation}\label{tchev_sigma}
 		P(\vert x-\mu_x \vert \geq \lambda) \leq \frac{\sigma_x^2}{\lambda^2}\tab[2cm] where\ \mu_x = E(x)
 	\end{equation}
 Now consider $\lambda= K\sigma_x$ where $K$ is a known number. Then:
-	\begin{equation}
+	\begin{equation}\label{tchev}
 		P(\vert x-\mu_x\vert \geq K\sigma_x) \geq \frac{\sigma_x^2}{K^2\sigma_x^2}=\frac{1}{K^2}
 	\end{equation}
 
-
-
-
-
-\subsection{Chebyshev's Inequality}
-Chebyshev's Inequality is a special case of Markov's Inequality.
+This is called \textbf{Tchbyshev's Inequality}. 
+\begin{example}
+Suppose $K=3$.\hfill\newline
+$$P(\vert X-\mu_x\vert \geq 3\ \sigma_x) \leq \frac{1}{9}$$
+In other words, at least $88\%$ of the observations are within $3$ standard deviation from the population mean.
+\end{example}
+Going back to the our example:
+$$X_i \sim (\mu, 1)\tab[0.5cm],\tab[0.5cm] \bar X_n = \frac{1}{n}\sum_{i=1}^{n} X_i$$
+We want to study $P(\epsilon \geq \lambda) = P(\vert \bar{X}_n - \mu\vert \geq \lambda)$, first we note that: $$E(X_i)=\mu\ \ \ ,\ i=1,2,\ldots,n$$
+Then:
+	\begin{equation*}
+	\begin{split}
+		E(\bar{X}_n) &= E\big(\frac{1}{n}\sum_{i=1}^{n}X_i \big)=\frac{1}{n}\sum_{i=1}^{n}E(X_i)\\
+		&= \frac{1}{n}\sum_{i=1}^{n} \mu =\frac{1}{n}(n\mu)= \frac{1}{\cancel{n}}.(\cancel{n}\mu)\\
+		&= \mu\tab[13cm] (*)
+	\end{split}
+	\end{equation*}
+Thus, using (\ref{tchev_sigma}) we have:
+	$$P(\vert\bar{X}_n - \mu\vert \geq \delta ) \leq \frac{Var(\bar{X}_n)}{\delta^2}$$
+Now:
+	\begin{equation*}
+	\begin{split}
+	Var(\bar{X}_n) &= Var\big(\frac{1}{n} \sum_{i=1}^{n} X_i \big) = \frac{1}{n^2}Var\big(\sum_{i=1}^{n}X_i \big)\\
+	&=\frac{1}{n^2}\Big[\sum_{i=1}^{n} Var(X_i) +\sum_{1\leq i<j\leq n}\ \sum_{1\leq i<j\leq n} Cov(X_i, X_j) \Big]\tab using\ Thm\ 5.12(b)-page\ 271\\
+	&=\frac{1}{n^2}\sum_{i=1}^{n}Var(X_i)\tab[2cm]since\ \coprod_{1}^{n}X_i\\
+	&=\frac{1}{n^{\cancel{2}}} \cancel{n} Var(X) = \frac{Var(X)}{n} \tab since\ x_{i}s\ are\ identically\ distributed\\
+	&=\frac{\delta_X^2}{n}\tab[12cm](**)
+	\end{split}
+	\end{equation*}
+	In our case $X\sim N(\mu, 1)$ so $Var(X) = \delta_X^2 = 1$. Thus $Var(\bar{X}_n) = \frac{1}{n}$
+	
+\begin{remark*}
+$X\coprod Y \implies Cov(X,Y)=0$. Note that:
+$$X \coprod Y \implies E\big[g_1(X)g_2(Y)\big] = E[g_1(X)].E[g_2(Y)]$$
+in particular:
+$$X \coprod Y \implies E\big[XY\big] = E[X].E[Y]$$
+on the other hand:
+$$Cov(X,Y) = E[XY] - E(X)E(Y)$$
+thus: 
+$$X\coprod Y\implies Cov(X,Y)=0.$$
+\end{remark*}
+recall that $X\coprod Y$ means X and Y are independent, i.e. \mbox{$f_{_{X,Y}}(x,y)=f_{_X}(x)f_{_Y}(y)$} where $f_{_{X,Y}},f_{_X} and f_{_Y}$ represent respectively the /////TODO\\
+We therefore have:
+\begin{equation}\
+P(\vert\bar{X}_n - \mu\vert \geq \delta) \leq \frac{1}{n\delta^2}
+\end{equation}
+Using $(4)$ and  the sample size, $n$, we can find an upper bound for the proportion of deviations which are greater than a given threshold $\delta$.\hfill\newline
+We can also use $(4)$ for \underline{Sample Size Deterministic}:\\
+Suppose $\delta$ is given and we want $P(\vert\bar{X}_n - \mu\vert \geq \delta) \leq \beta$ where $\beta$ is also given. Then setting $\frac{1}{n\delta^2} = \beta$, we can estimate $n\approx\frac{1}{\beta\delta^2}$.\hfill\newline
+%Application to voting
+\subsection{Application to Voting}
+Define $X_i = \begin{cases}
+		1 & \text{NDP}\\
+		0 & \text{otherwise}
+		\end{cases}$ . Associated to each eligible voter in Canada we have a binary variable X. Let $p=P(X=1)$. So $p$ represents the proportion of eligible voters who favor $NDP$. Of interest is often estimation of $p$. Suppose we have a sample of size $n$, $X_1,X_2,\ldots,X_n$.\\
+		$\bar{X}_n = \frac{1}{n}\sum_{i=1}^{n}X_i$ is the sample proportion; The counterpart of $p$ which nat be denoted by $\hat{p}$. Note that:
+		$$\mu_{_X} = E(X) = 1 \times P(X=1) + 0\times P(X=0) = 1-p + 0\times (1-p)=p$$
+		and:
+		$$E(X^2) = 1^2 \times P(X=1) + 0^2 \times P(X=0) = 1-p + 0\times (1-p) = p$$
+From (*) and (**) we find that :
+	$$E(\hat{p}_n) = E(\bar{X}_n) \mu_{_X} = p$$
+and:
+	$$Var(\hat{p}_n) = E(\bar{X}_n) = \frac{Var(X)}{n} = \frac{\sigma_X^2}{n} = \frac{p(1-p)}{n}$$
+Thus using (\ref{tchev_sigma}), we have:
+$$P(\vert\hat{p}_n - p\vert \geq \delta) \leq \frac{Var(\hat{p}_n)}{\delta^2} = \frac{p(1-p)}{n\delta^2}$$
+Note that the above bound on the probability of derivation depends on $p$ which is \emph{unknown}. We however notice that $p(1-p) \leq \frac{1}{4}$ .\\
+Define $\zeta(x) = x(1-x)\ for\ 0 < x < 1$. Then:
+	\begin{equation*}
+	\begin{split}
+	&\zeta^{'}(x) = 1-2x \implies \zeta^{'}(x)= 0 \implies x = \frac{1}{2} \\
+	&\zeta^{"}(\frac{1}{2}) = -2 \implies x = \frac{1}{2}\tab \text{which is a \textbf{maximizer}}\\
+	&\zeta(\frac{1}{2}) = \frac{1}{2}(1-\frac{1}{2})=\frac{1}{4}
+	\end{split}
+	\end{equation*}
+	(Note that $\zeta^{"}(x) = -2$ for all $0 < x < 1$)
+	
+	
+	%Draw the graph
+	
+	
+We therefore find:
+	\begin{equation}\label{voter}
+	P(\vert\hat{p}_n - p\vert \geq \delta) \leq \frac{1}{4n\delta^2}
+	\end{equation}
+Using (\ref{voter}) and a given sample size $n$ we can find an upper bound for the probability of derivation by $\delta$ and the amount for any given $\delta$.\newline
+We can also use (\ref{voter}) for \underline{sample size deterministic} for a size bound $
+\beta$ and derivative $\delta$ as follows:
+$$\frac{1}{4n\delta^2}= \beta\tab \implies \tab n \geq \frac{1}{4\beta\delta^2}$$
+This is of course conservative since $p(1-p)\leq \frac{1}{4}$.
 
 
 
