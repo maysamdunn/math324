@@ -1,5 +1,5 @@
 \documentclass[14pt,twoside,a4paper,fleqn]{article}
-\usepackage{amsmath,mathtools,latexsym,semantic,amsthm,cancel,stackengine,graphicx}
+\usepackage{amsmath,mathtools,latexsym,semantic,amsthm,cancel,stackengine,dcolumn,pxfonts,graphicx,mathrsfs}
 \theoremstyle{plain}
 %theorems and lemmas with numbering
 \newtheorem{theorem}{Theorem}[section]
@@ -18,6 +18,8 @@
 
 %commands:
 \newcommand\myeq{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny def}}}{=}}}
+
+\newcolumntype{d}[1]{D{.}{\cdot}{#1} }
 
 %for distribution
 \makeatletter
@@ -45,7 +47,7 @@
 
 %newcommands:
 %       newcommand{\COMMAND}{REPLACEDCOMMAND}
-\newcommand{\nexists}{\not\exists}
+%\newcommand{\nexists}{\not\exists}
 %	tab command
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 
@@ -170,15 +172,15 @@ and:
 Thus using (\ref{tchev_sigma}), we have:
 $$P(\vert\hat{p}_n - p\vert \geq \delta) \leq \frac{Var(\hat{p}_n)}{\delta^2} = \frac{p(1-p)}{n\delta^2}$$
 Note that the above bound on the probability of derivation depends on $p$ which is \emph{unknown}. We however notice that $p(1-p) \leq \frac{1}{4}$ .\\
-Define $\zeta(x) = x(1-x)\ for\ 0 < x < 1$. Then:
+Define $\mathscr{C}(x) = x(1-x)\ for\ 0 < x < 1$. Then:
 	\begin{equation*}
 	\begin{split}
-	&\zeta^{'}(x) = 1-2x \implies \zeta^{'}(x)= 0 \implies x = \frac{1}{2} \\
-	&\zeta^{"}(\frac{1}{2}) = -2 \implies x = \frac{1}{2}\tab \text{which is a \textbf{maximizer}}\\
-	&\zeta(\frac{1}{2}) = \frac{1}{2}(1-\frac{1}{2})=\frac{1}{4}
+	&\mathscr{C}^{'}(x) = 1-2x \implies \mathscr{C}^{'}(x)= 0 \implies x = \frac{1}{2} \\
+	&\mathscr{C}^{"}(\frac{1}{2}) = -2 \implies x = \frac{1}{2}\tab \text{which is a \textbf{maximizer}}\\
+	&\mathscr{C}(\frac{1}{2}) = \frac{1}{2}(1-\frac{1}{2})=\frac{1}{4}
 	\end{split}
 	\end{equation*}
-	(Note that $\zeta^{"}(x) = -2$ for all $0 < x < 1$)
+	(Note that $\mathscr{C}^{"}(x) = -2$ for all $0 < x < 1$)
 	
 	
 	%The graph is missing
@@ -271,16 +273,7 @@ $\begin{pmatrix}\bar{X_n}\\\bar{Y_n}\\\bar{Z_n} \end{pmatrix}$
  An estimator $\hat{\Theta}$ is called admissible if there is no estimator $\tilde{\Theta}$ such that:
  $$MSE(\tilde{\Theta}) \leq MSE(\hat{\Theta})\tab[3cm]\text{for all possible values of $\Theta$}$$
 and this inequality is strict for some values of $\Theta$.\newline
-What this example tells us is that by allowing MISSING of bias we may be able to reduce variance considerably and hence find an estimator which is closer to the target than the most natural unbiased estimator. Note that this phenomena happens only when the dimension is at least 3.
-
-
-
-
-
-
-
-
-
+What this example tells us is that by allowing a bit of bias we may be able to reduce variance considerably and hence find an estimator which is closer to the target than the most natural unbiased estimator. Note that this phenomena happens only when the dimension is at least 3.
 
 
 
@@ -288,16 +281,144 @@ What this example tells us is that by allowing MISSING of bias we may be able to
 
 \newpage
 \section{Lecture 4}
+We now want to restrict the class of estimators even further. Suppose $X_1,\ldots,X_n$ have the same mean $\mu$ and variance $\sigma^2$ and they are orthogonal; i.e. \mbox{$Cov(X_i,X_j) = 0\ ,\ i\neq j$}. Consider $\tilde{X}_{n,\underset{\sim}{C}} = \sum_{i=1}^n C_i\ X_i$ and
+$$\mathscr{C} = \Big\{\tilde{X}_{n,\underset{\sim}{C}}\ \colon \underset{\sim}{C} = 
+	(C_1,\ldots,C_n)\in \mathbf{R}^n ,\ \sum_{i=1}^n C_i = 1 \Big\} $$
+Note that
+\begin{equation*}
+\begin{split}
+E(\tilde{X}_{n,\underset{\sim}{C}}) &= E(\sum_{i=1}^n C_i\ X_i) = \sum_{i=1}^n C_i\ E(X_i)\\
+	&= \sum_{i=1}^n C_i\ \mu = \mu\overbrace{\sum_{i=1}^n C_i}^1 = 1\cdot\mu\\
+	&=\mu
+\end{split}
+\end{equation*}
+Thus $\tilde{X}_{n,\underset{\sim}{C}}$ is an unbiased estimator of $\mu$ fir any $\underset{\sim}{C}\in\mathbf{R}^n$ as long as $\sum_{i=1}^n C_i = 1$.
+Then $\mathscr{C}$ is the class of all unbiased linear estimators of $\mu$. We want to find the best estimator with $\mathscr{C}$; i.e.:
+$$\underset{\underset{\sim}{C}\in\mathbf{R}^n}{\text{Min}}\ MSE(\tilde{X}_{n,\underset{\sim}{C}})\tab[0.5cm] s.t\ \sum_{i=1}^n C_i = 1\tab[2cm] (*)$$
+First we note that $MSE(\tilde{X}_{n,\underset{\sim}{C}}) = Var(\tilde{X}_{n,\underset{\sim}{C}})$ since $\tilde{X}_{n,\underset{\sim}{C}}$ is an unbiased estimator of $\mu$ when $\sum_{i=1}^n C_i = 1$. On the other hand:
+\begin{equation*}
+\begin{split}
+Var(\tilde{X}_{n,\underset{\sim}{C}}) &= Var(\sum_{i=1}^n C_i\ X_i)\\
+	&= \sum_{i=1}^n {C_i}^2\ Var(X_i) + 2\sum\sum_{1\leq i<j\leq n} Cov(C_iX_i,C_j,X_j)\tab \text{Theorem 5.12 page 271}\\
+	&= \sum_{i=1}^n {C_i}^2 \sigma^2 + 2 \cancel{\sum\sum_{1\leq i<j\leq n} C_iC_j\overbrace{Cov(X_i,X_j)}^0}\\
+	&= \sigma^2\sum_{i=1}^n {C_i}^2 \\
+\text{Thus (*) is equivalent to}:\\
+	&\underset{\underset{\sim}{C}\in\mathbf{R}^n}{\text{Min}}\ \sigma^2\sum_{i=1}^n {C_i}^2\tab[2cm] (**)
+\end{split}
+\end{equation*}
+Using the \emph{Lagrange Theorem}, (**) is equivalent to:
+$$
+\underset{\sim}{C} = \overset{Min}{(C_1,...,C_n)} \in\mathbb{R}^n\ \ \big\{\overbrace{\sigma^2\sum_{i=1}^n C_i + \lambda(\sum_{i=1}^n C_i -1)}^{\mathscr{C_{_\lambda} (\underset{\sim}{\text{C}})}}\big\}\ .
+$$
+Note that: 
+$
+\tab\frac{\partial\ \mathscr{C}_{\lambda}(\underset{\sim}{C})}{\partial C_i}
+	= 2\ \sigma^2\ C_i + \lambda\tab[0.5cm] ,\ i=1,2,3,\ldots\\
+$\\
+$\frac{\partial}{\partial \lambda} \mathscr{C}_{\lambda}(\underset{\sim}{C})
+	= \sum_{i=1}^n C_i - 1$\newline\\
+$\begin{cases}
+		\frac{\partial}{\partial C_i}\mathscr{C}_{\lambda}(\underset{\sim}{C})
+			= 2\ \sigma^2\ C_i + \lambda = 0\ \ ,\ \ i=1,2,3,\ldots\\
+		\frac{\partial}{\partial \lambda} \mathscr{C}_{\lambda} = 0\ \ \implies \ \ \sum_{i=1}^n C_i =1
+		\end{cases}$\hfill\newline\\
+Thus $C_i = -\frac{\lambda}{2\ \sigma^2}\ \ , \ \ i=1,2,3,\ldots,n\ $  and using the last equation:
+$$
+\sum_{i=1}^n -\frac{\lambda}{2\ \sigma^2} = 1 \implies \lambda = -\frac{2\ \sigma^2}{n}
+$$
+and therefore:
+$$
+C_i = -\frac{\lambda}{2\ \sigma^2} = -\frac{-\frac{2\ \sigma^2}{n}}{2\ \sigma^2} = \frac{1}{n}\tab ,\ \ i=1,2,3,\ldots,n
+$$
+We can further find:
+$$\ \mathcal{H} = [\frac{\partial^2}{\partial C_i \partial C_j} \mathscr{C}_{\lambda}(\underset{\sim}{C})]\tab,\ \ i,j=1,2,\ldots,n$$
+and show that:
+\begin{equation*}
+\begin{split}
+\underset{\sim}{x}^T\ \mathcal{H}\underset{\sim}{x}\ &\geq\ 0\tab \forall \underset{\sim}{x}\in\mathbb{R}^n\\
+&=0\tab \text{if and only if \ } \underset{\sim}{x} = 0
+\end{split}
+\end{equation*}
+This then guarantees that ${\underset{\sim}{C}}^{*} = (\frac{1}{n},\frac{1}{n},\ldots,\frac{1}{n})$ is indeed a minimizer; in fact, the \mbox{\emph{unique minimizer}}. To summarize:
+$$
+\tilde{X}_{n,{\underset{\sim}{C}}^{*}} = \sum{i=1}^n \frac{1}{n} X_i = \frac{1}{n}\sum_{i=1}^n X_i = \bar{X_n}
+$$
+Thus $\bar{X_n}$ is the best unbiased linear estimator.
+\subsection{Estimating Variance}
+So far we confirmed ourselves to estimation of th population mean.\newline
+Now suppose we are interested in estimating variance from $X_1,\ldots,X_n$ where $X_is$ have the same mean value $\mu$\ , the same variance $\sigma^2$ and they are orthogonal, i.e. \mbox{$Cov(X_i,X_j)=0\ ,\ i\neq j$}, then a \mbox{\emph{natural estimator}} of:
+$$
+\sigma^2 = Var(X) = \mathbb{E}[(x-\mu)^2]
+$$
+is \underline{its sample counterpart}, i.e.
+$$
+S_{n,*}^2 = \frac{1}{n} \sum_{i=1}^n (X_i - \bar{X_n})^2
+$$
+Now the first question is if $S_{n,*}^2$ is an unbiased estimator of $\sigma^2$ , i.e. $\mathbb{E}(S_{n,*}^2) = \sigma^2$
+
+
+\begin{equation*}
+\begin{split}
+(X_i - \mu)^2 &= \big[(X_i - \bar{X_n})+(\bar{X_n}-\mu)\big]^2\\
+	&= (X_i - \bar{X_n})^2 + (\bar{X_n}-\mu)^2 + 2\cdot (X_i - \bar{X_n}) (\bar{X_n}-\mu)\\
+\sum_{i=1}^n(X_i -\mu)^2 &= \sum_{i=1}^n (X_i - \bar{X_n})^2 + n(\bar{X_n}-\mu)^2 + 2\cdot (\bar{X_n} - \mu)\overbrace{\sum_{i=1}^{n}(X_i-\bar{X_n})}^{0}\\
+	&= \sum_{i=1}^n (X_i - \bar{X_n})^2 + n(\bar{X_n}-\mu)^2\tab[5cm] (I)
+\end{split}
+\end{equation*}
+
+Taking estimation we find:
+\begin{equation*}
+\begin{split}
+\mathbb{E}\big[\sum_{i=1}^n(X_i - \mu)^2\big] &= \mathbb{E}[n\cdot S_{n,*}^2]+\mathbb{E}[n(\bar{X_n}-\mu)^2]\tab[5cm] (II)\\
+	RHS &= \sum_{i=1}^n\overbrace{\mathbb{E}(X_i - \mu)^2}^{\sigma^2} = n\cdot\sigma^2
+\end{split}
+\end{equation*}
+Note that $\mathbb{E}(\bar{X_n}-\mu)=0$ ,\ i.e. $\mathbb{E}(\bar{X_n})=\mu$. Thus:
+$$
+	\mathbb{E}[n(\bar{X_n}-\mu)^2] = n\ \mathbb{E}[(\bar{X_n}-\mu)^2] = n\ Var(\bar{X_n})\ .
+$$
+On the other hand $Var(\bar{X_n})=\frac{\sigma^2}{n}$. We therefore have:
+$$
+	\mathbb{E}[n(\bar{X_n}-\mu)^2] = n\cdot Var(\bar{X_n}) = n\cdot \frac{\sigma^2}{n} = \sigma^2
+$$
+and hence from $(II)$:
+$$
+	n\sigma^2 = \mathbb{E}(n\ S_{n,*}^2) + \sigma^2
+$$
+which implies:
+$$
+	\implies \mathbb{E}(S_{n,*}^2 = (\frac{n-1}{n})\sigma^2 = (1-\frac{1}{n})\sigma^2
+$$
+meaning that $S_{n,*}^2$ is \textbf{NOT} an unbiased estimator of $\sigma^2$.\\
+Multiplying both sides of the last equation by the reciprocal of $(1-\frac{1}{n})$ we find \mbox{$\mathbb{E}(\frac{n}{n-1}S_{n,*}^2) = \sigma^2$} . Note however that:
+$$
+\frac{n}{n-1}S_{n,*}^2 = \frac{\cancel{n}}{n-1}\cdot\frac{1}{\cancel{n}}\sum_{i=1}^n (X_i - \bar{X_n})^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X_n})^2
+$$
+Thus $\boxed{S_n^2 = \frac{1}{n-1}\sum_{i=1}^n(X_i - \bar{X_n})^2}$ is an unbiased estimator.\\ \\
+\textbf{Question: Why $(n-1)$?}\\
+$"n-1"$ is the dimension of $span\overbrace{\{X_i - \bar{X_n} \colon i=1,2,\ldots,n\}}^{\mathbb{V}}$\ .\newline $n-1 = dim(span\ V)$.\ \ Note however $\tab[0.3cm] dim(span\ W)=n$ where \mbox{$W={X_i-\mu\ ,\ i=1,2,\ldots,n}$}.\newline
+We discuss these issues further in Chapter $11$ where we learn about the \mbox{regression}.\par
+So far we only considered sampling from one population. We may have samples from two or more populations and may want to make inference about differences between the populations. 
+\begin{example}
+\end{example}
+Suppose we want to study the differences between the average salaries of men and women:
+
+\begin{tabular}{l r c d{1} }
+Men&Women\\
+$X_1$&$Y_1$\\
+$\vdots$&$\vdots$\\
+$X_m$&$Y_n$\\
+\end{tabular}
 
 
 
 
-
-
-
-
-
-
+where $X_is$ have the common mean $\mu_{_X}$ and $Y_js$ have the command mean $\mu_{_\mu}$. We want to estimate $\mu_{_X} - \mu_{_Y}$. The natural estimator is $\bar{X_m} = \bar{Y_n}$. Show that:
+$$\mathbb{E}[\bar{X_m}-\bar{Y_n}] = \mu_{_X} - \mu_{_Y}$$
+Hence $\bar{X_m}-\bar{Y_n}$ is an unbiased estimator of $\mu_{_X} - \mu_{_Y}$.\newline
+Assume further that $X$s and $Y$s are independent and $X$s have common variance $\sigma_{_X}^2$ and $Y$s have common variance $\sigma_{_Y}^2$ and \mbox{$Cov(X_i,X_j)=0\ ,\ \ \ i\neq j$} and \mbox{$Cov(Y_i,Y_j)=0\ ,\ \ \ i\neq j$}.\newline
+Find $Var(\bar{X_m} - \bar{Y_n})$. Hint: use $Thm\ 5.12$.\\
+The difference between two proportions can be treated similarly. Note that proportions are essentially means of binary variables.
 
 
 \newpage
