@@ -1,23 +1,27 @@
 \documentclass[14pt,twoside,a4paper,fleqn]{article}
-\usepackage{amsmath,mathtools,latexsym,semantic,amsthm,cancel}
+\usepackage{amsmath,mathtools,latexsym,semantic,amsthm,cancel,stackengine,graphicx}
 \theoremstyle{plain}
 %theorems and lemmas with numbering
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{example}{Example}[section]
 \newtheorem{lemma}{Lemma}[theorem]
 \newtheorem{remark}{Remark}[section]
+\newtheorem{definition}{Definition}[section]
+
 
 %theorem and lemmas without numbering
 \newtheorem*{theorem*}{Theorem}
 \newtheorem*{lemma*}{Lemma}
 \newtheorem*{remark*}{Remark}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{example*}{Example}
 
-%for uncounted definitions:
-\newtheorem*{definition}{Definition}
-%for uncounted theorems:
-\newtheorem*{thm}{Theorem}
-%for uncounted lemmas:
-\newtheorem*{lem}{Lemma}
+%commands:
+\newcommand\myeq{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny def}}}{=}}}
+
+%for distribution
+\makeatletter
+\newcommand{\distas}[1]{\mathbin{\overset{#1}{\kern\z@\sim}}}%
 
 \usepackage{parskip}
 \setlength{\parindent}{14pt}
@@ -47,12 +51,12 @@
 
 \tableofcontents
 \newpage
+\section{Lecture 0}
 \section{Lecture 1}
-\section{Lecture 2}
 
 \newpage
 %Lecture 3
-\section{Lecture 3}
+\section{Lecture 2}
 %Markov's Inequality
 \subsection{Markov's Inequality}
 Let $X$ be a random variable and $h$ be a \textbf{non-negative} function; ie:
@@ -193,7 +197,110 @@ This is of course conservative since $p(1-p)\leq \frac{1}{4}$.
 
 
 \newpage
+\section{Lecture 3}
+\subsection{MSE} 
+\textbf{MSE}: To study estimation error we started by studying $P(\vert \hat{\Theta}_n - \Theta\vert > \delta)$ , deviation above a given threshold $\delta$, by bounding this probability. One may take a different approach by studying average Euclidean distance, i.e. $E[\ \vert\hat{\Theta}_n - \Theta\vert ^2]$, which denoted by \textbf{MSE($\hat{\Theta}_n$)}.\newline
+We note that if $\Theta = E(\hat{\Theta}_n)$, i.e. $\hat{\Theta}_n$ is an unbiased estimation of $\Theta$, then: 
+$$MSE(\hat{\Theta}_n) = E[\vert\hat{\Theta}_n - \Theta\vert^2] = E[(\hat{\Theta}_n - \mu _{n_{\Theta _n}})^2] = Var(\hat{\Theta}_n)$$
+Now recall that $Var(X) = 0\  \implies \ P(X = \text{constant}) = 1$ which essentially means random variable X is a constant.\\
+The same comment applies to MSE($\hat{\Theta}_n$). We want to find the closest estimator $\hat{\Theta}_n$ to $\Theta$ which means that we want to minimize $E[(\hat{\Theta}_n - \Theta)^2]$ over all possible estimators, ideally at least the above comment tells us that in real applications we cannot expect to find an estimator whose MSE is equal to zero. Let's try to understand the MSE a bit more:
+\begin{equation*}
+\begin{split}
+\text{MSE}(\hat{\Theta}_n) &= E[(\hat{\Theta}_n - \Theta)^2]\\
+	&= E\Big[\Big(\big(\hat{\Theta}_n - E(\hat{\Theta}_n)\big) + \big(E(\hat{\Theta}_n) - \Theta\big) \Big)^2 \Big]\\
+	&= E\big[\big(\hat{\Theta}_n - E(\hat{\Theta}_n)\big)^2\big] + \big(E(\hat{\Theta}_n) - \Theta\big)^2 + 2 \cdot E\big[\big(\hat{\Theta}_n - E(\hat{\Theta}_n)\big)\big]\cdot \big(E(\hat{\Theta}_n) - \Theta\big)\\
+	&= E\big[(\hat{\Theta}_n - E(\hat{\Theta}_n))^2\big] + E\big[\overbrace{(E(\hat{\Theta}_n) - \Theta)^2}^{\text{not a r.v.}}\big]
+		+2\cdot E\Big[\overbrace{\big(E(\hat{\Theta}_n) - \Theta)}^{\text{not a r.v.}}\big)\cdot \big(\hat{\Theta}_n - E(\hat{\Theta}_n)\big) \Big]\\
+		&= Var(\hat{\Theta}_n) + \big[\overbrace{E(\hat{\Theta}_n) - \Theta}^{\text{Bias$(\hat{\Theta}_n)$}}\big]^2 + 2\cdot Bias(\hat{\Theta}_n)\cdot \overbrace{E[(\hat{\Theta}_n - E(\hat{\Theta}_n))]}^{E(\hat{\Theta}_n) - E(\hat{\Theta}_n) = 0}\\
+		&= Var(\hat{\Theta}_n) + Bias^2(\hat{\Theta}_n)
+\end{split}
+\end{equation*}
+Roughly speaking, \textbf{bias} measures how far off the target we hit on the average while \textbf{variance} measures how much fluctuation our estimator may show from one sample to another.
+
+\subsection{Unbiased Estimators}
+In almost all real applications, the class of possible estimators for an \textbf{ESTIMANAL} is huge and the best estimator, i.e. the one that minimizes MSE no matter what the value of the \textbf{ESTIMANAL} is, almost never exists. Thus we try to reduce the class of potential estimators by improving a plausible restriction, for example Bias$(\hat{\Theta}_n) = 0$.
+
+\begin{definition*}An estimator  $\hat{\Theta}_n$ of an \textbf{ESTIMANAL} $\Theta$ is said to be \textbf{unbiased} if $E(\hat{\Theta}_n) = \Theta$ , for all possible values of $\Theta$.
+\end{definition*}
+\begin{example}
+$X_i\distas{iid}  N(\mu, \sigma^2)\tab i=1,2,\ldots,n$\\
+Suppose both $\mu$ and $\sigma^2$ are unknown. Consider $\bar{X}_n = \frac{1}{n}\sum_{i=1}^{n} X_i$.
+$$E(\bar{X_n}) = E(\frac{1}{n}\sum_{i=1}^{n} X_i) = \frac{1}{n}\sum_{i=1}^n \overbrace{E(X_i)}^{\mu} = \frac{1}{\cancel{n}}\cdot \cancel{n}\mu = \mu$$
+\end{example}
+Thus $\bar{X_n}$ is an unbiased estimator of $\mu$. As for the MSE$(\bar{X_n})$, we need to find Var$(\bar{X_n})$.
+\begin{equation*}
+\begin{split}
+Var(\bar{X_n})&= Var\big(\frac{1}{n}\sum_{i=1}^{n} X_i\big) = \frac{1}{n^2} Var(\sum_{i=1}^n X_i)\\
+	&= \frac{1}{n^2}\Big[\sum_{i=1}^n Var(X_i) + 2\cdot\sum\sum_{1\leq i < j \leq n} \overbrace{Cov(X_i,X_j)}^{0} \Big]\tab[2cm] \text{Theorem 5.12(b) - page 271}\\
+	&= \frac{1}{n^2}\sum_{i=1}^n Var(X_i)\tab[8cm] \coprod_{i=1}^n X_i\\
+	& = \frac{1}{n^2}\sum_{i=1}^{n} \sigma^2 = \frac{1}{n^{\cancel{2}}}\cdot\cancel{n}\sigma^2 = \frac{\sigma^2}{n}\tab[5cm]\ \ \text{identically distributed}\\
+&\implies MSE(\bar{X_n}) = Var(\bar{X_n}) + \overbrace{Bias^2(\bar{X_n})}^{0}=Var(\bar{X_n}) = \frac{\sigma^2}{n}
+\end{split}
+\end{equation*}
+An inspection of the above calculation shows that for unbiased $\mu$ we only require a common mean $\mu$ while for calculating the variance we would only require a common variance $\sigma^2$ and orthogonality, i.e:
+$$Cov(X_i,X_j) = 0\tab \text{where}\ i\neq j$$
+Suppose $X_1,\ldots,X_n$ have the same mean value $\mu$. Then:
+$$E(\bar{X_n}) = E(\frac{1}{n}\sum_{i=1}^n X_i) = \frac{1}{n}\sum_{i=1}^n E(X_i) = \frac{1}{\cancel{n}}\cancel{n}\mu=\mu$$
+Suppose further that $ X_1,\ldots ,X_n$ have the same variance $\sigma^2$ and \mbox{$Cov(X_i,X_j) = 0,\ i\neq j$}. Then:
+\begin{equation*}
+\begin{split}
+Var(\bar{X_n}) &= Var(\frac{1}{n}\sum_{i=1}^n X_i) = \frac{1}{n^2} Var(\sum_{i=1}^n X_i)\\
+	&= \frac{1}{n^2}\Big[\ \sum_{i=1}^nVar(X_i) + 2\sum\sum_{1\leq i < j \leq n} Cov(X_i, X_j)\ \Big]\tab[3cm] \text{Theorem 5.12(b) - Page 271}\\
+	&= \frac{1}{n^2}\sum_{i=1}^n Var(X_i)\tab[5cm] \text{Orthogonality:\ i.e. $Cov(X_i,X_j) = 0\ \ if\ i\neq j$}\\
+	&=\frac{1}{n^2}\sum_{i=1}^n \sigma^2 = \frac{1}{n^{\cancel{2}}}\cancel{n}\sigma^2 = \frac{\sigma^2}{n} \tab[4cm] \text{having the same variance}\\
+	&\implies MSE(\bar{X_n}) = Var(\bar{X_n}) = \frac{\sigma^2}{n}
+\end{split}
+\end{equation*}
+If $X_1,\ldots,X_n$ have the same mean value and variance and they are orthogonal.
+\subsection{Stein's Paradox}
+We will learn later that if $X_i\distas{iid} N(\mu,\sigma^2)$ then \mbox{$\bar{X_n} = \frac{1}{n}\sum_{i=1}^n X_i$} has many optimal properties. A paradox due to Charles Stein, however, shows that such a nice optimal properties are not preserved in higher dimensions. In fact if:
+$$X_i\distas{iid}N(\mu_{_X},1),\ \ Y_i\distas{iid}N(\mu_{_Y},1)\ \text{and  }Z_i\distas{iid}(\mu_{_Z},1)$$
+then, we can find the biased estimators of 
+$\begin{pmatrix} \mu_{_X}\\\mu_{_Y}\\ \mu_{_Z} \end{pmatrix}$
+which are closer to 
+$\begin{pmatrix} \mu_{_X}\\\mu_{_Y}\\ \mu_{_Z} \end{pmatrix}$ 
+than 
+$\begin{pmatrix}\bar{X_n}\\\bar{Y_n}\\\bar{Z_n} \end{pmatrix}$ 
+for any 
+$\begin{pmatrix} \mu_{_X}\\\mu_{_Y}\\ \mu_{_Z} \end{pmatrix}$.
+We may then say that 
+$\begin{pmatrix}\bar{X_n}\\\bar{Y_n}\\\bar{Z_n} \end{pmatrix}$
+ is an \mbox{\textbf{\underline{inadmissible estimator}} of 
+ $\begin{pmatrix} \mu_{_X}\\\mu_{_Y}\\ \mu_{_Z} \end{pmatrix}$.}
+ \subsection{Admissibility}
+ An estimator $\hat{\Theta}$ is called admissible if there is no estimator $\tilde{\Theta}$ such that:
+ $$MSE(\tilde{\Theta}) \leq MSE(\hat{\Theta})\tab[3cm]\text{for all possible values of $\Theta$}$$
+and this inequality is strict for some values of $\Theta$.\newline
+What this example tells us is that by allowing MISSING of bias we may be able to reduce variance considerably and hence find an estimator which is closer to the target than the most natural unbiased estimator. Note that this phenomena happens only when the dimension is at least 3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
 \section{Lecture 4}
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
 \section{Lecture 5}
 \section{Lecture 6}
 \section{Lecture 7}
