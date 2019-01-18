@@ -1,15 +1,21 @@
-\contentsline {section}{\numberline {1}Lecture 1}{3}
-\contentsline {section}{\numberline {2}Lecture 2}{3}
-\contentsline {section}{\numberline {3}Lecture 3}{4}
+\contentsline {section}{\numberline {1}Lecture 0}{3}
+\contentsline {section}{\numberline {2}Lecture 1}{3}
+\contentsline {section}{\numberline {3}Lecture 2}{4}
 \contentsline {subsection}{\numberline {3.1}Markov's Inequality}{4}
 \contentsline {subsection}{\numberline {3.2}Tchebyshev's Inequality}{4}
 \contentsline {subsection}{\numberline {3.3}Application to Voting}{7}
-\contentsline {section}{\numberline {4}Lecture 4}{9}
-\contentsline {section}{\numberline {5}Lecture 5}{9}
-\contentsline {section}{\numberline {6}Lecture 6}{9}
-\contentsline {section}{\numberline {7}Lecture 7}{9}
-\contentsline {section}{\numberline {8}Lecture 8}{9}
-\contentsline {section}{\numberline {9}Lecture 9}{9}
-\contentsline {section}{\numberline {10}Lecture 10}{9}
-\contentsline {section}{\numberline {11}Lecture 11}{9}
-\contentsline {section}{\numberline {12}Lecture 12}{9}
+\contentsline {section}{\numberline {4}Lecture 3}{9}
+\contentsline {subsection}{\numberline {4.1}MSE}{9}
+\contentsline {subsection}{\numberline {4.2}Unbiased Estimators}{10}
+\contentsline {subsection}{\numberline {4.3}Stein's Paradox}{11}
+\contentsline {subsection}{\numberline {4.4}Admissibility}{12}
+\contentsline {section}{\numberline {5}Lecture 4}{13}
+\contentsline {subsection}{\numberline {5.1}Estimating Variance}{15}
+\contentsline {section}{\numberline {6}Lecture 5}{19}
+\contentsline {section}{\numberline {7}Lecture 6}{19}
+\contentsline {section}{\numberline {8}Lecture 7}{19}
+\contentsline {section}{\numberline {9}Lecture 8}{19}
+\contentsline {section}{\numberline {10}Lecture 9}{19}
+\contentsline {section}{\numberline {11}Lecture 10}{19}
+\contentsline {section}{\numberline {12}Lecture 11}{19}
+\contentsline {section}{\numberline {13}Lecture 12}{19}
