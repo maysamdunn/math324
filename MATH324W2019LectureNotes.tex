@@ -1,5 +1,7 @@
 \documentclass[14pt,twoside,a4paper,fleqn]{article}
-\usepackage{amsmath,mathtools,latexsym,semantic,amsthm,cancel,stackengine,dcolumn,pxfonts,graphicx,mathrsfs}
+\usepackage{amsmath,mathtools,latexsym,forest,semantic,amsthm,cancel,stackengine,dcolumn,pxfonts,graphicx,mathrsfs}
+\usepackage{enumerate,tikz}
+\usetikzlibrary{trees}
 \theoremstyle{plain}
 %theorems and lemmas with numbering
 \newtheorem{theorem}{Theorem}[section]
@@ -33,12 +35,26 @@
 % \onehalfspacing
 
 
+%for the tree:
+\forestset{
+  L1/.style={draw=black,},
+  L2/.style={,edge={,line width=0.8pt}},
+}
+
+%	\begin{tikzpicture}
+%	\node {root}[edge from parent fork right,grow=east]
+%	child {node {left}}
+%	child {node {right}
+%	child {node {child}}
+%	child {node {child}}
+%	};
+%	\end{tikzpicture}
 
 
 
-\title{MATH324 (Statistics) -- Lecture Notes\\McGill University}
+\title{MATH324 (Statistics) -- Lecture Notes\\McGill University\\Prof. Masoud Asgharian}
 \date{Winter 2019}
-\author{Masoud Asgharian}
+\author{Sam K.H.Targhi-Dunn\\sam.targhi@mail.mcgill.ca}
 
 
 \begin{document}
@@ -53,7 +69,6 @@
 
 \tableofcontents
 \newpage
-\section{Lecture 0}
 \section{Lecture 1}
 
 \newpage
@@ -410,9 +425,6 @@ $\vdots$&$\vdots$\\
 $X_m$&$Y_n$\\
 \end{tabular}
 
-
-
-
 where $X_is$ have the common mean $\mu_{_X}$ and $Y_js$ have the command mean $\mu_{_\mu}$. We want to estimate $\mu_{_X} - \mu_{_Y}$. The natural estimator is $\bar{X_m} = \bar{Y_n}$. Show that:
 $$\mathbb{E}[\bar{X_m}-\bar{Y_n}] = \mu_{_X} - \mu_{_Y}$$
 Hence $\bar{X_m}-\bar{Y_n}$ is an unbiased estimator of $\mu_{_X} - \mu_{_Y}$.\newline
@@ -420,9 +432,482 @@ Assume further that $X$s and $Y$s are independent and $X$s have common variance 
 Find $Var(\bar{X_m} - \bar{Y_n})$. Hint: use $Thm\ 5.12$.\\
 The difference between two proportions can be treated similarly. Note that proportions are essentially means of binary variables.
 
+\newpage
+\section{Lecture 5 : Confidence Intervals}
+\begin{definition*}{Random Interval}
+An interval whose endpoint(s) are random variables is called a \mbox{\textbf{Random Interval}}.
+\end{definition*}
+\subsection{Confidence Intervals}
+A $100(1-\alpha)\%\ $ confidence interval for a parameter $\theta$ is a \emph{random interval} \mbox{$\big(\hat{\Theta}_L(X),\hat{\Theta}_V(X)\big)$} such that:
+$$
+	P(\hat{\Theta}_L(X) < \Theta < \hat{\Theta}_V(X))
+$$
+\textbf{Pivotal Quantity} : A function of the observation $X_1,\ldots,X_n$ and some unknown parameters, ideally just the parameter(s) of interest, whose distribution DOES NOT depend on any unknown parameter is called \textbf{Pivotal Quantity}.\\
+Pivotal Quantities play a central role in theory confidence intervals.
+\begin{example*}\emph{
+Let $X_i \distas{iid} N(\mu, \sigma^2)\ ,\ i=1,2,\ldots,n\ $ where $\sigma^2$ is \underline{known}, but $\mu\ $ is \underline{unknown}. We show that 
+$$
+\bar{X}_n \sim N(\mu,\frac{\sigma^2}{n})\tab where\tab \bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i
+$$}
+\end{example*}
+Recall that there are three  methods for finding the distribution of a function of random variables:
+\begin{enumerate}
+\item\textbf{Method of Transformation:} This si essentially theorem of change of variables in calculus.
+
+\item\textbf{Method of Distribution:} On this method we connect the \emph{cdf} of the new variable to the \emph{cdf} of the original variables.
+	\begin{example*}
+	Suppose $X_i\distas{iid} f\ ,\ i=1,2,\ldots,n\ $ are continuous random variables with \emph{pdf} $\ f$ and \emph{cdf} F. Define $X_{(n)} = \underset{1 \leq i \leq n}{max}$ .
+	\end{example*}
+	\begin{equation*}
+	\begin{split}
+	F_{x(n)}(t)= P(X_{(n)} \leq t) &= P(X_1 \leq t, X_2\leq t,\ldots,X_n\leq t)\\
+	&=\prod_{i=1}^nP(X_i\leq t)	\tab[2cm] (\text{by }\coprod_{i=1}^n X_i)\\
+	&=\prod_{i=1}^n F_{X_i}(t)\\
+	&=\prod_{i=1}^n F(t) = F^n(t)\tab[2cm] \text{identically distributed} \\
+	\text{Thus}\\
+	f_{X(n)}(t) &= \frac{d}{dt} F_{X(n)}(t) = \frac{d}{dt}F^n(t)\\
+		&=n\ f(t)\ F^{n-1}(t)
+	\end{split}
+	\end{equation*}
+
+\item\textbf{Method of Moment Generating Function(mgf): } This method is essentially based on the \emph{mgf} of the new variable of the \emph{mgf} if the original variables.
+	\begin{example*}
+		Suppose $X_i\sim N(\mu_{i}, \sigma_i^2)\ ,\ i=1,2,\ldots,n$ and $X_is$ are independent. Define $S=\sigma_{i=1}^n X_i$.
+	\end{example*}
+	\begin{equation*}
+	\begin{split}	
+		m_s(t) &=\mathbb{E}[e^{tS}] = \mathbb{E}[e^{t \sum_{i=1}^n X_i}]\\
+		&= \mathbb{E}\Big[\prod_{i=1}^n e^{t X_i}\Big]\tab[3cm]\text{using independence: }(\coprod)\\
+		&=\prod_{i=1}^n m_{X_i}(t)\\
+		&=\prod_{i=1}^n e^{\mu_i t + \frac{\sigma_i^2 t^2}{2}}			\\
+		&=exp\Big\{t\sum_{i=1}^n \mu_i + \frac{t^2}{2}\sum_{i=1}^n \sigma_i^2 \Big\}\\
+\implies &S\sim N(\sum_{i=1}^n \mu_i, \sum_{i=1}^n \sigma_i^2)
+	\end{split}
+	\end{equation*}
+	If we further assume that $X_is$ are identically distributed, then: $$\mu_i = \mu \tab\text{and}\tab\sigma_i^2 = \sigma\tab\forall i=1,2,\ldots,n$$
+	Therefore we have:
+	$$
+	m_S(t) = exp\Big\{n\mu t + \frac{n\sigma^2 t^2}{2}  \Big\}
+	$$
+	and hence:
+	\boxed{$$S\sim N(n\mu, n\sigma^2)$$}
+	Then:
+	\begin{equation*}
+	\begin{split}	
+		m_{\bar{X}_n}(t) &= \mathbb{E}[e^{t\bar{X}_n}] = \mathbb{E}[e^{t \frac{1}{n}\sum_{i=1}^n X_i}]\\
+		\text{by }t^{*}=\frac{t}{n}\implies\tab&=E[e^{t^{*}S}]\\
+		&= m_S(t^{*}) = e^{n\mu t^{*} + \frac{n\sigma^2 {t^{*}}^2}{2}}\\
+		&=exp\Big\{n\mu t^{*} + \frac{n\sigma^2 {t^{*}}^2}{2}\Big\}\\
+		\implies \text{\boxed{$$\bar{X}_n \sim N(\mu,\frac{\sigma^2}{n})$$}}\tab[3cm](1)
+	\end{split}
+	\end{equation*}
+\end{enumerate}
+Note further that if $X\sim N(\mu,\sigma^2)$ , then $Z=\frac{X-\mu}{\sigma} \sim N(0,1)$ . We prove a general form of this. Let $X\sim N(\mu,\sigma^2)$ ; then:
+$$
+	aX+b \sim N(a\mu +b\ ,\ a^2\sigma^2)\tab \text{for any constant $a,b$}
+$$
+	Let $V=ax+b$ , then:
+	\begin{equation*}
+	\begin{split}
+	m_v(t) &= \mathbb{E}[e^{tV}] = \mathbb{E}[e^{t(ax+b)}]\\
+		&= \mathbb{E}[e^{taX+tb}] = \mathbb{E}[\underbrace{e^{tb}}_{constant}\cdot e^{\overbrace{taX}^{t^{*}}}]\\
+		&=e^{tb}\cdot \mathbb{E}[e^{t^{*}X}]\\
+		&=e^{tb}\cdot e^{\mu t a+\frac{\sigma^2 t^2 a^2}{2}}\\
+		&=exp\ \Big\{t(a\mu+b) + \frac{t^2(a^2\sigma^2)}{2}	\Big\}\\
+	Thus:\\
+	(ax&+b)\sim N(a\mu +b\ ,\ a^2\sigma^2)\\
+	Now:\\
+	Z&=\frac{X-\mu}{\sigma} = \frac{X}{\sigma} - \frac{\mu}{\sigma}\\
+	&=\frac{1}{\sigma}X - \frac{\mu}{\sigma}\\
+	&=aX+b\tab[3cm]\text{where $\ a=\frac{1}{\sigma}\ $ and $\ b=-\frac{\mu}{\sigma}$}\\
+Hence:\\
+	Z\sim&\ N(\overbrace{\frac{1}{\sigma}\mu +(-\frac{\mu}{\sigma})}^0 \ ,\ \overbrace{(\frac{1}{\sigma})^2\sigma^2}^1)\\
+Thus:\\ 
+	&\text{\boxed{$$Z\sim N(0,1)$$}}\tab[3cm](2)\\
+\text{Using (1) and (2) :}\\
+	\frac{\bar{X}_n - \mu}{\sqrt{\frac{\sigma^2}{n}}} &= \frac{\bar{X}_n - \mu}{\frac{\sigma}{\sqrt{n}}} \sim N(0,1).\\
+	\text{This means that :}\\
+	&\text{\boxed{$$\frac{\bar{X}_n - \mu}{\sqrt{h}}$$\text{ is a Pivotal Quantity}}}
+	\end{split}
+	\end{equation*}
+To summarize:
+$$
+	X_i\distas{iid} N(\mu, \sigma^2)\tab\implies\tab \frac{\bar{X}_n - \mu}{\frac{\sigma}{\sqrt{n}}}\tab\text{is a \textbf{pivotal quantitity}}
+$$
+Notice that using the table for the normal distribution:
+$$
+	P\Big(\big\vert \frac{\bar{X}_n - \mu}{\frac{\sigma}{\sqrt{n}}}\big\vert \leq 1.96	\Big) = 0.95
+$$
+Equivalently:
+$$
+	P\Big(\bar{X}_n - 1.96\frac{\sigma}{\sqrt{n}}\ \ \leq\ \mu\ \leq \bar{X}_n + 1.96\frac{\sigma}{\sqrt{n}} \Big) = 0.95
+$$
+This means that:
+$$
+	(\bar{X}_n - 1.96\frac{\sigma}{\sqrt{n}}\ ,\ \bar{X}_n + 1.96\frac{\sigma}{\sqrt{n}})
+$$
+covers the true $\mu$ with $\ 95 \%\ $ probability.\\
+Thus a $\ 100\ (1-\alpha)\%$ confidence interval for $\mu$ where $X_i\distas{iid} N(\mu,\sigma^2)$ and $\sigma^2$ is known:\\
+$$
+	\bar{X}_n \pm \zeta_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}
+$$
+where:
+$$
+	P(Z > \zeta_{\frac{\alpha}{2}}) = \frac{\alpha}{2}\tab,\tab Z\sim N(0,1)
+$$
+\#MISSING GRAPH - (LECTURE 5 - P5)
+
+
+\begin{remark*}
+\emph{
+In real applications we compute $\bar{X}_n$ and obtain an interval, say \mbox{$(125, 135)$} . Now either this interval covers the true $\mu$ or it does not. Then the question is what do we mean by a $95\%$ \#MISSING ?\\
+Note that the $\ 100(1-\alpha)\%\ $ confidence is the property of the procedure. It means that out of the all possible intervals of the form \mbox{$(\bar{X}_n \pm 1.96 \frac{\sigma}{\sqrt{n}})$} that we can make by taking samples of size $n$ from $N(\mu,\sigma^2)$, $\ 95\%$ of them cover the true $\mu$ . Now this is a real application when we make one of the such intervals by taking a random sample of size $n$ from $N(\mu,\sigma^2)$ , it is like taking one of those intervals randomly. Since that $\ 95\%$ of them cover $\mu$ , my chance of selecting an interval that covers $\mu$ is $\ 95\%\ $. Thus I can take a bet $19$ to $1$ that the interval I select covers $\mu$. 
+}
+\end{remark*}
+
+\subsection{Large Sample Confidence Interval}
+The derivation of the pivotal quantity in the above example totally hinges over the normality assumption, i.e. \mbox{$X_i \sim N(\mu,\sigma^2)$}.\\
+What happens if we do not know the parametric for the population distribution?
+\begin{theorem*}[\textbf{General Limit Theorem - GLT} (baby version)]
+\emph{
+Suppose $X_1,\ldots,X_n$ are independent random variables with common $\mu$ and variance $\sigma^2$ . Then:
+$$\frac{\bar{X}_n - \mu}{(\frac{\sigma}{\sqrt{n}})}\ \ \distas{app}\ \ N(0,1)\tab\text{when \ $n$\ \ is large enough}$$
+}
+\end{theorem*}
+This is a powerful theorem that implies that $\frac{\bar{X}_n - \mu}{(\frac{\sigma}{\sqrt{n}})}$ is approximately a pivotal quantity distributed according to $N(0,1)$ for large enough $n$ regardless of population distribution provided that the condition of the \textbf{GLT} are met.\\
+
+\begin{forest}
+    for tree={
+        grow=0,reversed, % tree direction
+        parent anchor=east,child anchor=west, % edge anchors
+        edge={line cap=round},outer sep=+1pt, % edge/node connection
+        rounded corners,minimum width=15mm,minimum height=8mm, % node shape
+        l sep=10mm % level distance
+    }
+  [$\sigma^2$,L1
+    [$\sigma^2$ is known:
+    	$\implies\ (\bar{X}_n \pm \zeta_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}})$ is a $\ 100(1-\alpha)\%\ $ \#MISSING for $\mu$
+    ,L2]
+    [$\sigma^2$ is unknown:
+    	$\implies\ (\bar{X}_n \pm \zeta_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}})$ is not \underline{not useful}
+    ,L2]
+  ]
+\end{forest}
+
+
+
+Note: if $\sigma^2$ is unknown, $(\bar{X}_n \pm \zeta_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}})$ is still a $\ 100(1-\alpha)\%\ $ \#MISSING for $\mu$ but not useful.\\
+We need to somehow get rid of the \#MISSING parameter $\sigma$ . We can replace $\sigma$ by $S_n$ where:
+$$
+	S_n^2 = \frac{1}{n-1} \sum_{i=1}^{n}(X_i - \bar{X}_n)^2
+$$ 
+
+\begin{forest}
+    for tree={
+        grow=0,reversed, % tree direction
+        parent anchor=east,child anchor=west, % edge anchors
+        edge={line cap=round},outer sep=+1pt, % edge/node connection
+        rounded corners,minimum width=15mm,minimum height=8mm, % node shape
+        l sep=10mm % level distance
+    }
+  [Justification,L1
+    [Intuitive, L2]
+    [Formal, L2]
+  ]
+\end{forest}
+\begin{enumerate}
+\item[\textbf{Intuitive}] : 
+	$S_n^2$ is the sample counterpart, almost, for $\sigma^2$ . Thus as $n$ increases, greater portion of the population and hence our sample sets closer to the population.
+\item[\textbf{Formal}] : 
+	The formal proof comprises three steps:
+	\begin{enumerate}[1.]
+	\item \textbf{GLT} of $$\frac{\bar{X}_n - \mu}{\frac{\sigma}{\sqrt{n}}}$$
+	\item Consistency of $S_n^2$ for $\sigma^2$, i.e. $S_n^2 \overset{P}{\rightarrow} \sigma^2$ which we learn in \emph{Chapter 9}. We then use a theorem called \textbf{Continuous Mapping Theorem} which says that if \mbox{$S_n^2 \overset{P}{\rightarrow} \sigma^2$}, then:
+	$$
+	g(S_n^2) \overset{P}{\rightarrow} g(\sigma^2)\tab[2cm]\text{for any continuous function}
+	$$
+	Considering $g(x) = \sqrt{X}$ , we obtain $S_n\overset{P}{\rightarrow}\sigma$ and hence $\frac{\sigma}{S}\overset{P}{\rightarrow} 1$.
+	\item \textbf{Cramer's Theorem :}
+			
+	 This result says that if $V_n\overset{D}{\rightarrow} X$ and $Y_n\overset{P}{\rightarrow} 1$ , then $Y_n\cdot V_n \overset{D}{\rightarrow} X$ :\\
+		$$\frac{\bar{X}_n - \mu}{\frac{S}{\sqrt{n}}} = \underbrace{\frac{\sigma}{S_n}}_{Y_n} \cdot \underbrace{\frac{\bar{X_n} - \mu}{\frac{\sigma}{\sqrt{n}}}}_{V_n}$$
+	\end{enumerate}
+\end{enumerate}
+Note that GLT implies that $V_n\overset{D}{\rightarrow}2$ , i.e:
+$$
+\overbrace{F_{V_n}(t)}^{\text{cdf of $V_n$}} \rightarrow F_{_Z}(t) =\overbrace{\int_{-\infty}^t\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dx}^{\Phi(t)\text{ cdf of }N(0,1)}
+$$
+Using step (2), $Y_n = \frac{\sigma}{S_n}\overset{P}{\rightarrow} 1$ and application of Cramer's Theorem computes the proof.
+To summarize:
+
+\begin{forest}
+    for tree={
+        grow=0,reversed, % tree direction
+        parent anchor=east,child anchor=west, % edge anchors
+        edge={line cap=round},outer sep=+1pt, % edge/node connection
+        rounded corners,minimum width=15mm,minimum height=8mm, % node shape
+        l sep=10mm % level distance
+    }
+  [$\sigma^2$,L1
+    [$\sigma^2$ is known $\implies\ \ \ (\bar{X}_n \pm \zeta_{\frac{\alpha}{2}})$ is a $100(1-\alpha)\%$
+    , L2]
+    [$\sigma^2$ is unknown $\implies\ \ \ (\bar{X}_n \pm \zeta_{\frac{\alpha}{2}})$ is a $100(1-\alpha)\%$
+    , L2]
+  ]
+\end{forest}
+To be more precise, these confidence intervals are \underline{approximate} $\ 100(1-\alpha)\%\ $ confidence intervals for $\mu$ when $n$ is large enough.\\
+So far we focused on $C.I$ for population mean. How can we make $C.I$ for other estimates?\\
+A common, perhaps the most common, method of estimation that we will learn about in Chapter 9 is \underline{the method of maximum likelihood}. Suppose $\Theta$ is a parameter of interest. Suppose $\hat{\Theta}_n = \hat{\Theta}(X_1,\ldots,X_n)$ is the maximum likelihood estimate $(MLE)$ of $\Theta$ based on $X_1,\ldots,X_n$. Then relatively several condition we have:
+$$
+	\frac{\hat{\Theta}_n - \Theta}{\sqrt{Var(\hat{\Theta}_n)}} \distas{app} N(0,1)\ \ \text{when $n$ is large enough
+}\tab(*)
+$$
+We therefore have a several recipe for confidence interval when the sample size $n$ is large enough, namely:
+$$
+	\hat{\Theta}_n \pm \zeta_{\frac{\alpha}{2}}\sqrt{Var(\hat{\Theta}_n)}\tab[2cm] (\dagger)
+$$ 
+that is a $\ 100(1-\alpha)\%\ C.I$ for $Q$.
+\begin{example}
+$X_i \distas{iid} N(\mu, \overbrace{\sigma^2}^{known})\ ,\ i=1,2\ldots,n$ .
+\end{example}
+We show in chapter 9 that $\bar{X}_n$ in the $MLE$ of $\mu$. Note that \mbox{$Var(\bar{X}_n) = \frac{\sigma^2}{n}$}. Then using $(\dagger)$ :
+$$
+	\bar{X}_n \pm \zeta_{\frac{\alpha}{2}} \sqrt{\frac{\sigma^2}{n}}\ \ \ \ \text{is a $100(1-\alpha)\%$ C.I for $\mu$}
+$$
+
+\begin{example}
+$X_i \distas{iid} Bernoulli(p)\ \ \forall\ i=1,2,\ldots,n$ , i.e: 
+
+$X_i = \left\{
+  \begin{array}{lr}
+    1 & \tab p\\
+    0 & \tab 1-p
+  \end{array}
+\right.$
+\end{example}
+Then $\hat{p}_n = \frac{1}{n}\sum_{i=1}^n x_i$ is the $MLE$ of $p$. Thus using $(\dagger)$ :
+$$
+	\hat{p}_n \pm \zeta_{\frac{\alpha}{2}\sqrt{Var(\hat{p}_n)}}\ \ \text{ is a $100(1-\alpha)\%\ C.I$ for $p$ .}
+$$
+
+Note that $Var(\hat{p}_n) = \frac{p(1-p)}{n}$ . We have two choices:
+
+\begin{enumerate}
+\item replace $p$ by $\hat{p}_n$ in $Var(\hat{p}_n)$ :
+	$$\hat{p}_n \zeta_{\frac{\alpha}{2}} \frac{\sqrt{\hat{p}_n(1-\hat{p}_n)}}{\sqrt{n}}$$
+\item replace $p(1-p)$ in $Var(\hat{p}_n)$ by $\frac{1}{4}$ to find a conservatively large $C.I$ for $p$ :
+	$$	\hat{p}_n \pm \zeta_{\frac{\alpha}{2}} \frac{1}{2\sqrt{n}}	$$
+\end{enumerate}
+
+\begin{example}
+Suppose $X_i\distas{iid} Ber(p)\ ,\ i=1,2\ldots,n$ and we are interested in $\Theta = p(1-p)$ , the variance.
+\end{example}
+An interesting property of $MLE$ is the invariance , i.e. if $\hat{\Theta}_n$ if the $MLE$ of $\Theta$ , then $h(\hat{\Theta}_n)$ is the $MLE$ of $h(\Theta)$. The invariance property then implies that: \mbox{$\hat{\Theta}_n = \hat{p}_n(1-\hat{p}_n)$} is the $MLE$ of $p(1-p)=\Theta$ .\\
+The $ 100(1-\alpha)\%\ $ $C.I\ $ for $\Theta=p(1-p)$\ \ \ \ is \ \ 
+\mbox{$\ \hat{\Theta}_n \pm \zeta_{\frac{\alpha}{2}} \sqrt{Var(\hat{\Theta}_n)}$}
+\subsection{Small Sample Confidence Intervals}
+Unlike the large sample case, there is no general recipe like $({*})$ using which we can find an approximate pivotal quantity. In fact, there is on the paper, but only gives \#MISSING in special cases.\\
+To summarize , small sample probabilities are solved mostly case by case. A case of particular importance is the \emph{normal case} . We will learn about the importance of this case when we discuss regression and ANOVA (Analysis of Variance) .\\ \\
+\textbf{Normal Case:} \\
+Suppose $X_i \distas N(\overbrace{\mu}^{\text{of interest}}, \underbrace{\sigma^2}_{nuisance})\ ,\ i=1,2,\ldots,n$ where n, the sample size is \emph{NOT} large.\\
+We learned that when $X_i \distas{iid} N(\mu,\sigma^2)\ ,\ i=1,2,\ldots,n$ :
+$$\frac{\bar{X}_n - \mu}{\frac{\sigma}{\sqrt{n}}} \distas{Exact} N(0,1)\tab[2cm] (\ddagger)$$ 
+This by itself is not useful since $\sigma$ is \underline{not} known. We discussed in previous section at length why we can replace $\sigma$ by $S$ when n is large enough. The formal justification is \textbf{not} applicable now since $n$ is small, the intuitive justification still stands though.\\
+Replacing $\sigma$ with $(\ddagger)$ changes the picture a bit. Given that $S$ has the same spirit as $\sigma$ , though in a small \#MISSING the distribution of \mbox{$T = \frac{\bar{X}_n - \mu}{\frac{s}{\sqrt{n}}}$} still has a bell curve shape. The tails of the distribution, however, die out much more slowly than those of normal distribution. Heavier tails mean much more \underline{variability} and this should perhaps be expected since by replacing $\sigma$ by $S$ which can be crude estimate when $n$ is small, can add suite a hit to the variability. This is, of course, a intuitive argument. Following we present the sketch of a formal argument:
+\begin{enumerate}
+\item[step 1)] $X_i \distas{iid} N(\mu, \sigma^2) \implies \bar{X}_n\distas{} N(\mu,\frac{\sigma^2}{n})$\\
+	$\implies \frac{\bar{X}_n - \mu}{\frac{\sigma}{\sqrt{n}}}\distas{} 		N(0,1)$
+\item[step 2)]
+	$X_i \distas{iid} N(\mu,\sigma^2) \implies \frac{(n-1)S^2}{\sigma^2} \sim \mathcal{X}^2_{(n-1)}$\\
+	\textbf{proof}
+	\begin{equation*}
+	\begin{split}
+	\sum_{i=1}^n(X_i - \mu)^2 &= \sum_{i=1}^n \big[(X_i - \bar{X}_n)+(\bar{X}_n - \mu)\big]^2\\
+		&= \sum_{i=1}^n (X_i - \bar{X}_n)^2 + n(\bar{X}_n - \mu)^2 + 2(\bar{X}_n - \mu)\overbrace{\sum_{i=1}^n (X_i - \bar{X}_n)}^0 \\
+		& = (n-1)S^2 + n(\bar{X}_n - \mu)^2 \\
+		\text{by dividing both sides by $\sigma^2$ we obtain:}\\
+		\underbrace{\sum_{i=1}^n (\frac{X_i - \mu}{\sigma})^2}_W &= \underbrace{\frac{(n-1)S^2}{\sigma^2}}_{U} + \underbrace{(\frac{\bar{X}_n - \mu}{\frac{\sigma}{\sqrt{n}}})^2}_{V}\\
+		Now note that: \\
+		X_i \distas{iid} N(\mu,\sigma^2) &\implies \frac{X_i - \mu}{\sigma} \sim N(0,1)\\
+		&\implies (\frac{X_i - \mu}{\sigma})^2 \sim \mathcal{X}^2_1\\
+		&\implies \sum_{i=1}^n (\frac{X_i - \mu}{\sigma})^2 \sim \mathcal{X}^2_n\\
+		\text{(Exercise: Theorem 7.2 , page 356)}
+	\end{split}
+	\end{equation*}
+	Thus $W \sim \mathcal{X}^2_n$ . On the other hand, using step 1:
+	$$(\frac{\bar{X}_n - \mu}{\frac{\sigma}{\sqrt{n}}})^2 \sim \mathcal{X}^2_1$$
+\item[step 3)]
+	\tab[0.5cm]If \tab[0.5cm]$X_i \distas{iid} N(\mu, \sigma^2)$			\tab[0.5cm]then\tab[0.5cm]$\bar{X}_n \coprod S^2$
+\item[step 4)]
+	\begin{equation*}
+	\begin{split}
+		m_{_W}(t) & = \mathbb{E}{e^{tW}}\\
+			&= \mathbb{E}[e^{t(U+V)}]\\
+			&= \mathbb{E}[e^{tU}\cdot e^{tV}]\\
+			&= \mathbb{E}[e^{tU}]\cdot \mathbb{E}[e^{tV}]\\
+			&= m_{_U}(t) + m_{_V}(t)\tab[2cm] U\coprod V\ \text{ using step 3}\\
+			\text{Thus\tab  $m_{_U}(t)$} &= \frac{m_{_W}(t)}{m_{_V}(t)}\\
+			&=\frac{(1-2t)^{-\frac{n}{2}}}{(1-2t)^{-\frac{1}{2}}}\\
+			&=(1-2t)^{-\frac{n-1}{2}}\\
+	\text{which implies that\tab$U\sim\mathcal{X}^2_{(n-1)}$}
+	\end{split}
+	\end{equation*}
+\item[step 5)]
+	If $Z\sim N(0,1)\ ,\ U\sim\mathcal{X}^2_{V}$ and $Z\coprod U$ \, then:
+	$$	\frac{Z}{\sqrt{\frac{U}{V}}} \sim T_{n-1} \tab[4cm] \text{(Exercise 7.30 , page 367)}	$$
+\item[step 6)]
+	$$
+	T_{n-1} = \frac{\bar{X}_n - \mu}{\frac{S}{\sqrt{n}}} = \frac{(\frac{\bar{X}_n - \mu}{\frac{\sigma}{\sqrt{n}}})}{\sqrt{\frac{(\frac{(n-1)S^2}{\sigma^2})}{(n-1)}}}	= \frac{Z}{\sqrt{\frac{U}{V}}}
+	$$
+	The pdf of $T_{v}$ is :
+	\begin{equation*}
+	\begin{split}
+		f_{_{T_v}}(t) = \frac{\Gamma{\frac{v+1}{2}}}{\Gamma(\frac{v}{2})\sqrt{v\pi}}(1+\frac{t^2}{v})^{-\frac{v+1}{2}}\tab -\infty<t<+\infty 
+	\end{split}
+	\end{equation*}
+	\#MISSING GRAPH Lecture 5 - page 13\\
+	
+	$\mathbb{E}[T_{v}^r] = \left\{
+  \begin{array}{lr}
+    0 & \tab \text{if $r<v$ and $r$ is odd}\\
+    v^{\frac{r}{2}}\cdot\frac{\Gamma(\frac{1+r}{2})\Gamma(\frac{v-r}{2})}{\Gamma(\frac{1}{2})\Gamma(\frac{v}{2})} & \tab \text{if $r<v$ and $r$ is even}
+  \end{array}
+\right.$\\ \\
+	Thus, if $X_i\distas{iid}N(\mu,\sigma^2)\ ,\ i=1,2,\ldots,n\ $ and $\mu$ and $\sigma^2$ are both \underline{unknown} :
+	$$\bar{X}_n \pm t_{(n-1),\frac{\alpha}{2}} \frac{S}{\sqrt{n}}$$ 
+	provides a $ 100(1-\alpha)\%\ $ $C.I$ for $\mu$ where $P(T_{(n-1)} > t_{(n-1), \frac{\alpha}{2}}) = \frac{\alpha}{2}$ 
+	
+\subsection{Pivotal Quantity and Probability Integral Transform}
+Suppose $X$ is a continuous random variable with $p.d.f$ $f$ and $cdf$ $F$. Then $F(X)\sim Uniform(0,1) \tab \text{(Exercise)}$\\
+This result is referred to as the \textbf{Probability Integral Transform}. Now suppose $X_i \distas{iid} F$ . Then :
+\begin{equation*}
+\begin{split}
+	F(X_i) \sim Unif(0,1) &\implies -2\ln{F(X_i) \sim \mathcal{X}^2_2}\\
+	&\implies -2\sum_{i=1}^n \ln{F(X_i)}\sim \mathcal{X}^2_{2n}\\
+	&\implies -2\sum_{i=1}^n \ln{[1-F(X_i)]} \sim \mathcal{X}^2_{2n}
+\end{split}
+\end{equation*}
+
+There is hence a general recipe for finding a pivotal quantity when we have samples from continuous random variables. The usefulness of this pivotal quantity \emph{depends} on the form of $F$ , the $cdf$ of $X$ .\\
+Suppose $X_i \distas{iid}exp(\lambda)\ ,\ i=1,2,\ldots,n\ ,\ $ i.e:
+
+$$
+	f_{_X}(x) = \left\{
+  	\begin{array}{lr}
+   	 	\lambda e^{-\lambda x} & \tab x>0\\
+   	 	0 & \tab o/w
+  	\end{array}
+	\right.
+$$
+
+Then:
+$$
+	F(x) = \int_{0}^x f(t)dt = 1-e^{-\lambda x}\tab[0.5cm] ,\tab[0.5cm] x>0
+$$
+and:
+$$
+	F(x) = \left\{
+  	\begin{array}{lr}
+   	 	1-e^{-\lambda x} & \tab x>0\\
+   	 	0 & \tab o/w
+  	\end{array}
+	\right.
+$$
+Using the above discussion:
+$$
+	-2\sum_{i=1}^n \ln{F(X_i)} \sim \mathcal{X}^2_{2n}\tab\text{and}\tab -2\sum_{i=1}^n \ln{[1-F(X_i)]} \sim \mathcal{X}^2_{2n}
+$$
+for this example it is easier to work with the latter, i.e. :
+\begin{equation*}
+\begin{split}
+\-2\sum_{i=1}^n \ln{[1-F(X_i)]} &= -2\sum_{i=1}^n \ln{(e^{-\lambda X_i})}\\
+	&= 2\lambda\sum_{i=1}^n X_i = 2 n \lambda \bar{X}_n \\
+	so \implies &2 n \lambda \bar{X}_n \sim \mathcal{X}^2_{2n}
+\end{split}
+\end{equation*}
+Using the $\mathcal{X}^2$ table (Application 3, page 850-851) , we can find \mbox{$\mathcal{X}^2_{(2n),0.025}$} and \mbox{$\mathcal{X}^2_{(2n),0.975}$} such that:
+$$
+P(\mathcal{X}^2_{(2n),0.975} < 2 n \lambda \bar{X}_n < \mathcal{X}^2_{(2n),0.025}) = 0.95
+$$
+Thus:
+$$
+	\big(\frac{\mathcal{X}^2_{(2n),0.975}}{2 n \bar{X}_n} , \frac{\mathcal{X}^2_{(2n),0.025}}{2 n \bar{X}_n}	\big)
+$$
+provides that a $95\%$ $C.I$ for $\lambda$ . Note that $\mathcal{X}^2_{(2n),\alpha}$ is such that \mbox{$P(\mathcal{X}^2_{(2n)} > \mathcal{X}^2_{(2n),\alpha}) = \alpha$}
+
+\#MISSING GRAPH LECTURE 5 - PAGE 15
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{enumerate} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
-\section{Lecture 5}
 \section{Lecture 6}
 \section{Lecture 7}
 \section{Lecture 8}
@@ -434,4 +919,3 @@ The difference between two proportions can be treated similarly. Note that propo
 
 
 \end{document}
-
