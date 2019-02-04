@@ -836,17 +836,7 @@ $$
 provides that a $95\%$ $C.I$ for $\lambda$ . Note that $\mathcal{X}^2_{(2n),\alpha}$ is such that \mbox{$P(\mathcal{X}^2_{(2n)} > \mathcal{X}^2_{(2n),\alpha}) = \alpha$}
 
 \#MISSING GRAPH LECTURE 5 - PAGE 15
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 \end{enumerate} 
 
 
@@ -854,38 +844,74 @@ provides that a $95\%$ $C.I$ for $\lambda$ . Note that $\mathcal{X}^2_{(2n),\alp
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\newpage
+\section{Lecture 6}
+\subsection{Small Sample Confidence Interval(general case):}
+We learned in the last lecture how to find $C.I.$ fir th population mean when the population distribution is normal. The two main pivotal quantities are:
+$$
+	(a)\ \ \ \ \frac{(n-1)S^2_n}{\sigma^2}\sim \chi^2_{(n-1)}\tab \&\tab (b)\ \ \ \ \frac{\bar{X}_n = \mu}{\frac{S}{\sqrt{n}}}\sim T_{(n-1)}
+$$ 
+when $X_i\distas{iid} N(\mu, \sigma^2)$ , $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$ and $S^2_n = \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X}_n)^2$ . \\
+The first result can be used to make a $C.I$ for $\sigma^2$ and $\sigma$ which the latter is used for making a $C.I$ for $\mu$ .\\
+We now consider the general case. 
+\subsection{Probability Integral Transform(PIT)}Suppose $X_i \distas{iid} F_{_X}$ and $f$ is the pdf of $X_i$s:
+\begin{equation*}
+\begin{split}
+X\sim F_X\ , Y = F_X(X) \\
+F_Y(t) &= P(Y\leq t) = P(F_X(x)\leq t)\\
+&=P(X\leq F_X^{-1}(t))\\
+&=F_X(F_X^{-1}(t)) = t\tab \text{for } 0\leq 1\leq 1\\
+\text{Thus \ \ } F_Y(t)= &\left\{
+  	\begin{array}{lr}
+   	 	0 & \tab \text{if } t<0 \\
+   	 	t & \tab \text{if } 0\leq t <1 \\
+   	 	1 & \tab \text{if } 1\leq t
+  	\end{array}
+	\right.
+\end{split}
+\end{equation*}
+and hence $Y \sim Unif(0.1)$. This is called \textbf{Probability Integral Transform(PIT)}.
+\begin{example}
+$X\sim Exp(\lambda)$ , 
+$f_X(x) = \left\{ \begin{array}{lr} \lambda e^{- \lambda x} &\tab x > 0\\ 0 &\tab x\leq 0
+\end{array}
+\right.$ , $\lambda > 0$.
+\end{example}
+\begin{equation*}
+\begin{split}
+F_{_X}(x) &= P(X\leq x) = \int_{-\infty}^x f_{_X}(t) dt = \int_0^x \lambda e^{-\lambda t} dt\\
+	&= -e^{-\lambda t}\Big|_0^x\\
+	&= 1-e^{-\lambda x}\tab[4cm] (1)\\
+\text{Now consider \ \ } Y &= F_{_X}(x) = 1-e^{-\lambda x} :\\
+F_{_Y}(t) &= P( Y \leq t) = P(1-e^{-\lambda x} \leq t)\\
+	&=P(e^{-\lambda x} \geq 1-t) = P(X \leq -\frac{ln(1-t)}{\lambda})\\
+	&=F_{_X}(-\frac{ln(1-t)}{\lambda})\\
+	&=1-e^{-\lambda(-\frac{ln(1-t)}{\lambda})} \tab[3cm] \text{using } (1)\\
+	&=1-e^{ln(1-t)} = 1-(1-t)\\
+	&=t
+\end{split}
+\end{equation*}
+Thus $Y \sim Unif(0,1)$.\\
+\begin{remark*}\emph{
+Using $PIT$ we can essentially generate random numbers from any continuous distributions. In fact, suppose we want samples from cdf F. Then:\\
+\tab \textbf{Step 1:} Generate $U_i \distas{iid} \text{Unif}(0,1)\ \ ,\ \ i=1,2,\ldots,n$.\\
+\tab \textbf{Step 2:} $X_i = F^{-1}(U_i)\distas{iid} F \ \ ,\ \ i=1,2,\ldots,n$
+}
+\end{remark*}
+This algorithm then works as long as we can generate uniform random numbers and $F^{-1}$ can be explicitly found or well approximated.\\
+	\begin{example*}
+		$f_{_X}(x) = \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} \ \ ,\ \ -\infty < x < +\infty \ \ \ (X\sim N(0,1))$ 
+	\end{example*}
+$$
+\text{Then: \ \ } F_{_X}(x) = \int_{-\infty}^x f_{_X}(t)dt = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}}dt\ \ \ .
+$$
+In this case, $F^{-1}$ does not have an explicit nice form, but it can be well approximated.\\
+\textbf{Remark. } A simple and useful transformation:\\
+$$
+	X\sim F \implies \overbrace{Y = F(X) \sim Unif(0,1)}^{P.I.T} \implies -2\cdot log(Y) \sim \chi^2_2
+$$
+\subsection{Pivotal Quantity}
+Now suppose 
 
 
 
@@ -908,7 +934,6 @@ provides that a $95\%$ $C.I$ for $\lambda$ . Note that $\mathcal{X}^2_{(2n),\alp
 
 
 \newpage
-\section{Lecture 6}
 \section{Lecture 7}
 \section{Lecture 8}
 \section{Lecture 9}
