@@ -1199,6 +1199,78 @@ $$
 Note that $\ eff(\hat{\theta}_1, \hat{\theta}_2) < 1\ $ for $\ n \geq 2\ $ . This means that $\hat{\theta}_2$ is more efficient than $\hat{\theta}_1$ for $n\geq 2$ .\\
 We also notice that the efficiency gap increases as the sample size $n$ increases and for large values of $n$ , the efficiency tends to \underline{zero}.
 \subsection{Consistency}
+\begin{definition*}[Consistent Estimator]
+We say $\hat{\theta}_n$ is a consistent estimator of $\theta$ if \mbox{$\hat{\theta}_n \xrightarrow{p} \theta$} as \mbox{$n \to \infty$} ; i.e:
+$$
+	\lim \limits_{n\to \infty}P\big(\vert \hat{\theta}_n - \theta\vert > \epsilon \big) = 0 \ \ \ , \ \ \forall\ \epsilon > 0\tab (\dagger)
+$$
+\end{definition*}
+Consistency essentially means "being right-headed". It essentially says that if we have all the population, our procedure , $\hat{\theta}_n$ , sizes the target.\\
+Note that $(\dagger)$ is equivalent to :
+$$
+\lim \limits_{n\to \infty} P\big(\vert \hat{\theta}_n - \theta \vert leq \epsilon\big) = 1\ \ \ , \ \ \ \forall \epsilon > 0
+$$
+Now this definition can be compared with the notion of the limit of a sequence of real numbers.
+$$
+	\lim\limits_{n\to\infty} a_n = a\ \ \ \ iff \ \ \ \forall\epsilon >0 \ \exists\ \ N(\epsilon) \ni \ \vert a_n - a\vert<\epsilon\ \ \ \ if\ \ n\geq N(\epsilon)
+$$
+Now since that $\hat{\theta}_n$ is a random variable no matter how large $n$ is, there is always a chance that \mbox{$\ \vert \hat{\theta}_n - \theta\vert > \epsilon\ $}. This chance, however, tends to zero as $\ n\to\infty\ $ .
+\begin{example*}
+	$X_i\distas{iid}\text{Bernoulli}(p) , $\\
+	$\tab X_i = \left\{ \begin{array}{lr}1 &\tab p \\ 0 & \tab 1-p  \end{array}\right. \ \ \ ,\tab i=1,2,\ldots,n$
+\end{example*}
+$\hat{p}_n = \frac{1}{n}\sum_{i=1}^n X_i\ $. We want to show that:
+$$
+	\lim\limits_{n\to \infty} P\big(\vert \hat{p}_n - p\vert > \epsilon\big) = 0\ ,\ \ \forall \epsilon>0 \ .
+$$
+Compare $P\big(\vert \hat{p}_n - p\vert > \epsilon\big)$ with Tchbyshev's Inequality:
+$$
+	P(\vert X - \mathbb{E}(X) \vert > K\overbrace{\sigma}^{\sqrt{Var(X)}}) \leq \frac{1}{K^2}
+$$
+$X$ is replaced by $\hat{p}_n \ \ ,\ \ \mu_X = \mathbb{E}(X)$ by $p$ and $K\sigma$ by $\epsilon$.\\
+Note that $\ \mathbb{E}(\hat{p}_n) = p\ $ so everything is in order for using Tchbyshev's Inequality. Now $\epsilon = K\sigma_X$ implies that \mbox{$K = (\frac{\sigma_X}{\epsilon})^{-1}$} and given that $X$ is replaced by $\hat{p}_n$ , we should have \mbox{$K=(\frac{\sigma_{\hat{p}_n}}{\epsilon})^{-1}$}. Thus:
+\begin{equation*}
+\begin{split}
+	P\big(\vert \hat{p}_n - p\vert > \epsilon\big) &\leq \frac{1}{(\frac{\sigma_{\hat{p}_n}}{\epsilon})^{-2}} = \frac{\sigma_{\hat{p}_n}^2}{\epsilon^2}\\
+	P\big(\vert \hat{p}_n - p\vert > \epsilon\big) &\leq \frac{Var(\hat{p}_n)}{\epsilon^2}\\
+	\implies Var(\hat{p}_n) = Var(\frac{1}{n}\sum_{i=1}^n X_i) &= \frac{p(1-p)}{n}\\
+\text{Therefore\tab} P\big(\vert \hat{p}_n - p\vert > \epsilon\big) &\leq \frac{p(1-p)}{n\epsilon^2} \leq \frac{1}{4 n \epsilon^2} \to 0\ \ \ as\ \ n\to\infty\ \ \ \because\ p(1-p)\leq \frac{1}{4}\tab[2cm] (\ddagger)\\
+\text{Thus\tab} \lim\limits_{n\to\infty} P\big(\vert\hat{p}_n - p\vert > \epsilon\big) &= 0 \ \ , \ \ \forall \epsilon>0
+\end{split}
+\end{equation*}
+Note further that we can let $\epsilon$ tend to zero as $\ n\to\infty\ $ , i.e. $\epsilon_n$ depend on $n$ and $\ \epsilon_n\to 0\ $ as $\ n\to\infty\ $. Using $(\ddagger)$ :
+$$
+	\lim\limits_{n\to\infty} P\big(\vert\hat{p}_n - p\vert > \epsilon_n\big) \leq \lim\limits_{n\to\infty} \frac{1}{4 n \epsilon^2_n}
+$$
+Let $\ \epsilon_n = \frac{\log(n)}{\sqrt{n}}\ $, then:
+$$
+	\lim\limits_{n\to\infty} P\big(\vert\hat{p}_n -p\vert > \frac{\log(n)}{\sqrt{n}}\big) \leq \lim\limits_{n\to\infty} \frac{1}{4 n (\frac{\log(n)}{\sqrt{n}})^2} = \lim\limits_{n\to\infty} \frac{1}{4(\log(n))^2} = 0
+$$
+This actually gives us an idea at what rate $\ \vert \hat{p}_n - p \vert \xrightarrow{P} p\ $ . Note $\epsilon_n = \frac{\alpha n}{\sqrt{n}}$ as long as $\alpha_n\to\infty$ , no matter how slow,  we still have the same result. This then suggests that perhaps $\vert \hat{p}_n - p\vert$ tends to zero in probability at the same rate as $\frac{1}{\sqrt{n}}$.\\
+Suppose $\ X_1,\ldots,X_n\ $ have the same mean $\mu$ and variance $\sigma^2$ . Suppose further that \mbox{$Cov(X_i,X_j) = 0 \ \, \ i\neq j\ $} . Then \mbox{$\bar{X}_n \xrightarrow{P} \mu\ $} , i.e. $\bar{X}_n$ is a consistent estimator of $\mu\ $ , the population mean. Like the previous case:\\
+$$
+	P\big(\vert \bar{X}_n - \mu \vert > \epsilon\big) \leq \frac{1}{(\frac{\epsilon}{\sqrt{\frac{\sigma^2}{n}}})^2} = \frac{\sigma^2}{n\epsilon^2} \to 0 \ \ \ as\ n\to\infty\tab (1)
+$$ 
+
+Note that $\ \epsilon = K\sqrt{Var(\bar{X}_n)}=K\sqrt{\frac{\sigma^2}{n}}\ $ and hence $K=\frac{\epsilon}{\sqrt{\frac{\sigma^2}{n}}}\ $ . Then using Tchbushev's Inequality we obtain $(1)$ :
+$$
+	P\big(\vert \bar{X}_n - \mu\vert > \epsilon\big) \leq \frac{\sigma^2}{n \epsilon^2} \to 0 \ \ \ as\ m\to\infty\ \ \forall\ \epsilon > 0
+$$
+Thus:
+$$
+	\lim\limits_{n\to\infty} P\big(\vert \bar{X}_n - \mu\vert > \epsilon\big) = 0\ \ \ ,\ \ \forall\ \epsilon>0
+$$
+meaning that $\bar{X}_n\xrightarrow{P}\mu\ $ , \ i.e. $\bar{X}_n$ is a consistent estimator of $\mu$ .\\
+The same approach cannot be used to show that $\delta^2_n\xrightarrow{P}\sigma^2\ $ ( We need the law of large numbers(Kolmogorov's result)).
+
+
+
+
+
+
+
+
+
 
 
 
