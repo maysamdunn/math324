@@ -1100,7 +1100,7 @@ $$
 
 \newpage
 \section{Lecture 7}
-\subsection{Relative Efficiency}
+\subsection{Chapter 9 - Relative Efficiency}
 \begin{definition*}\emph{
 The relative efficiency of two unbiased estimators, $\hat{\theta}_1$ and $\hat{\theta}_2$ , is defined to be:
 $$
@@ -1122,15 +1122,27 @@ $$
 		\end{array}
 		\right.\tab \text{where } X_{(1)} < X_{(2)} < \cdots < X_{(n)}\ \text{are the order statistics.}
 $$
-
-
-
-
-
-
-
-
-
+We learned that $Var(\hat{X}_n) = \frac{\sigma^2}{n}$ where $\sigma^2$ is the population variance, i.e. :
+$$
+	\sigma^2 = \int_{-\infty}^{+\infty} (x-\mu)^2 f(x)dx
+$$
+It can be shown (beyond the scope of this course), that:
+$$
+	Var(M_n) \approx \frac{1}{4\cdot[f(\mu)]^2 n}\tab \text{for large }n
+$$
+For instance if $f$ is Normal, i.e. \mbox{$X_i \distas{iid}N(\mu,\sigma^2)$} , then \mbox{$f(\mu)=\frac{1}{\sigma\sqrt{2\pi}}$} and hence:
+$$
+	Var(M_n) = \frac{2\pi}{4}\cdot \frac{\sigma^2}{n}
+$$
+Thus:
+$$
+	eff(\bar{X}_n,M_n) = \frac{Var(M_n)}{Var(\bar{X}_n)} = \frac{\frac{2\pi}{4}\cdot \frac{\sigma^2}{n}}{\frac{\sigma^2}{n}} = \frac{2\pi}{4} = 1.57
+$$
+This then essentially means that if you can make a confidence interval of a given length using $\bar{X}_n$ with $100$ observations, to make a confidence interval of the same length for $\mu$ using $M_n$ , you need $100\times 1.57 = 157$ observations.
+\begin{example*}[9.1 , page 446]
+	$Y_i \distas{iid} Unif(0,\theta)$\tab, $i=1,2,\ldots,n$ \ ,\ $\theta >0\ $ and $\theta$ is unknown.
+\end{example*}
+Consider $\ \hat{\theta}_1 = 2\bar{Y}_n\ $ and $\ \hat{\theta}_2 = (\frac{n+1}{n})Y(n)\ $ where $\ Y(n) = \underset{1\leq i\leq n}{max} Y_i\ $:
 
 
 

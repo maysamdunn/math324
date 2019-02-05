@@ -24,9 +24,9 @@
 \contentsline {subsubsection}{\numberline {6.5.1}Sample Size Determination (Small Sample)}{39}% 
 \contentsline {subsubsection}{\numberline {6.5.2}Sample Size Determination(Two Sample Case)}{40}% 
 \contentsline {section}{\numberline {7}Lecture 7}{42}% 
-\contentsline {subsection}{\numberline {7.1}Relative Efficiency}{42}% 
-\contentsline {section}{\numberline {8}Lecture 8}{43}% 
-\contentsline {section}{\numberline {9}Lecture 9}{43}% 
-\contentsline {section}{\numberline {10}Lecture 10}{43}% 
-\contentsline {section}{\numberline {11}Lecture 11}{43}% 
-\contentsline {section}{\numberline {12}Lecture 12}{43}% 
+\contentsline {subsection}{\numberline {7.1}Chapter 9 - Relative Efficiency}{42}% 
+\contentsline {section}{\numberline {8}Lecture 8}{44}% 
+\contentsline {section}{\numberline {9}Lecture 9}{44}% 
+\contentsline {section}{\numberline {10}Lecture 10}{44}% 
+\contentsline {section}{\numberline {11}Lecture 11}{44}% 
+\contentsline {section}{\numberline {12}Lecture 12}{44}% 
