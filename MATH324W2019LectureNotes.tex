@@ -1098,6 +1098,83 @@ $$
 
 
 
+\newpage
+\section{Lecture 7}
+\subsection{Relative Efficiency}
+\begin{definition*}\emph{
+The relative efficiency of two unbiased estimators, $\hat{\theta}_1$ and $\hat{\theta}_2$ , is defined to be:
+$$
+	eff(\hat{\theta}_1 , \hat{\theta}_2) = \frac{Var(\hat{\theta}_1)}{Var(\hat{\theta}_2)}
+$$
+}\end{definition*}
+We learned that between the two unbiased estimators the one with smaller variance is closer to the target on the average, i.e. has smaller $MSE$.\\
+We also learned that the length of confidence intervals for large sample size is controlled by the variance of the estimator; so, the smaller the variance, the shorter the confidence interval using that estimator is. \\
+We now want to quantify the gain in using the estimator with smaller variance.
+\begin{example*}
+Suppose $X_i \distas{iid} f\ \ , \ \ i=1,2,\ldots,n\ $ where $f$ is a symmetric $pdf$.
+\end{example*}
+The mean and median of  $f$ are the same, say $\mu$ . Given that $f$ is symmetric, we can use: \mbox{$\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i\ $} (the sample average) , or:
+$$
+	M_n = \left\{
+		\begin{array}{lr}
+		X_{_\frac{n+1}{2}} & \tab \text{if n is odd} \\
+		\frac{1}{2}[X_{\frac{n}{2}} + X_{\frac{n}{2} + 1}] & \tab \text{if n is even} 
+		\end{array}
+		\right.\tab \text{where } X_{(1)} < X_{(2)} < \cdots < X_{(n)}\ \text{are the order statistics.}
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1169,7 +1246,6 @@ $$
 
 
 \newpage
-\section{Lecture 7}
 \section{Lecture 8}
 \section{Lecture 9}
 \section{Lecture 10}

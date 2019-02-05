@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  4 FEB 2019 23:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  5 FEB 2019 06:48
 entering extended mode
 **./MATH324W2019LectureNotes.tex
 (MATH324W2019LectureNotes.tex
@@ -1402,11 +1402,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [40]
-[41] [42] (MATH324W2019LectureNotes.aux) ) 
+[41]
+Overfull \hbox (98.4815pt too wide) detected at line 1124
+\OML/pxmi/m/it/10 M[] \OT1/pxr/m/n/10 = []|  []\OML/pxmi/m/it/10 X[] < X[] < []
+ < X[] []
+ []
+
+[42] [43] (MATH324W2019LectureNotes.aux) ) 
 Here is how much of TeX's memory you used:
  34109 strings out of 492946
  760334 string characters out of 3135533
- 795019 words of memory out of 3000000
+ 795018 words of memory out of 3000000
  37533 multiletter control sequences out of 15000+200000
  567573 words of font info for 131 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1420,16 +1426,16 @@ nts/pxsy.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfont
 s/pxsya.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts
 /pxsyb.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/
 pxsyc.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/r
-pxmi.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/rp
-xr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs7.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/urw/palatino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palati
-no/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb
->
-Output written on MATH324W2019LectureNotes.pdf (42 pages, 222629 bytes).
+pxb.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/rpx
+mi.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/rpxr
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs7.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/urw/palatino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino
+/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on MATH324W2019LectureNotes.pdf (43 pages, 227792 bytes).
 PDF statistics:
- 202 PDF objects out of 1000 (max. 8388607)
+ 210 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
