@@ -1142,9 +1142,63 @@ This then essentially means that if you can make a confidence interval of a give
 \begin{example*}[9.1 , page 446]
 	$Y_i \distas{iid} Unif(0,\theta)$\tab, $i=1,2,\ldots,n$ \ ,\ $\theta >0\ $ and $\theta$ is unknown.
 \end{example*}
-Consider $\ \hat{\theta}_1 = 2\bar{Y}_n\ $ and $\ \hat{\theta}_2 = (\frac{n+1}{n})Y(n)\ $ where $\ Y(n) = \underset{1\leq i\leq n}{max} Y_i\ $:
-
-
+Consider $\ \hat{\theta}_1 = 2\bar{Y}_n\ $ and $\ \hat{\theta}_2 = (\frac{n+1}{n})Y(n)\ $ where $\ Y(n) = \underset{1\leq i\leq n}{max} Y_i\ $
+\begin{enumerate}
+\item[For $\mathbf{\hat{\theta}_1}$ :]\hfill
+	\begin{enumerate}
+	\item[$\mathbb{E}(\hat{\theta}_1)$] 
+		$=\mathbb{E}(2\bar{Y}_n) = 2\mathbb{E}(\bar{Y}_n)$\\
+		$=2 \mathbb{E}(\frac{1}{n}\sum_{i=1}^n Y_i) = \frac{2}{n}\sum_{i=1}^n \mathbb{E}(Y_i)$\\
+		$=\frac{2}{n} \sum_{i=1}^n \frac{\theta}{2} = \frac{\cancel{2}}{\cancel{n}}\cdot \cancel{n}\frac{\theta}{\cancel{2}}$\\
+		$=\theta$
+	\item[$\ Var(\hat{\theta}_1)$]
+		$=Var(2\bar{Y}_n) = 4 Var(\bar{Y}_n)$\\
+		$=4 \cdot \frac{Var(Y)}{n} = 4 \cdot \frac{\sigma^2_Y}{n}$\\
+		$\sigma^2_Y = Var(Y) = \mathbb{E}(Y^2) - [\mathbb{E}(Y)]^2$\\
+		$\mathbb{E}(Y^2) = \int_{-\infty}^{+\infty} y^2 f_Y(y)dy = \int_{0}^\theta y^2 \cdot \frac{dy}{\theta}$\\
+		$\tab = \frac{1}{3\theta} y^3 \big|_{0}^{\theta} = \frac{\theta^3}{3\theta} = \frac{\theta^2}{3}$\\
+		$\sigma^2_Y = \mathbb{E}(Y^2) - [\mathbb{E}(Y)]^2 = \frac{\theta^2}{3} - [\frac{\theta}{2}]^2$\\
+		$\tab = \frac{\theta^2}{3} - \frac{\theta^2}{4} = \frac{\theta^2}{12}$ ,\tab then:\\
+		$Var(\hat{\theta}_1) = \frac{4\sigma^2_Y}{n} = \frac{4\frac{\theta^2}{12}}{n} = \frac{\theta^2}{3n}$
+	\end{enumerate}
+\item[For $\hat{\theta}_2$:]\hfill
+	\begin{enumerate}
+	\item[$F_{Y(n)}(t)$] 
+		$= P(Y(n) \leq t) = P(Y_1\leq t , Y_2 \leq t, \cdots , Y_m \leq t)\tab \text{by } \coprod_{i=1}^n Y_i :$\\
+		$\implies \prod_{i=1}^n P(Y_i \leq t) = \prod_{i=1}^n F_{Y_i}(t)$\\
+		$=[F_Y(t)]^n\tab\therefore\ $ identically distributed.\\
+		Thus $d_{Y(n)}(t) = \frac{d}{dt} F_{Y(n)}(t) = \frac{d}{dt} F_Y^n(t) = n f_Y(t)F_Y^{n-1}(t)$\\
+		$f_{Y(n)}(t) = \left\{ \begin{array}{lr}
+		n\frac{1}{\theta} (\frac{t}{\theta})^{n-1} &\tab 0<t<\theta \\
+		0 & \tab \text{otherwise}
+		\end{array}
+		\right.$
+	\item[$\mathbb{E}(\hat{\theta}_2)$]
+		$= \mathbb{E}[(\frac{n+1}{n})Y_(n)] = (\frac{n+1}{n})\mathbb{E}(Y(n))$\\
+		$=(\frac{n+1}{n})\int_0^\theta y \cdot n \cdot \frac{1}{\theta}(\frac{y}{\theta})^{n-1}dy$\\
+		$=(\frac{n+1}{n})\cdot \frac{n}{\theta^n}\int_0^\theta y^n dy$\\
+		$=(\frac{n+1}{n}) \frac{n}{\theta^n}\big[\frac{1}{n+1}y^{n+1}\big]_0^\theta$\\
+		$=(\frac{\cancel{n+1}}{\cancel{n}}) \frac{\cancel{n}}{\cancel{\theta^n}} \frac{\theta^{\cancel{n+1}}}{\cancel{n+1}}$\\ 
+		$=\theta$
+	\item[$Var(\hat{\theta}_2)$]
+		$=Var(\frac{n+1}{n} Y(n)) = \Big(\frac{n+1}{n})^2 Var(Y(n)\Big)$\\
+		$Var(Y(n)) = \mathbb{E}(Y^2_{(2)}) - [\mathbb{E}(Y(n))]^2$\\
+		$E(Y^2_{(n)}) = \int_0^\theta y^2 \cdot n \cdot \frac{1}{\theta}(\frac{y}{\theta})^{n-1} dy$\\
+		$\tab =\frac{n}{\theta^n}\int_0^\theta y^{n+1} dy$\\
+		$\tab =\frac{n}{\theta^n} \cdot \frac{1}{n+2} \cdot \theta^{n+2} = \frac{n \theta^2}{n+2}$\\
+		$Var(Y(n)) = \frac{n\theta^2}{n+2} - [\frac{n}{n+1}\theta]^2$\\
+		$\tab = n\theta^2 \Big(\frac{1}{n+2} - \frac{n}{(n+1)^2}\Big)$\\
+		$\tab = \frac{n\theta^2}{(n+2)(n+1)^2}$\tab thus:\\
+	$Var(\hat{\theta}_2) = (\frac{n+1}{n})^2 \cdot \frac{n\theta^2}{(n+2)(n+1)^2} = \frac{\theta^2}{n(n+2)}$
+	\end{enumerate}
+\end{enumerate}
+Thus:
+$$
+	eff(\hat{\theta}_1 , \hat{\theta}_2) = \frac{Var(\hat{\theta}_2)}{Var(\hat{\theta}_1)} = \frac{\frac{\cancel{\theta^2}}{\cancel{n}(n+2)}}{\frac{\cancel{\theta^2}}{3\cancel{n}}} = \frac{3}{n+2} \to 0 \ \ as\ \ n\to\infty 
+$$
+Note that $\ eff(\hat{\theta}_1, \hat{\theta}_2) < 1\ $ for $\ n \geq 2\ $ . This means that $\hat{\theta}_2$ is more efficient than $\hat{\theta}_1$ for $n\geq 2$ .\\
+We also notice that the efficiency gap increases as the sample size $n$ increases and for large values of $n$ , the efficiency tends to \underline{zero}.
+\subsection{Consistency}
 
 
 
