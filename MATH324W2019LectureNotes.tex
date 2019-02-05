@@ -973,6 +973,129 @@ $$(\frac{\chi^2_{2n , 0.975}}{2n\bar{X_n}} , \frac{\chi^2_{2n,0.025}}{2n\bar{X_n
 $$
 \#MISSING Graph Lecture 6 - page 36
 \subsection{Small Size Determination}
+Suppose we want to estimate the proportion of Canadian voters who are in favor of NDP and want our estimate to be one-percentage point from the actual population with $95\%$ confidence. Define:
+$$
+X = \left\{
+	\begin{array}{lr}
+	1 & \tab \text{NDP} \\
+	0 & \tab \text{other parties}
+	\end{array}
+\tab\text{associated to each potential voter.}
+\right.$$
+We learned that to estimate the proportion of interest $p=P(X=1)$ , we can use \mbox{$\hat{P}_n = \frac{1}{n}\sum_{i=1}^n X_i$} from a random sample of size $n$. We further learned that if the sample size $n$ is large enough, then:
+$$
+	\hat{p}_n \pm 1.96 \sqrt{\frac{p(1-p)}{n}}
+$$
+is a $95\%$ confidence interval for $p$. Thus the margin of error is $\beta = 1.96\sqrt{\frac{p(1-p)}{n}}$ which is controlled by $n$ , the sample size. We should therefore choose $n$ such that:
+$$
+	0.01 = 1.96 \sqrt{\frac{p(1-p)}{n}}
+$$
+Given that $p$ is unknown, we can either replace $p$ by $\hat{p}_n$ or take a conservative approach and replace $p$ by $\frac{1}{2}$ which maximizes $p(1-p)$ . Thus we find:
+$$
+n = \frac{p(1-p)\zeta^2_{\frac{\alpha}{2}}}{\beta^2} = \left\{
+	\begin{array}{lr}
+	\frac{\hat{p}_n(1-\hat{p}_n)\zeta^2_{\frac{\alpha}{2}}}{\beta^2} &\tab \text{replacing $p$ by $\hat{p}_n$} \\
+	\frac{\zeta^2_{\frac{\alpha}{2}}}{4\beta^2} & \tab\text{replacing $p$ by $\frac{1}{2}$}
+	\end{array}
+	\right.
+$$
+Taking the conservative approach, we have:
+$$
+	n = \frac{\zeta^2_{\frac{\alpha}{2}}}{4\beta^2}  = \frac{(1.96)^2}{4(0.01)^2} = 9604
+$$
+Likewise we can find the sample size formula for estimating the population mean with a given confidence $1-\alpha$ and margin of error $\beta$ , we should in fact solve the following equation for $n$: 
+$$
+	\beta = \zeta^2_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}\tab\text{where $\sigma^2$ is the population variance.}
+$$
+We then find $\boxed{n = \frac{\zeta^2_{\frac{\alpha}{2}}\sigma^2}{\beta^2}}$ where $\sigma^2$ should be estimated from a prior sample.\\
+\subsection{Sample Size Determination For Other Parameters}
+So far we only considered the population mean. Now consider a parameter $\theta$ . In chapter $9$ we learn about different methods of estimation, among them there is a method called the method of maximum likehood (ML). Suppose $\hat{\theta}_n$ is the maximum likehood estimate (MLE) of $\theta$. Then under some reasonable conditions for a considerably large class of parametric distributions, we have:
+$$
+	\frac{\hat{\theta}_n - \theta}{\sqrt{Var(\hat{\theta}_n)}} \distas{app} N(0,1) \tab ,\ \text{for large n}
+$$
+Thus:
+$$
+	\hat{\theta}\pm \underbrace{\zeta_{\frac{\alpha}{2}}\sqrt{Var(\hat{\theta}_n)}}_\beta \tab\text{ is a $100(1-\alpha)\%\ C.I$ for $\theta$}
+$$
+Let $\beta = \zeta_{\frac{\alpha}{2}}\sqrt{Var(\hat{\theta}_n)}$ . In many interesting cases, $Var(\hat{\theta}_n)$ is an explicit function of $n$ and $\sigma^2$ , the variance in the target population , say $h(\sigma^2,n)$ . Then the sample size can be determined by the solution of the following equation:
+$$
+	h(\sigma^2,n) = \frac{\beta^2}{\zeta^2_{\frac{\alpha}{2}}}
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

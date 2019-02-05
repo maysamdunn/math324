@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  4 FEB 2019 19:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  4 FEB 2019 21:44
 entering extended mode
 **./MATH324W2019LectureNotes.tex
 (MATH324W2019LectureNotes.tex
@@ -1366,7 +1366,18 @@ Overfull \hbox (133.6404pt too wide) detected at line 970
  $[][]$ 
  []
 
-[36] [37] (MATH324W2019LectureNotes.aux) ) 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [36]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [37]
+Underfull \hbox (badness 10000) in paragraph at lines 1009--1011
+
+ []
+
+[38] [39] (MATH324W2019LectureNotes.aux) ) 
 Here is how much of TeX's memory you used:
  34090 strings out of 492946
  760001 string characters out of 3135533
@@ -1391,9 +1402,9 @@ ram Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs7.pfb><C:/Program Files/MiKTeX
 e1/urw/palatino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palati
 no/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb
 >
-Output written on MATH324W2019LectureNotes.pdf (37 pages, 208087 bytes).
+Output written on MATH324W2019LectureNotes.pdf (39 pages, 213678 bytes).
 PDF statistics:
- 187 PDF objects out of 1000 (max. 8388607)
+ 193 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
