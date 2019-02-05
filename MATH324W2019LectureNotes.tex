@@ -961,11 +961,11 @@ Using $(2)$ we have:
 \begin{equation*}
 \begin{split}
 \sum_{i=1}^n -2 log(1-F(X_i)) &= \sum_{i=1}^n -2 log(e^{-\lambda X_i})\\
-	&= 2\lambda \sum_{i=1}^n X_i = 2\lambda n \bar{X_n} \sim \chi^2_{2n}\\
+	= 2\lambda \sum_{i=1}^n X_i &= 2\lambda n \bar{X_n} \sim \chi^2_{2n}\\
 	\text{Using the $\chi^2$-table (App.3 m page 850-851) , we find \mbox{$\chi^2_{2n, 0.025}$} and \mbox{$\chi^2_{2n,0.975}$} such that:}\\
-	P(\chi^2_{2n,0.975} < 2\lambda n\bar{X_n} < \chi^2_{2n,0.025} ) &= 0.95\\
-	\text{and hence:}\tab[6cm]&\\
-	P(\frac{\chi^2_{2n, 0.975}}{2n\bar{X_n}} < \lambda < \frac{\chi^2_{2n,0.025}}{2 n \bar{X_n}}) &= 0.95
+	P(\chi^2_{2n,0.975} < 2\lambda n\bar{X_n} < \chi^2_{2n,0.025} ) = 0.95\\
+	\text{and hence:}\tab[6cm]\\
+	P(\frac{\chi^2_{2n, 0.975}}{2n\bar{X_n}} < \lambda < \frac{\chi^2_{2n,0.025}}{2 n \bar{X_n}}) = 0.95
 \end{split}
 \end{equation*}
 Thus:
@@ -1021,20 +1021,78 @@ Let $\beta = \zeta_{\frac{\alpha}{2}}\sqrt{Var(\hat{\theta}_n)}$ . In many inter
 $$
 	h(\sigma^2,n) = \frac{\beta^2}{\zeta^2_{\frac{\alpha}{2}}}
 $$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Recall that for Bernoulli case, i.e. $X_i = \left\{ \begin{array}{lr}
+	1 \\ 0 
+\end{array}
+\right.  \ \ \ ,\tab i=1,2,\ldots,n$\ :
+$$
+	h(\sigma^2, n) = Var(\hat{\theta}_n) = Var(\hat{p}_n) = \frac{\overbrace{p(1-p)}^{\sigma^2}}{n}
+$$
+while for estimating the population mean:
+$$
+	h(\sigma^2,n) = Var(\hat{\theta}_n) = Var(\bar{X}_n) = \frac{\sigma^2}{n} \ \ .
+$$
+\subsubsection{Sample Size Determination (Small Sample)}
+\begin{enumerate}
+\item[•]Normal Case:
+	We learned that if $X_i \distas{iid} N(\mu, \sigma^2)\ , \ i=1,2,\ldots,n$ :\\
+	$$
+		\frac{\bar{X}_n - \mu}{\frac{S}{\sqrt{n}}} \sim T_{n-1} \implies \bar{X}_n \pm t_{\frac{\alpha}{2},(n-1)} \frac{S}{\sqrt{n}}\tab \text{is a $100(1-\alpha)\% \ C.I$ for $\mu$}
+	$$
+	We can therefore find sample size from the following equation:
+	$$
+		\beta = t_{\frac{\alpha}{2},(n-1)} \frac{S}{\sqrt{n}} \implies \boxed{n = \frac{S^2 t^2_{\frac{\alpha}{2},(n-1)}}{\beta^2}}
+	$$
+	Now note that the sample size determination based on large sample and small sample in the normal case had to $N(0,1)$ and $T_{(n-1)}$ respectively. These distributions are both symmetric. As such in the sample size determination we only deal with the half length of the confidence intervals when the sample size is small and the population from which the samples are taken is not normal, the pivotal quantities do not necessarily have asymmetric distribution and hence the confidence interval do not have the form of \mbox{$\boxed{\hat{\theta}_n \pm \beta}$}.\\
+	In such cases we try to control the total length of the confidence interval.
+	\begin{example*}
+		$X_i \distas{iid} Exp(\lambda) \ \ , \ \ i=1,2,\ldots,n$
+	\end{example*}
+	We found that $(\frac{\chi^2_{2n,0.975}}{2n\bar{X}_n} , \frac{\chi^2_{2n,0.025}}{2n\bar{X}_n})$ ; let $C$ be the desired length for $C.I$ for $\lambda$ . Then:
+	$$
+		C = \frac{\chi^2_{2n , \frac{\alpha}{x}} - \chi^2_{2n, 1-\frac{\alpha}{2}}}{2n\bar{X}_n}
+	$$
+	represents the length of a $C.I$ for $\lambda$ based on a sample of size $n$ with \mbox{$100(1-\alpha)\%$} confidence.	
+\end{enumerate}
+\subsubsection{Sample Size Determination(Two Sample Case)}
+So far we just confirmed ourselves to one population. We might, however, have two samples, \mbox{$X_1,X_2,\ldots,X_m$} from the population of men with population mean $\mu_{_M}$ , and \mbox{$Y_1,Y_2,\ldots,Y_n$} from the population of women with population mean $\mu_{_W}$ . Suppose the parameter of interest is \mbox{$\theta = \mu_{_M} - \mu_{_W}$} . Then the natural estimate of $\theta$ is \mbox{$\hat{\theta} = \bar{X}_m - \bar{Y}_n$} and using the central limit theorem:
+$$
+	\frac{(\bar{X}_m - \bar{Y}_n) - (\mu_{_M} - \mu_{_W})}{\sqrt{Var(\bar{X}_m - \bar{Y}_n)}} \distas{app} N(0,1)\tab\text{for large $m \And n$}
+$$
+Now:
+$$
+	Var(\bar{X}_m - \bar{Y}_n) = Var(\bar{X}_m) + Var(\bar{Y}_n) -2 Cov(\bar{X}_m , \bar{Y}_n)
+$$
+Assuming that $X$s and $Y$s are independent \tab(i.e $Cov(\bar{X}_m , \bar{Y}_n) = 0$)
+:
+$$
+Var(\bar{X}_m - \bar{Y}_n) = Var(\bar{X}_m) + Var(\bar{Y}_n) = \frac{\sigma^2_{_M}}{m} + \frac{\sigma^2_{_W}}{n}
+$$
+Therefore:
+$$
+	(\bar{X}_m - \bar{Y}_n) \pm \zeta_{\frac{\alpha}{2}}\sqrt{\frac{\sigma^2_{_M}}{m} + \frac{\sigma^2_{_W}}{n}}\tab\text{is a $100(1-\alpha)\%\ \ C.I$ for $\mu_{_M} - \mu_{_W}$ .}
+$$
+To find the sample size we should solve:
+$$
+	\beta = \zeta_{\frac{\alpha}{2}} \sqrt{\frac{\sigma^2_{_M}}{m} + \frac{\sigma^2_{_W}}{n}}
+$$
+We should assume that $\sigma^2_{_M} \And \sigma^2_{_W}$ are known or estimated from prior samples, we will have one equation with two unknowns, $m \And n$. In order to have a unique solution we need another equation. We often consider $n = K\cdot m$ , where $K$ is a known value as the second equation. Suppose $C_{_M}\And C_{_W}$ represent respectively, the cost of taking a sample from population of men and women. Then \mbox{$K \propto(\frac{C_{_W}}{C_{_M}})^{-1}$}. In case that $C_{_W} = C_{_M}$ , we choose $K=1$. Now:
+$$
+\left\{\begin{array}{lr}
+\beta = \zeta_{\frac{\alpha}{2}} \sqrt{\frac{\sigma^2_{_M}}{m} + \frac{\sigma^2_{_W}}{n}} \\
+n = Km
+\end{array}
+\right.
+$$
+Solving the above system we find:
+$$
+\boxed{m = (\frac{\zeta_{\frac{\alpha}{2}}}{\beta})^2 \cdot (\sigma^2_{_M} + \frac{\sigma^2_{_W}}{K})}
+$$
+For proportions: \tab$\sigma^2_{_M} = p_{_M} (1-p_{_M}) \tab\And\tab \sigma^2_{_W}= p_{_W}(1-p_{_W})$
+Taking the conservative approach and replacing both $p_{_M} \And p_{_W}$ by $\frac{1}{2}$ we find:
+$$
+\boxed{m = \big(\frac{\zeta_{\frac{\alpha}{2}}}{2\beta}\big)^2 (1+\frac{1}{K})}
+$$
 
 
 
