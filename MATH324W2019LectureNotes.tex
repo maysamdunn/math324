@@ -911,14 +911,68 @@ $$
 	X\sim F \implies \overbrace{Y = F(X) \sim Unif(0,1)}^{P.I.T} \implies -2\cdot log(Y) \sim \chi^2_2
 $$
 \subsection{Pivotal Quantity}
-Now suppose 
-
-
-
-
-
-
-
+Suppose $X_i \distas{iid} F\ \ , \ \ i=1,2,\ldots,n$ . Define:
+$$
+Y_i = F(X_i) \distas{iid} Unif(0,1) \ \ ,\ \ i=1,2,\ldots,n
+$$
+Now consider:
+$$
+	V_i = -2\cdot log(Y_i) \distas{iid} \chi^2_{2n} \ \ , \ \ i=1,2,\ldots,n
+$$
+Then:
+$$
+	\sum_{i=1}^n V_i \sim \chi^2_{2n} \tab .
+$$
+Having established the first two results, i.e. :\\
+\tab \textbf{Step 1: } \mbox{$X_i \sim F \implies Y_i = F(X_i) \sim Unif(0,1)\ \ (PIT)$}\\
+\tab \textbf{Step 2: } $V_i = -2\cdot log(Y_i) \sim chi^2_2\ \ \ \text{(method of transformation)}$\\
+The last result can be established using the method of moments:\\
+\begin{equation*}
+\begin{split}
+m_{_{\sum_{i=1}^n V_i}}(t) &= \mathbb{E}[e^{-t\sum_{i=1}^n V_i}] = \mathbb{E}\Big[\prod_{i=1}^n e^{-t V_i}\Big]\\
+\coprod_{i=1}^n V_i \implies\tab &= \prod_{i=1}^n \mathbb{E}[e^{-t V_i}] = \prod_{i=1}^n m_{_{V_i}}(t)\\
+\text{identically distributed} \implies\tab &=[m_{_Y}(t)]^n = [(1-2t)^{-\frac{2}{2}}]^n\\
+&=(1-2t)^{-\frac{2n}{2}} \implies \sum_{i=1}^n V_i \sim \chi^2_{2n}
+\end{split}
+\end{equation*}
+Then a pivotal quantity based on $X_i \distas{iid} F_{\theta}\ \ , \ \ i=1,2,\ldots,n \ $\ is:
+$$
+	-2\sum_{i=1}^n log(F_{\theta}(X_i)) \sim chi^2_{2n}\tab (1)
+$$
+\begin{example*}
+ $X_i \distas{iid} Exp(\lambda)\ \ \ , \ \  f_{_X}(x) = \left\{
+  	\begin{array}{lr}
+   	 	\lambda e^{-\lambda x} & \tab x\geq 0\\
+   	 	0 & \tab x<0
+  	\end{array}
+	\right.
+ 	$
+\end{example*}
+$$F_{_X}(x)= \int_{-\infty}^x f_{_X}(t)dt = \int_0^x \lambda e^{-\lambda t} dt = 1 -e^{-\lambda x}$$
+Now we notice that $-2\cdot log(F) = -2 \cdot log(1-e^{-\lambda x})$ does not provide an useful form for the purpose of making a $C.I$ for $\lambda$. There is a dual to $(1)$ that is useful in this case, however:
+$$
+	\sum_{i=1}^n W_i = \sum_{i=1}^n -2 log(1-F(X_i)) \sim \chi^2_{2n}\tab (2)
+$$
+This quickly follows from the fact that:
+$$
+	U \sim Unif(0,1) \implies 1-U \sim Unif(0,1)\tab .
+$$
+Using $(2)$ we have:
+\begin{equation*}
+\begin{split}
+\sum_{i=1}^n -2 log(1-F(X_i)) &= \sum_{i=1}^n -2 log(e^{-\lambda X_i})\\
+	&= 2\lambda \sum_{i=1}^n X_i = 2\lambda n \bar{X_n} \sim \chi^2_{2n}\\
+	\text{Using the $\chi^2$-table (App.3 m page 850-851) , we find \mbox{$\chi^2_{2n, 0.025}$} and \mbox{$\chi^2_{2n,0.975}$} such that:}\\
+	P(\chi^2_{2n,0.975} < 2\lambda n\bar{X_n} < \chi^2_{2n,0.025} ) &= 0.95\\
+	\text{and hence:}\tab[6cm]&\\
+	P(\frac{\chi^2_{2n, 0.975}}{2n\bar{X_n}} < \lambda < \frac{\chi^2_{2n,0.025}}{2 n \bar{X_n}}) &= 0.95
+\end{split}
+\end{equation*}
+Thus:
+$$(\frac{\chi^2_{2n , 0.975}}{2n\bar{X_n}} , \frac{\chi^2_{2n,0.025}}{2n\bar{X_n}})\tab \text{is a \underline{$95\%$} confidence interval for $\lambda$}
+$$
+\#MISSING Graph Lecture 6 - page 36
+\subsection{Small Size Determination}
 
 
 

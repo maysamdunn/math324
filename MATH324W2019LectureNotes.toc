@@ -19,9 +19,10 @@
 \contentsline {subsection}{\numberline {6.1}Small Sample Confidence Interval(general case):}{33}% 
 \contentsline {subsection}{\numberline {6.2}Probability Integral Transform(PIT)}{33}% 
 \contentsline {subsection}{\numberline {6.3}Pivotal Quantity}{35}% 
-\contentsline {section}{\numberline {7}Lecture 7}{36}% 
-\contentsline {section}{\numberline {8}Lecture 8}{36}% 
-\contentsline {section}{\numberline {9}Lecture 9}{36}% 
-\contentsline {section}{\numberline {10}Lecture 10}{36}% 
-\contentsline {section}{\numberline {11}Lecture 11}{36}% 
-\contentsline {section}{\numberline {12}Lecture 12}{36}% 
+\contentsline {subsection}{\numberline {6.4}Small Size Determination}{36}% 
+\contentsline {section}{\numberline {7}Lecture 7}{37}% 
+\contentsline {section}{\numberline {8}Lecture 8}{37}% 
+\contentsline {section}{\numberline {9}Lecture 9}{37}% 
+\contentsline {section}{\numberline {10}Lecture 10}{37}% 
+\contentsline {section}{\numberline {11}Lecture 11}{37}% 
+\contentsline {section}{\numberline {12}Lecture 12}{37}% 
