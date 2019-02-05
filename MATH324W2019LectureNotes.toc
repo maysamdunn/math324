@@ -27,7 +27,9 @@
 \contentsline {subsection}{\numberline {7.1}Chapter 9 - Relative Efficiency}{42}% 
 \contentsline {subsection}{\numberline {7.2}Consistency}{45}% 
 \contentsline {section}{\numberline {8}Lecture 8}{48}% 
-\contentsline {section}{\numberline {9}Lecture 9}{48}% 
-\contentsline {section}{\numberline {10}Lecture 10}{48}% 
-\contentsline {section}{\numberline {11}Lecture 11}{48}% 
-\contentsline {section}{\numberline {12}Lecture 12}{48}% 
+\contentsline {subsection}{\numberline {8.1}Consistency}{48}% 
+\contentsline {subsection}{\numberline {8.2}Markov's Inequality}{48}% 
+\contentsline {section}{\numberline {9}Lecture 9}{50}% 
+\contentsline {section}{\numberline {10}Lecture 10}{50}% 
+\contentsline {section}{\numberline {11}Lecture 11}{50}% 
+\contentsline {section}{\numberline {12}Lecture 12}{50}% 

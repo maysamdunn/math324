@@ -1265,28 +1265,28 @@ The same approach cannot be used to show that $\delta^2_n\xrightarrow{P}\sigma^2
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\newpage
+\section{Lecture 8}
+\subsection{Consistency}
+Consistency is the minimal property that an estimator is expected to possess. Consistency essentially means having right-headed ; in the sense that if "all" the population's information is available , the estimator produces the exact target. Recall once again:\\
+\textbf{Definition: } Suppose $\hat{\theta}_n = \hat{\theta}(X_1,\ldots,X_n)$ is an estimator of $\theta$ . We say $\hat{\theta}_n$ is a consistent estimator of $\theta$ if \mbox{$\ \hat{\theta}_n\xrightarrow{P}\theta\ $} as $\ n\to\infty\ $ , i.e:
+$$
+	\lim\limits_{n\to\infty} P\big(\vert\hat{theta}_n - \theta\vert > \epsilon\big) = 0\ \ \ ,\ \ \ \forall\ \epsilon>0\tab .
+$$
+In lecture 7 we used Tchbyshev's inequality to establish consistency.\\
+Markov's Inequality is an important tool in establishing consistency. In fact , Tchbyshev's inequality is a special case of Markov's inequality. It is often more straight forward to use Markov's inequality.\\
+\subsection{Markov's Inequality}
+Let $X$ be a random variable and $\ g \ $ a non-negative function. Then:
+$$
+	P(g(X) \geq \lambda) \leq \frac{\mathbb{E}[g(X)]}{\lambda} \ \ ,\ \ \forall\ \lambda>0\tab .
+$$
+Using Markov's inequality we have:
+$$
+	P\big(\vert\hat{\theta}_n - \theta\vert > \epsilon\big) \leq \frac{\mathbb{E}[\vert\hat{\theta}_n - \theta\vert]}{\epsilon}\tab (\dagger)
+$$
+To establish consistency it then suffices to show that the upper bound of the above inequality tends to zero as $n\to\infty$ .\\
+Note that $(\dagger)$ follows from Markov's inequality if we define \mbox{$g(x)=\vert x-\theta\vert\ $} . Note also that our random variable is $\hat{\theta}_n$ .\\
+To apply $\ (\dagger) \ $ , we need to find $\mathbb{E}[\vert\hat{\theta}_n - \theta\vert]$ which is not always easy. We however have:
 
 
 
@@ -1384,7 +1384,6 @@ The same approach cannot be used to show that $\delta^2_n\xrightarrow{P}\sigma^2
 
 
 \newpage
-\section{Lecture 8}
 \section{Lecture 9}
 \section{Lecture 10}
 \section{Lecture 11}
