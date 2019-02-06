@@ -9,11 +9,12 @@
 \newtheorem{lemma}{Lemma}[theorem]
 \newtheorem{remark}{Remark}[section]
 \newtheorem{definition}{Definition}[section]
-
+\newtheorem{corollary}{Corollary}[section]
 
 %theorem and lemmas without numbering
 \newtheorem*{theorem*}{Theorem}
 \newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}
 \newtheorem*{remark*}{Remark}
 \newtheorem*{definition*}{Definition}
 \newtheorem*{example*}{Example}
@@ -1287,12 +1288,37 @@ $$
 To establish consistency it then suffices to show that the upper bound of the above inequality tends to zero as $n\to\infty$ .\\
 Note that $(\dagger)$ follows from Markov's inequality if we define \mbox{$g(x)=\vert x-\theta\vert\ $} . Note also that our random variable is $\hat{\theta}_n$ .\\
 To apply $\ (\dagger) \ $ , we need to find $\mathbb{E}[\vert\hat{\theta}_n - \theta\vert]$ which is not always easy. We however have:
-
-
-
-
-
-
+$$
+	P\big(\vert\hat{\theta}_n - \theta \vert > \epsilon\big) = P\big(\vert\hat{\theta}_n - \theta \vert^2 > \epsilon^2 \big) \overbrace{\leq}^{\text{Markov's Ineq.}} \frac{\mathbb{E}[\vert\hat{\theta}_n - \theta\vert^2]}{\epsilon^2}
+$$
+and thus:
+$$
+	P\big(\vert\hat{\theta}_n - \theta \vert > \epsilon \big) \leq \frac{MSE(\hat{\theta}_n}{\epsilon^2} = \frac{Var(\hat{\theta}_n) + Bias^2(\hat{\theta}_n)}{\epsilon^2}\tab (\ddagger)
+$$
+where
+$$
+	MSE(\hat{\theta}_n) = \mathbb{E}[(\hat{\theta}_n
+-\theta)^2] = Var(\hat{\theta}_n) + [\overbrace{\mathbb{E}(\hat{\theta}_n) - \theta}^{\text{Bias}(\hat{\theta}_n)}]^2
+$$
+Now $(\ddagger)$ is often much easier to use since Variance and Bias of an estimator are often hard to find.
+\begin{theorem*}[Slight Generalization of Theorem 9.1 , P450]
+Suppose $\hat{\theta}_n$ is an estimator of $\ \theta\ $. Then $\ \hat{\theta}_n \xrightarrow{P}\theta\ $ if \mbox{$\ MSE(\hat{\theta}_n) \to 0\ $} as $n\to\infty$. In otherwords, $\ \hat{\theta}_n$ is a consistent estimator of $\theta\ $ if $\ MSE(\hat{\theta}_n)\to 0\ $ as $\ n\to\infty \ $ .
+\end{theorem*} 
+\begin{proof}
+Using $(\ddagger)\ $ we have:
+$$
+	P\big(\vert \hat{\theta}_n - \theta \vert > \epsilon\big) \leq \frac{MSE(\hat{\theta}_n}{\epsilon^2}\to 0\tab as\ n\to\infty\ \ \forall \epsilon>0\ \ \because\ MSE(\hat{\theta}_n)\to 0\ \ \ as\ \ n\to\infty
+$$
+\end{proof}
+\begin{corollary}
+Let $\hat{\theta}_n$ be an unbiased estimator of $\theta$. Suppose $Var(\hat{\theta}_n)\to 0$ as $\ n\to\infty\ $. Then $\ \hat{\theta}_n\xrightarrow{P}\theta\ $ , i.e. $\hat{\theta}_n$ is a consistent estimator of $\theta$ .
+\end{corollary}
+\begin{proof}
+$$
+	MSE(\hat{\theta}_n) = Var(\hat{\theta}_n) + Bias^2(\hat{\theta}_n) = Var(\hat{\theta}_n)\to 0\ \ as\ \ n\to\infty
+$$
+Note that the $Bias(\hat{\theta}_n) = \mathbb{E}(\hat{\theta}_n) - \theta = 0\ $ if $\hat{\theta}_n$ is an unbiased estimator of $\theta$ , i.e. $\mathbb{E}(\hat{\theta}_n) = \theta $.
+\end{proof}
 
 
 
