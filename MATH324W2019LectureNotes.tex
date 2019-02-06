@@ -1352,16 +1352,122 @@ The conclusion of $2^{nd}$ example remains intact if the independence assumption
 \begin{corollary}
 Suppose $\hat{\theta}_n$ is an asymptotically unbiased estimator of $\theta$ , i.e. \mbox{$\lim\limits_{n\to\infty} \mathbb{E}(\hat{\theta}_n) = \theta\ $}. Suppose further that \mbox{$Var(\hat{\theta}_n)\to 0\ $} as $\ n\to\infty\ $. Then $\hat{\theta}_n \xrightarrow{P}\theta\ $ , i.e. $\hat{\theta}_n$ is a consistent estimator of $\theta$ 
 \end{corollary}
-
-
-
-
-
-
-
-
-
-
+\begin{proof}
+$$
+	\lim\limits_{n\to\infty} MSE(\hat{\theta}_n) = \lim\limits_{n\to\infty} Var(\hat{\theta}_n) + \lim\limits_{n\to\infty} Bias^2(\hat{\theta}_n) = 0+[\overbrace{\lim\limits_{n\to\infty}(\mathbb{E}(\hat{\theta}_n)-\theta)}^0]^2 = 0
+$$
+The desired result then follows form the above theorem.
+\end{proof}
+\begin{remark*}
+The above result tells us that unbiasedness is NOT necessary for consistency.
+\end{remark*}
+\begin{example}
+Suppose $X_1,\ldots,X_n$ from a random sample from a population with the mean $\mu$ and variance $\sigma^2$. We want to estimate $\sigma^2$.
+\end{example}
+We showed that $\mathbb{E}(S^2_n) = \sigma^2$ where :
+$$
+	S_n^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X}_n)^2
+$$
+We want to show that $S_n^2 \xrightarrow{P}\sigma^2$ , i.e. $S_n^2$ is a consistent estimator of $\sigma^2$ . Note that using Markov's inequality we have:
+$$
+	P\big(\vert S^2_n - \sigma^2\vert > \epsilon\big) \leq \frac{Var(S^2_n)}{\epsilon^2}
+$$
+We need to show that $Var(S^2_n)\to 0$ as $n\to\infty$ . To do this, we need to find $Var(S^2_n)$ in terms of the moments of the population. We therefore require conditions on the $4^{th}$ moment of the population from which the samples were taken. Below we give a different approach that is much easier to apply and require lesser assumptions, but much more base.
+\subsection{Kolmogorov's Law of Large Numbers(LLN)}
+Suppose ${X_n}^{\infty}_{n=1}$ is a sequence of $iid$ random variables with common mean $\mu$. Then:
+$$
+	\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i \xrightarrow{P} \mu = \mathbb{E}(X)
+$$
+\begin{remark*}
+Kolgomorov's theorem is actually much stronger than this. It established a stronger notion of convergence. The complete form has two sides. It also shows that if $\bar{X}_n$ converges to a constant, since $C$ , in that stronger notion of convergence, then: \mbox{$\mathbb{E}(\vert X\vert)<\infty\ \ \ \And\ \ \ C=\mathbb{E}(X)$}.
+\end{remark*}
+\begin{corollary*}
+Suppose $\big\{X_n \big\}^{\infty}_{n=1}$ is a sequence of $iid$ random variables with the common $K^{th}$-moment $\ \mu_K\ $ , i.e. $\mathbb{E}(X^K) = \mu_K\ $ , for some $K\in\mathbb{N}$ , then:
+$$
+	\frac{1}{n}\sum_{i=1}^nX_i^K \xrightarrow{P} \mu_K = \mathbb{E}(X^K)
+$$
+\end{corollary*}
+This corollary follows from Kolmogorov's theorem immediately upon defining $Y_i = X_i^K$ .\\
+Note that if $\mathbb{E}(X^K) < \infty$ , then $\mathbb{E}(X^n) < \infty \ \ \forall 0\leq r\leq K$ . This then means that if ${X_n}^{\infty}_{n=1}$ is a sequence $iid$ random variables with the common $K^{th}$-moment $\mu_K$ , then:
+$$
+	\frac{1}{n}\sum_{i=1}^n X_i^r \xrightarrow{P} \mu_K = \mathbb{E}(X^r) \ \ \forall\ 0\leq r\leq K
+$$
+We also need the following theorem which is essentially theorem 9.2 , page 451 of the textbook.
+\begin{theorem}[Theorem 9.2, page 451]
+	Suppose $\hat{\theta}_n = \hat{\theta}(X_1,\ldots,X_n)$ and \mbox{$\hat{\mathscr{C}}_n = 
+\hat{\mathscr{C}}(X_1,\ldots,X_n)$} are consistent estimators of $\theta$ and $\mathscr{C}$ , respectively, i.e. $\hat{\theta}_n\xrightarrow{P}\theta$ and $\mathscr{\hat{C}}_n\xrightarrow{P}\mathscr{C}\ $ .
+	\begin{enumerate}[a)]
+	\item $\hat{\theta}_n\mathscr{\hat{C}}_n \xrightarrow{P} \theta\mathscr{C}$
+	\item $\hat{\theta}_n \pm \mathscr{\hat{C}}_n \to \hat{\theta}_n \pm \hat{\mathscr{C}}_n$
+	\item $\frac{\hat{\theta}_n}{\hat{\mathscr{C}}_n} \to \frac{\theta}{\mathscr{C}}\tab[4cm]$ provided that $\hat{\mathscr{C}}\neq 0\ , \ \mathscr{C}\neq 0$
+	\item $g(\hat{\theta}_n)\to g(\theta)\tab[3cm]$ if $g(.)$ is a continuous function
+	\end{enumerate}
+\end{theorem}
+Part(d) of the above theorem is called \textbf{Continuous Mapping Theorem} .\\
+Now to establish consistency of $S^2_n$ , we fist establish \mbox{$\tab[0.5cm] S^2_{n,*} = \frac{1}{n}\sum_{i=1}^n (X_i - \bar{X}_n)^2 \xrightarrow{P} \sigma^2 .$}
+	\begin{equation*}
+	\begin{split}
+		\text{\textbf{Step 1:}}\\
+		S^2_{n,*} &= \frac{1}{n} \sum_{i=1}^n (X_i-\bar{X}_n)^2 = \frac{1}{n}[\sum_{i=1}^n X_i^2 -2\bar{X}_n\overbrace{\sum_{i=1}^nX_i}^{n\bar{X}_n} + n\bar{X}_n^2]\\
+		&= \frac{1}{n} [\sum_{i=1}^n X_i^2 - 2\bar{X}_n(n\bar{X}_n)+n\bar{X}_n^2]\\
+		&= \frac{1}{n}[\sum_{i=1}^n X_i^2 -2n\bar{X}^2_n + n\bar{X}^2_n]\\
+		&= \frac{1}{n}[\sum_{i=1}^n X_i^2 - n\bar{X}_n^2]\\
+		&= \frac{1}{n}\sum_{i=1}^n X_i^2 - \bar{X}^2_n
+	\end{split}
+	\end{equation*}
+	\begin{equation*}
+	\begin{split}
+		\text{\textbf{Step 2:}}\\
+		&\text{Using Kolmogorov's Theorem:}\\
+		\text{a)\ } &\frac{1}{n} \sum_{i=1}^n X_i^2 \xrightarrow{P} \mathbb{E}(X^2)\\
+		\text{b)\ } &\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i \xrightarrow{P} \mathbb{E}(X)
+	\end{split}
+	\end{equation*}			
+	\begin{equation*}
+	\begin{split}
+		\text{\textbf{Step 3:}}\\
+		&\text{Using Step 2 and continuous mapping theorem (Theorem 9.2 (d))}\\
+		&\tab \bar{X}_n^2 \to [\mathbb{E}(X)]^2
+	\end{split}
+	\end{equation*}
+	\begin{equation*}
+	\begin{split}
+		\text{\textbf{Step 4:}}\\
+		&\text{Using Step 1,2,3 and Theorem 9.2 (b) we have:}\\
+		S^2_n &= \frac{1}{n} \sum_{i=1}^n X_i^2 - \bar{X}_n^2 \tab[0.5cm]\xrightarrow{P}\tab[0.5cm]\mathbb{E}(X^2) - [\mathbb{E}(X)]^2 = Var(X) = \sigma^2
+	\end{split}
+	\end{equation*}
+Thus $S^2_{n,*} \xrightarrow{P}\sigma^2\ $ , i.e. $S^2_{n,*}$ is a consistent estimator of $\sigma^2$ .\\
+Next we note that:\\
+$$
+	S^2_n = \frac{1}{n-1}\sum_{i=1}^n (X_i-\bar{X}_n)^2 = (\frac{n}{n-1})\frac{1}{n}\sum_{i=1}^n (X_i - \bar{X}_n)^2 = (\frac{n}{n-1})S^2_{n,*}
+$$ 
+Using Theorem 9.2 (a):
+$$
+	\lim\limits_{n\to\infty} (\frac{n}{n-1}) = 1 \ \ \ \And\ \ \  S^2_{n,*} \xrightarrow{P} \sigma^2
+$$
+Then Theorem 9.2 (a) implies that:
+$$
+	S^2_n = (\frac{n}{n-1})S^2_{n,*}\ \ \ \xrightarrow{P}\ \ \ 1\cdot\sigma^2 = \sigma^2
+$$
+i.e. $S^2_n$ is a consistent estimator of $\sigma^2$ . 
+\begin{remark*}
+Suppose $P(X_n=C_n)=1\ \ ,\ n=1,2,\ldots$ where $\big\{C_n\big\}_{n=1}^{\infty}$ is a sequence of real numbers such that $\lim\limits_{n\to\infty} C_n = C$ . Then $X_n\xrightarrow{P}C$. The proof of this result is as follow:
+\end{remark*}
+\begin{proof}\hfill\\
+	$\lim\limits_{n\to\infty} C_n = C\ $ i.e. $\ \forall\ \epsilon>0 \ \exists \ N(\epsilon) \in\ \mathbb{N} \ \ni\ \vert C_n - C\vert < \epsilon\ ,\ \forall\ n\geq\ N(\epsilon)$\\
+	Now suppose $\epsilon > 0$ is given , then:\\
+	$P(\vert X_n - C\vert > \epsilon) = P(\vert C_n - C\vert > \epsilon) = 0\tab \text{if $\ \ \ n\geq N(\epsilon)$}$\\
+	Thus $\lim\limits_{n\to\infty} P(\vert X_n - C\vert > \epsilon)=0\ \ ,\ \ \forall\ \epsilon>0$
+\end{proof}
+\textbf{Question}: Why couldn't we use Kolmogorov's theorem directly to establish consistency of $S^2_{n,*}$ ? In other words, coudln't we define \mbox{$Z_i = (X_i - \bar{X}_n)^2$} and hence \mbox{$S^2_{n,*} = \frac{1}{n}\sum_{i=1}^n (X_i - \bar{X}_n)^2 = \frac{1}{n}\sum_{i=1}^n Z_i$} and then apply Kolgomorov's \mbox{theorem?}\\
+The answer is that $Z_i$s are not independent . Note that \mbox{$\sum_{i=1}^n (X_i-\bar{X}_n)=0$} .
+\subsection{Sufficiency}
+Sufficiency is essentially comparison. Sufficiency is one of the main pillars of the \underline{Likehood Inference} .\\
+As the following diagram shows the likehood inference has three main components: the observable quantities, samples, the unobservable quantities, the unknown parameters to be estimated , and a parametric distribution that links the observables to unobservables .\\
+\textbf{Example:\ \ } $f_{\theta}(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\ \ \ \ where \ \ \ \theta = (\mu, \sigma^2)
+$\\
+\#MISSING GRAPH Lecture 8 - Page 57
 
 
 

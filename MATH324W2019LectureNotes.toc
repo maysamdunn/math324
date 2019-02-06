@@ -29,7 +29,9 @@
 \contentsline {section}{\numberline {8}Lecture 8}{48}% 
 \contentsline {subsection}{\numberline {8.1}Consistency}{48}% 
 \contentsline {subsection}{\numberline {8.2}Markov's Inequality}{48}% 
-\contentsline {section}{\numberline {9}Lecture 9}{51}% 
-\contentsline {section}{\numberline {10}Lecture 10}{51}% 
-\contentsline {section}{\numberline {11}Lecture 11}{51}% 
-\contentsline {section}{\numberline {12}Lecture 12}{51}% 
+\contentsline {subsection}{\numberline {8.3}Kolmogorov's Law of Large Numbers(LLN)}{51}% 
+\contentsline {subsection}{\numberline {8.4}Sufficiency}{54}% 
+\contentsline {section}{\numberline {9}Lecture 9}{56}% 
+\contentsline {section}{\numberline {10}Lecture 10}{56}% 
+\contentsline {section}{\numberline {11}Lecture 11}{56}% 
+\contentsline {section}{\numberline {12}Lecture 12}{56}% 

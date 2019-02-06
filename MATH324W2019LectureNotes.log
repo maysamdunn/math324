@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  6 FEB 2019 08:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  6 FEB 2019 17:39
 entering extended mode
 **./MATH324W2019LectureNotes.tex
 (MATH324W2019LectureNotes.tex
@@ -1454,7 +1454,40 @@ tot-i-cally un-bi-ased es-ti-ma-tor of $\OML/pxmi/m/it/10 $ \OT1/pxr/m/it/10 ,
  i.e. [].
  []
 
-[50] [51] (MATH324W2019LectureNotes.aux) ) 
+
+Underfull \vbox (badness 4531) has occurred while \output is active []
+
+ [50]
+[51]
+Overfull \hbox (34.48573pt too wide) in paragraph at lines 1397--1399
+[]\OT1/pxr/bx/n/10 Theorem 8.1 \OT1/pxr/m/n/10 (The-o-rem 9.2, page 451)\OT1/px
+r/bx/n/10 . []\OT1/pxr/m/it/10 Sup-pose $[] \OT1/pxr/m/n/10 = [](\OML/pxmi/m/it
+/10 X[]; [] ; X[]\OT1/pxr/m/n/10 )$ \OT1/pxr/m/it/10 and []
+ []
+
+
+Overfull \hbox (15.70222pt too wide) in paragraph at lines 1406--1408
+\OT1/pxr/m/n/10 Now to es-tab-lish con-sis-tency of $\OML/pxmi/m/it/10 S[]$ \OT
+1/pxr/m/n/10 , we fist es-tab-lish [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [52]
+Underfull \hbox (badness 10000) in paragraph at lines 1439--1442
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [53]
+Overfull \hbox (2.7328pt too wide) in paragraph at lines 1463--1465
+\OT1/pxr/m/n/10 hence [] and then ap-ply Kol-go-morov's [] 
+ []
+
+[54] [55] [56] (MATH324W2019LectureNotes.aux) ) 
 Here is how much of TeX's memory you used:
  34117 strings out of 492946
  760424 string characters out of 3135533
@@ -1463,25 +1496,26 @@ Here is how much of TeX's memory you used:
  567573 words of font info for 131 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  117i,21n,146p,1629b,1110s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/en
-c/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/la
-txfont/line10.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/p
-xfonts/pxex.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxf
-onts/pxexa.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfo
-nts/pxsy.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfont
-s/pxsya.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts
-/pxsyb.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/
-pxsyc.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/r
-pxb.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/rpx
-mi.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/rpxr
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs7.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/urw/palatino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino
-/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on MATH324W2019LectureNotes.pdf (51 pages, 254687 bytes).
+{C:/Program Files/MiKTeX 2.9/fon
+ts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/latxfont/line10.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/pub
+lic/pxfonts/pxex.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/publi
+c/pxfonts/pxexa.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public
+/pxfonts/pxsy.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/p
+xfonts/pxsya.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/px
+fonts/pxsyb.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxf
+onts/pxsyc.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfo
+nts/rpxb.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfont
+s/rpxmi.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts
+/rpxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs7.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/urw/palatino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/pal
+atino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.
+pfb>
+Output written on MATH324W2019LectureNotes.pdf (56 pages, 267833 bytes).
 PDF statistics:
- 235 PDF objects out of 1000 (max. 8388607)
+ 251 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
