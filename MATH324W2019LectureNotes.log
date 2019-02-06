@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  6 FEB 2019 07:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  6 FEB 2019 08:21
 entering extended mode
 **./MATH324W2019LectureNotes.tex
 (MATH324W2019LectureNotes.tex
@@ -1447,11 +1447,18 @@ Overfull \hbox (4.75098pt too wide) detected at line 1311
  \OT1/pxr/m/n/10 0   \OML/pxmi/m/it/10 as  n \OMS/pxsy/m/n/10 ! 1
  []
 
-[49] [50] (MATH324W2019LectureNotes.aux) ) 
+[49]
+Overfull \hbox (24.65457pt too wide) in paragraph at lines 1353--1354
+[]\OT1/pxr/bx/n/10 Corollary 8.2. []\OT1/pxr/m/it/10 Sup-pose $[]$ is an asymp-
+tot-i-cally un-bi-ased es-ti-ma-tor of $\OML/pxmi/m/it/10 $ \OT1/pxr/m/it/10 ,
+ i.e. [].
+ []
+
+[50] [51] (MATH324W2019LectureNotes.aux) ) 
 Here is how much of TeX's memory you used:
  34117 strings out of 492946
  760424 string characters out of 3135533
- 795108 words of memory out of 3000000
+ 795109 words of memory out of 3000000
  37541 multiletter control sequences out of 15000+200000
  567573 words of font info for 131 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1472,9 +1479,9 @@ m Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs7.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /urw/palatino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino
 /uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on MATH324W2019LectureNotes.pdf (50 pages, 251631 bytes).
+Output written on MATH324W2019LectureNotes.pdf (51 pages, 254687 bytes).
 PDF statistics:
- 232 PDF objects out of 1000 (max. 8388607)
+ 235 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

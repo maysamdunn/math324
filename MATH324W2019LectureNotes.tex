@@ -1319,7 +1319,39 @@ $$
 $$
 Note that the $Bias(\hat{\theta}_n) = \mathbb{E}(\hat{\theta}_n) - \theta = 0\ $ if $\hat{\theta}_n$ is an unbiased estimator of $\theta$ , i.e. $\mathbb{E}(\hat{\theta}_n) = \theta $.
 \end{proof}
-
+\begin{example}
+$X_i\distas{iid}Bernoulli(p)\ \ \ , \ \ i=1,2,\ldots,n$
+\end{example}
+\begin{equation*}
+\begin{split}
+	\hat{p}_n & = \frac{1}{n}\sum_{i=1}^n X_i \\
+	\mathbb{E}(\hat{p}_n) &= \mathbb{E}[\frac{1}{n}\sum_{i=1}^n X_i] = \frac{1}{n}\sum_{i=1}^n \mathbb{E}(X_i) = \frac{1}{n} \sum_{i=1}^n p = p\\
+	\text{Then }\ \mathbb{E}(\hat{p}_n) &= p\ .\ \text{i.e. $\hat{p}_n$ is an unbiased estimator of $p$ .}\\
+	Var(\hat{p}_n) &= Var(\frac{1}{n}\sum_{i=1}^n X_i) = \frac{1}{n^2} \sum_{i=1}^n Var(\hat{X}_i) = \frac{1}{n^2}\sum_{i=1}^np(1-p) = \frac{p(1-p)}{n}\\
+	\text{Now: } Var(\hat{p}_n) &= \frac{p(1-p)}{n}\to 0\ \ \ as \ n\to\infty
+\end{split}
+\end{equation*}
+Thus using corollary 8.1 , $\hat{p}_n\xrightarrow{P}p\ $, i.e. $\hat{p}_n$ is a consistent estimator of $p$ .
+\begin{example}
+Suppose $X_1,\ldots,X_n$ are independent and identically distributed random variables with the common mean value $\mu$ and common variance $\sigma^2$.
+\end{example}
+Then:
+$$
+	\mathbb{E}(\bar{X}_n) = \mathbb{E}(\frac{1}{n}\sum_{i=1}^n X_i) = \frac{1}{n} \sum_{i=1}^n \mathbb{E}(X_i) = \frac{1}{n} \sum_{i=1}^n \mu = \mu
+$$
+$$
+	Var(\bar{X}_n) = Var(\frac{1}{n}\sum_{i=1}^n X_i) = \frac{1}{n^2}\sum_{i=1}^n Var(X_i) = \frac{1}{n^2}\sum_{i=1}^n \sigma^2 = \frac{\sigma^2}{n}
+$$
+$$
+\text{Thus:\tab} MSE(\bar{X}_n) = Var(\bar{X}_n) + \overbrace{Bias^2(\bar{X}_n)}^0 = \frac{\sigma^2}{n}\to 0 \ \ as \ n\to\infty
+$$
+and hence $\bar{X}_n\xrightarrow \mu $ using corollary 8.1 , i.e. $\bar{X}_n$ is a consistent estimator of $\mu$.
+\begin{remark}
+The conclusion of $2^{nd}$ example remains intact if the independence assumption is replaced by orthogonality , i.e. $Cov(X_i,X_j)\ \ , i\neq j$. 
+\end{remark}
+\begin{corollary}
+Suppose $\hat{\theta}_n$ is an asymptotically unbiased estimator of $\theta$ , i.e. \mbox{$\lim\limits_{n\to\infty} \mathbb{E}(\hat{\theta}_n) = \theta\ $}. Suppose further that \mbox{$Var(\hat{\theta}_n)\to 0\ $} as $\ n\to\infty\ $. Then $\hat{\theta}_n \xrightarrow{P}\theta\ $ , i.e. $\hat{\theta}_n$ is a consistent estimator of $\theta$ 
+\end{corollary}
 
 
 
