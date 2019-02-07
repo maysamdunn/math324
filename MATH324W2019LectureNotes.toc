@@ -32,6 +32,7 @@
 \contentsline {subsection}{\numberline {8.3}Kolmogorov's Law of Large Numbers(LLN)}{51}% 
 \contentsline {subsection}{\numberline {8.4}Sufficiency}{54}% 
 \contentsline {section}{\numberline {9}Lecture 9}{56}% 
-\contentsline {section}{\numberline {10}Lecture 10}{56}% 
-\contentsline {section}{\numberline {11}Lecture 11}{56}% 
-\contentsline {section}{\numberline {12}Lecture 12}{56}% 
+\contentsline {subsection}{\numberline {9.1}Sufficiency}{56}% 
+\contentsline {section}{\numberline {10}Lecture 10}{58}% 
+\contentsline {section}{\numberline {11}Lecture 11}{58}% 
+\contentsline {section}{\numberline {12}Lecture 12}{58}% 

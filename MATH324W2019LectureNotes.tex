@@ -11,6 +11,7 @@
 \newtheorem{definition}{Definition}[section]
 \newtheorem{corollary}{Corollary}[section]
 
+
 %theorem and lemmas without numbering
 \newtheorem*{theorem*}{Theorem}
 \newtheorem*{lemma*}{Lemma}
@@ -18,7 +19,9 @@
 \newtheorem*{remark*}{Remark}
 \newtheorem*{definition*}{Definition}
 \newtheorem*{example*}{Example}
-
+\newtheorem*{deff}{Definitin}
+\newtheorem*{thm}{Theorem}
+\newtheorem*{eg}{Example}
 %commands:
 \newcommand\myeq{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny def}}}{=}}}
 
@@ -1471,6 +1474,57 @@ $\\
 
 
 
+\newpage
+\section{Lecture 9}
+\subsection{Sufficiency}
+Suppose $\ T:\mathbb{R}^n\to\mathbb{R}^m\ \ ,\ \ m<n\ $ is a map from $\mathbb{R}^n$ to $\ \mathbb{R}^m\ $ and $\ X=(X_1,X_2,\ldots,X_n)\ $ and $\ Y=(Y_1,Y_2,\ldots,Y_n)$ are two n-dimensional random vectors. Then \mbox{$\underset{\sim}{X}\ \ \And\ \ \underset{\sim}{Y}$} are called \underline{T-similar} if:
+$$
+	P_{_{\underset{\sim}{X}\vert{T=t}}}(\underset{\sim}{u}\vert t,\theta) = P_{_{\underset{\sim}{Y}\vert{T=t}}}(\underset{\sim}{u}\vert t,\theta) \tab \forall\ u\ \text{and\ }t
+$$
+\begin{definition}[T-similar]A realization of $\underset{\sim}{X}$ , say $\underset{\sim}{x}$ , and a realization of $\underset{\sim}{Y}$ say $\underset{\sim}{y}$ , are called T-similar if:
+\begin{enumerate}
+\item $\underset{\sim}{X}$ and $\underset{\sim}{Y}$ are T-similar .
+\item $T(\underset{\sim}{x}) = T(\underset{\sim}{y})$
+\end{enumerate}
+\end{definition}
+What do we expect from a \underline{good comparison}?\\
+Suppose $\theta$ is the unknown parameter of interest. We want to estimate $\theta$ using \mbox{$\underset{\sim}{X} = (X_1,\ldots,X_n)$}. Now \mbox{$T_n = T(\underset{\sim}{X}) = T(X_1,\ldots,X_n)$} is a good comparison if:
+\begin{enumerate}[a)]
+\item	$T_n$ can preserve all the pertinent "information" in \mbox{$\underset{\sim}{X} = (X_1,\ldots,X_n) to \theta$}
+\item if $\underset{\sim}{X}^{*} = (X_1^{*},\ldots,X_n^{*})$ is the original sample, for any given value of $T_n$ , say t, we can generate a $T_n$-similar sample of $x$s.
+\end{enumerate}
+In order to generate a $T_n$-similar sample \mbox{$P(X_1=x_1,X_2=x_2,\ldots,X_n=x_n \vert T_n=t)$} should be \underline{free} from any unknown parameter.\\
+As per retaining pertinent information in the data to the unknown parameter $\underset{\sim}{\theta}$ , given that the link between the data and the unknown parameter(s) is the joint distribution:
+$$
+	P\big(X_1=x_1,X_2=x_2,\ldots,X_n=x_n ; \underset{\sim}{\theta}\big) = P_{_{\underset{\sim}{\theta}}}\big(X_1=x_1,X_2=x_2,\ldots,X_n=x_n\big)
+$$
+any possible information in the data about $\theta$ should be in \mbox{$P_{_{\underset{\sim}{\theta}}}\big(X_1=x_1,X_2=x_2,\ldots,X_n=x_n\big)$} .\\
+As such $T_n = T(X_1,\ldots,X_n)$ can preserve all the pertinent information if \mbox{$P_{_{\underset{\sim}{\theta}}}\big(X_1=x_1,X_2=x_2,\ldots,X_n=x_n\big)\propto g(t ; \underset{\sim}{\theta})$}.\\
+\emph{The Fisher-Neyman Factorization Theorem} shows that this proportional is indeed a characterization of sufficient statistics. Let's dig into this a bit more. Note that:
+$$
+P_{_{\underset{\sim}{\theta}}}\big(X_1=x_1,X_2=x_2,\ldots,X_n=x_n\big) = P_{_{\underset{\sim}{\theta}}}\big(X_1=x_1,X_2=x_2,\ldots,X_n=x_n\big| T_n = t\big)P_{\theta}(T_n = t)\ \ .
+$$
+If $P_{_{\underset{\sim}{\theta}}}\big(X_1=x_1,X_2=x_2,\ldots,X_n=x_n\big| T_n = t\big)$ is actually free from $\underset{\sim}{\theta}$ , then:
+$$
+	P_{_{\underset{\sim}{\theta}}}\big(X_1=x_1,X_2=x_2,\ldots,X_n=x_n\big) \ \ \propto\ \  P_{\theta}(T_n=t) \overset{def.}{=}g(t\ ; \theta)
+$$
+where the proportionality constant is a function of \mbox{$\underset{\sim}{x}=(x_1,x_2,\ldots,x_n)$} , the observed sample. A formal definition then emerges.
+\begin{definition*}
+Let $X_1,\ldots,X_n$ be a random sample from a distribution with an unknown parameter $\underset{\sim}{\theta}$ . A statistic \mbox{$T_n = T(X_1,\ldots,X_n)$} is called \textbf{sufficient} for $\theta$ if the conditional distribution of \emph{\mbox{$(X_1,\ldots,X_n)$}} given $T_n$ does not depend on $\underset{\sim}{\theta}$.
+\end{definition*}
+\begin{example*}
+$X_i\distas{iid} Bernoulli(p)\ \ ,\ \ i=1,2,\ldots,n$.
+\end{example*}
+$$
+	P_p(X=x) = p^x(1-p)^{1-x} \ \ ,\ \ x=0,1
+$$
+
+
+
+
+
+
+
 
 
 
@@ -1548,7 +1602,6 @@ $\\
 
 
 \newpage
-\section{Lecture 9}
 \section{Lecture 10}
 \section{Lecture 11}
 \section{Lecture 12}
