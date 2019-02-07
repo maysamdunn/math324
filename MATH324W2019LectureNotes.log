@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  6 FEB 2019 21:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  7 FEB 2019 14:00
 entering extended mode
 **./MATH324W2019LectureNotes.tex
 (MATH324W2019LectureNotes.tex
@@ -1511,15 +1511,32 @@ m/it/10 x[]; X[] \OT1/pxr/m/n/10 = \OML/pxmi/m/it/10 x[]; [] ; X[] \OT1/pxr/m/n
 r/m/n/10 )  \OML/pxmi/m/it/10 :
  []
 
-[57] [58] (MATH324W2019LectureNotes.aux) ) 
+
+Overfull \hbox (73.11293pt too wide) detected at line 1560
+ $[][]$ 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [57]
+Overfull \hbox (47.25708pt too wide) detected at line 1587
+ $[][]$ 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58]
+[59] [60] (MATH324W2019LectureNotes.aux) ) 
 Here is how much of TeX's memory you used:
  34123 strings out of 492946
  760451 string characters out of 3135533
- 795162 words of memory out of 3000000
+ 796162 words of memory out of 3000000
  37547 multiletter control sequences out of 15000+200000
  567573 words of font info for 131 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,21n,146p,1629b,1110s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 117i,26n,146p,1629b,1110s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/en
 c/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/la
 txfont/line10.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/p
@@ -1537,9 +1554,9 @@ pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb><C:/Program
 9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/palatino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/
 uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on MATH324W2019LectureNotes.pdf (58 pages, 276307 bytes).
+Output written on MATH324W2019LectureNotes.pdf (60 pages, 281183 bytes).
 PDF statistics:
- 261 PDF objects out of 1000 (max. 8388607)
+ 267 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

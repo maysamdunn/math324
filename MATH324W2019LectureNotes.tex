@@ -1518,10 +1518,73 @@ $X_i\distas{iid} Bernoulli(p)\ \ ,\ \ i=1,2,\ldots,n$.
 $$
 	P_p(X=x) = p^x(1-p)^{1-x} \ \ ,\ \ x=0,1
 $$
-
-
-
-
+Consider $T_n = \sum \limits_{i=1}^n X_i\ $.\ Note that $\ T_n \sim Bin(n,p)\ $ Then:
+\begin{equation*}
+\begin{split}
+	P\big(X_1=x_1,X_2=x_2,\ldots,X_n=x_n \big| T_n = t\big)&=\left\{
+		\begin{array}{lr}
+		\frac{P(X_1=x_1,X_2=x_2,\ldots,X_n=x_n , T_n = t)}{P(T_n = t)} &\tab[0.25cm] \text{if }\ \sum\limits_{i=1}^n x_i = t \\
+		0 &\tab[0.25cm] \text{otherwise}
+		\end{array}
+		\right.\\
+		&=\left\{
+		\begin{array}{lr}
+		\frac{P(X_1=x_1,X_2=x_2,\ldots,X_n=x_n)}{P(T_n = t)}
+		 &\tab[0.6cm] \text{if }\ \sum\limits_{i=1}^n x_i = t \\
+		 0 &\tab[0.6cm] \text{otherwise}
+		\end{array}
+		\right.\\
+		&=\left\{
+		\begin{array}{lr}
+		\frac{\prod \limits_{i=1}^n p^{x_i}(1-p)^{1-x_i}}{\binom{n}{t}p^t (1-p)^{n-t}}
+		&\tab[2cm] \text{if }\ \sum\limits_{i=1}^n x_i = t \\
+		0 &\tab[2cm]\text{otherwise}
+		\end{array}
+		\right.\\
+		&=\left\{
+		\begin{array}{lr}
+		\frac{\cancel{p^{\sum\limits_{i=1}^n x_i}}\cancel{(1-p)^{n-\sum\limits_{i=1}^n x_i}}}{\binom{n}{t} \cancel{p^t}\cancel{(1-p)^{n-t}}}
+		&\tab[2cm] \text{if }\ \sum\limits_{i=1}^n x_i = t \\
+		0&\tab[2cm]\text{otherwise}
+		\end{array}
+		\right.\\
+	\text{thus\ }\ \ P\big(X_1=x_1,X_2=x_2,\ldots,X_n=x_n \big| T_n = t\big)&=
+		\left\{
+		\begin{array}{lr}
+		\frac{1}{\binom{n}{t}}
+		&\tab[3cm] \text{if }\ \sum\limits_{i=1}^n x_i = t \\
+		0&\tab[3cm]\text{otherwise}
+		\end{array}
+		\right.\tab (1)
+\end{split}
+\end{equation*}
+and hence $T_n$ is a sufficient statistic for $p\ $.
+\begin{remark}
+To generate a $T_n$-similar sample when $T_n$ is given, say $T_n = t$ , we define:
+$$
+	A_t = \big\{(x_1,x_2,\ldots,x_n)\colon \sum\limits_{i=1}^n x_i = t\big\}
+$$
+\end{remark}
+Note that $card(A_t)=\binom{n}{t}$ . According to $(1)$ we give equal weight , i.e. problem mass, to each element of $A_t$ . We then choose one element of $A_t$ randomly.
+\begin{example}
+$X_i \distas{iid}P(\lambda)\ \ \ ,\ \ \ i=1,2,\ldots,n$
+\end{example}
+$$
+	P_{\lambda}(X=x) = \frac{e^{-\lambda}\lambda^x}{x!}\ \ ,\ \ x=0,1,2,\ldots
+$$
+Consider $T_n = \sum\limits_{i=1}^n x_i$ . Note that $T_n\sim P_0(n\lambda)\ $ (Exercise)
+\begin{equation*}
+\begin{split}
+P_{\lambda} (X_1=x_1,X_2=x_2,\ldots,X_n=x_n \big| T_n=t)
+	&=\left\{ 
+	\begin{array}{lr}
+	\frac{P_{\lambda} (X_1=x_1,X_2=x_2,\ldots,X_n=x_n,T_n=t)}{P(T_n = t)}
+	&\tab \text{if }\sum\limits_{i=1}^n x_i=t\\
+	0 & \tab \text{otherwise}
+	\end{array}
+	\right.
+\end{split}
+\end{equation*}
 
 
 
