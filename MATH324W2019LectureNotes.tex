@@ -1013,7 +1013,7 @@ $$
 $$
 We then find $\boxed{n = \frac{\zeta^2_{\frac{\alpha}{2}}\sigma^2}{\beta^2}}$ where $\sigma^2$ should be estimated from a prior sample.\\
 \subsection{Sample Size Determination For Other Parameters}
-So far we only considered the population mean. Now consider a parameter $\theta$ . In chapter $9$ we learn about different methods of estimation, among them there is a method called the method of maximum likehood (ML). Suppose $\hat{\theta}_n$ is the maximum likehood estimate (MLE) of $\theta$. Then under some reasonable conditions for a considerably large class of parametric distributions, we have:
+So far we only considered the population mean. Now consider a parameter $\theta$ . In chapter $9$ we learn about different methods of estimation, among them there is a method called the method of maximum likelihood (ML). Suppose $\hat{\theta}_n$ is the maximum likelihood estimate (MLE) of $\theta$. Then under some reasonable conditions for a considerably large class of parametric distributions, we have:
 $$
 	\frac{\hat{\theta}_n - \theta}{\sqrt{Var(\hat{\theta}_n)}} \distas{app} N(0,1) \tab ,\ \text{for large n}
 $$
@@ -1466,8 +1466,8 @@ Suppose $P(X_n=C_n)=1\ \ ,\ n=1,2,\ldots$ where $\big\{C_n\big\}_{n=1}^{\infty}$
 \textbf{Question}: Why couldn't we use Kolmogorov's theorem directly to establish consistency of $S^2_{n,*}$ ? In other words, coudln't we define \mbox{$Z_i = (X_i - \bar{X}_n)^2$} and hence \mbox{$S^2_{n,*} = \frac{1}{n}\sum_{i=1}^n (X_i - \bar{X}_n)^2 = \frac{1}{n}\sum_{i=1}^n Z_i$} and then apply Kolgomorov's \mbox{theorem?}\\
 The answer is that $Z_i$s are not independent . Note that \mbox{$\sum_{i=1}^n (X_i-\bar{X}_n)=0$} .
 \subsection{Sufficiency}
-Sufficiency is essentially comparison. Sufficiency is one of the main pillars of the \underline{Likehood Inference} .\\
-As the following diagram shows the likehood inference has three main components: the observable quantities, samples, the unobservable quantities, the unknown parameters to be estimated , and a parametric distribution that links the observables to unobservables .\\
+Sufficiency is essentially comparison. Sufficiency is one of the main pillars of the \underline{likelihood Inference} .\\
+As the following diagram shows the likelihood inference has three main components: the observable quantities, samples, the unobservable quantities, the unknown parameters to be estimated , and a parametric distribution that links the observables to unobservables .\\
 \textbf{Example:\ \ } $f_{\theta}(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\ \ \ \ where \ \ \ \theta = (\mu, \sigma^2)
 $\\
 \#MISSING GRAPH Lecture 8 - Page 57
@@ -1613,17 +1613,95 @@ $$
 Recall that: \\
 \mbox{$
 	(Y_1,Y_2,\ldots,Y_k) \sim \text{Multinomial}(n,p_1,p_2.\ldots,p_k) \text{ \ if \ } P(X_1=x_1,\ldots,X_k=x_k) = \binom{n}{x_1,\ldots,x_k}\prod\limits_{i=1}^n p_i^{x_i}
-$} where \mbox{$\ \sum\limits_{i=1}^n x_i = n \ \ \And\ \ \ \sum\limits_{i=1}^kp_i=1$} and \mbox{$\binom{n}{x_1,x_2,\ldots,x_k} = \frac{n!}{x_1!,x_2!\ldots,x_k!}$}
-
-
-
-
-
-
-
-
-
-
+$} where \mbox{$\ \sum\limits_{i=1}^n x_i = n \ \ \And\ \ \ \sum\limits_{i=1}^kp_i=1$} \ and \ $\binom{n}{x_1,x_2,\ldots,x_k} = \frac{n!}{x_1!,x_2!\ldots,x_k!}$\\
+Again, to generate a $T_n$-similar sample we define:
+$$
+	A_t = \big\{(x_1,x_2,\ldots,x_n)\colon \sum\limits_{i=1}^n x_i=t\big\}
+$$
+The probability mass associated to elements of $A_t$ is given by $(2)$ . In other words, we choose an element of $A_t$ using a multinomial distribution with $n=t\ \ ,\ \ k=n\ \ and\ p_i=\frac{1}{n}\ \ ,\ i=1,2,\ldots,n$ .
+\subsection{Likelihood}
+\begin{definition*}
+	Let $\underset{\sim}{Y} = (Y_1,Y_2,\ldots,Y_n)\ $ be a random vector whose joint pdf or pmf depends on $\underset{\sim}{\theta}\ $ , a vector of unknown parameters. \textbf{The Likelihood Function} . a function of $\underset{\sim}{\theta}$ , for a realization \mbox{$\underset{\sim}{y}=(y_1,y_2,\ldots,y_n)$} is defined to be:
+\end{definition*}
+$$
+	\mathscr{L}(\underset{\sim}{\theta} ; \underset{\sim}{y}) = \left\{
+		\begin{array}{lr}
+		P_{_{\underset{\sim}{\theta}}}(Y_1=y_1,Y_2=y_2,\ldots,Y_n=y_n)
+		&\tab\text{if $y_i$s are discrete random variables}\\
+		f_{_{\underset{\sim}{\theta}}}(y_1,y_2,\ldots,y_n) 
+		&\tab\text{if $y_i$s are continuous random variables}
+		\end{array}
+		\right.
+$$
+\begin{example*}
+	$X_i \distas{iid}Bernoulli(p)\ \ ,\ \ i=1,2,\ldots,n$
+\end{example*}
+$P_p(X=x) = p^x(1-p)^{1-x}\ \ ,\ \ i=0,1$
+\begin{equation*}
+\begin{split}
+	\mathscr{L}(p;x_1,x_2,\ldots,x_n) &= P_p(X_1=x_1,X_2=x_2,\ldots, X_n=x_n)\\
+	\implies\ 
+	&= P_p(X_1=x_1)\ldots P_p(X_n=x_n) \tab \text{Independenc and identically distributed}\\
+	&= \prod\limits_{i=1}^n p^{x_i}(1-p)^{1-x_i} = p^{\sum\limits_{i=1}^nx_i}(1-p)^{n-\sum\limits_{i=1}^nx_i}\tab[2cm](B)
+\end{split}
+\end{equation*}
+\begin{example*}
+$X_i \distas{iid} P_0(\lambda)\ \ ,\ \ i=1,2,\ldots,n$
+\end{example*}
+$P_{\lambda}(X=x)=\frac{e^{-\lambda}\lambda^x}{x!}\ \ ,\ \ x=0,1,2,\ldots$
+\begin{equation*}
+\begin{split}
+\mathscr{L}(\lambda ; x_1,x_2,\ldots,x_n) &= P_{\lambda}(X_1=x_1,\ldots,X_n=x_n)\\
+	&= \prod\limits_{i=1}^n \frac{e^{-\lambda}\lambda^{x_i}}{x_i!}\tab[2cm](P)\tab[2cm]\text{Independence and identically distributed}\\
+	&= \frac{e^{-n\lambda}\lambda^{\sum\limits_{i=1}^nx_i}}{\prod\limits_{i=1}^nx_i!}
+\end{split}
+\end{equation*}
+\begin{example*}
+$X_i \distas{iid} N(\mu,\sigma^2)\ \ , \ \ i=1,2,\ldots,n$
+\end{example*}
+$ f_{\mu,\sigma^2}(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\ \ \ \ -\infty<x<+\infty $
+\begin{equation*}
+\begin{split}
+\mathscr{L}(\mu,\sigma^2; x_1,x_2,\ldots,x_n) &= f_{\mu,\sigma^2}(x_1,x_2,\ldots,x_n)\\
+&=\prod\limits_{i=1}^n f_{\mu,\sigma^2}(x_i) \tab[2cm]\text{Independent and identically distributed}\\
+&= \prod\limits_{i=1}^n \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}\\
+&=(\frac{1}{\sqrt{2\pi}\sigma^2})exp\Big\{-\frac{1}{2\sigma^2}\sum\limits_{i=1}^2(x_i-\mu)^2\Big\}\tab[2cm](N)
+\end{split}
+\end{equation*}
+The examples we presented for sufficiency required first specifying a candidate statistic. The question then is how we come up with a sufficient statistic. The following theorem due to \emph{Fisher $\And$ Neyman} tells us how to find sufficient statistic.
+\begin{theorem*}[Fisher-Neyman Factorization Theorem - Thm 9.4 , page 461]
+A statistic $T=T(Y_1,T_2,\ldots,T_n)$ for $\underset{\sim}{\theta}$ the parameter of the distribution of \mbox{$Y_1,Y_2,\ldots,Y_n$} \underline{if and only if} :
+\mbox{$	\mathscr{L}(\underset{\sim}{\theta};y_1,y_2,\ldots,y_n) = g\ (t ; \theta)\  h\ (y_1,y_2, \ldots,y_n)$}
+For any realization $(y_1,y_2,\ldots,y_n)$ , where $t=T\ (y_1,y_2,\ldots,y_n)$ .
+\end{theorem*}
+\begin{example*}
+$X_i\distas{iid}Bernoulli(p) \ \ ,\ \ i=1,2,\ldots,n$
+\end{example*}
+Using $(B)$ (the result above):
+$$
+	\mathscr{L}(p;x_1,x_2,\ldots,x_n) = p^{\sum\limits_{i=1}^nx_i}(1-p)^{n-\sum\limits_{i=1}^nx_i}
+$$
+Then define $T=\sum\limits_{i=1}^nx_i\ $\ , \ \mbox{$\ g(t;p) = p^{\sum\limits_{i=1}^nx_i}(1-p)^{n-\sum\limits_{i=1}^nx_i} = p^t(1-p)^{n-t} $} \ and \mbox{$\ h(x_1,x_2,\ldots,x_n) \equiv  1 \ $.} Using Fisher-Neyman theorem $T=\sum\limits_{i=1}^nX_i$ is a sufficient statistic for $p$ .
+\begin{example*}
+	$X_i \distas{iid} P_0(\lambda)\ \ ,\ \ i=1,2,\ldots,n$
+\end{example*} 
+Using $(P)$ (the result above):
+$
+	\mathscr{L}(\lambda;x_1,\ldots,x_n) = \frac{e^{-n\lambda}\lambda^{\sum\limits_{i=1}^n x_i}}{\prod\limits_{i=1}^n x_i!}
+$ \ .\tab[0.5cm] Define\ $\ T=\sum\limits_{i=1}^n X_i$\ and \ \mbox{$g(t;\lambda) = e^{-n\lambda}\lambda^t = e^{-n\lambda}\lambda^{\sum\limits_{i=1}^nx_i}$} and $\ h(x_1,\ldots,x_n) = \frac{1}{\prod\limits_{i=1}^n x_i!}\ $ . Then using Fisher-Neyman Theorem, $T=\sum\limits{i=1}^n X_i\ $ is a sufficient statistic for $\lambda$ .
+\begin{example*}
+$X_i\distas{iid}N(\mu,\sigma^2)\ \ ,\ \ i=1,2,\ldots,n$ .
+\end{example*}
+Note that now we have \underline{two unknown parameters}, $\mu$ and $\sigma^2$ . Using $(N)$ :
+\mbox{$
+\mathscr{L}(\mu,\sigma^2 ; x_1,x_2,\ldots,x_n) = (\frac{1}{\sqrt{2\pi}\sigma})^n exp\Big\{-\frac{1}{2\sigma^2}\sum\limits_{i=1}^n(x_i-\mu)^2\Big\}
+$}\\
+Now note that: \ $\ \sum\limits_{i=1}^n (x_i-\mu)^2 = \sum\limits_{i=1}^n x_i^2 -2\mu\sum\limits_{i=1}^nx_i+n\mu^2$\\
+Thus: \ $\ \mathscr{L}(\mu,\sigma^2;x_1,x_2,\ldots,x_n) = (\frac{1}{\sqrt{2\pi}\sigma})^n exp\Big\{-\frac{\sum\limits_{i=1}^nx_i^2}{2\sigma^2}+\frac{\mu\sum\limits_{i=1}^nx_i}{\sigma^2}-\frac{n\mu^2}{2\sigma^2}\Big\}$\\
+Define: \ $\ T=(\sum\limits_{i=1}^nX_i , \sum\limits_{i=1}^n X_i^2)\ $ \ \ , \ \  \mbox{$g(\underset{\sim}{t} ; \underset{\sim}{\theta}) =  (\frac{1}{\sqrt{2\pi}\sigma})^n exp\Big\{-\frac{\sum\limits_{i=1}^nx_i^2}{2\sigma^2}+\frac{\mu\sum\limits_{i=1}^nx_i}{\sigma^2}-\frac{n\mu^2}{2\sigma^2}\Big\}$}  \ \ where $\underset{\sim}{\theta}=(\mu,\sigma^2)\ $\ and \ $\ h(x_1,x_2,\ldots,x_n)\equiv 1\ $. Then using Fisher-Neyman Theorem $\ T=(\sum\limits_{i=1}^nX_i , \sum\limits_{i=1}^n X_i^2)\ $ is a sufficient statistic for $\underset{\sim}{\theta} = (\mu,\sigma^2)$.
+\begin{remark*}
+Note that do identify the sufficient statistic using Fisher-Neyman Theorem,  you only need the part of the likelihood in which you cannot separate the unknown parameters from observations. This part is called \emph{\textbf{kernel}} . In other words, you can write a likelihood as the product of a function of observations alone, a function of parameters alone and the kernel. \emph{The sufficient statistic is in the kernel}.
+\end{remark*}
 
 
 
