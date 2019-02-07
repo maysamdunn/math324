@@ -1582,11 +1582,38 @@ P_{\lambda} (X_1=x_1,X_2=x_2,\ldots,X_n=x_n \big| T_n=t)
 	&\tab \text{if }\sum\limits_{i=1}^n x_i=t\\
 	0 & \tab \text{otherwise}
 	\end{array}
-	\right.
+	\right.\\
+	&=\left\{
+	\begin{array}{lr}
+	\frac{\frac{\prod\limits_{i=1}^n e^{-\lambda}\lambda^{x_i}}{x_i!}}{\frac{e^{-n\lambda}(n\lambda)^t}{t!}}
+	&\tab[3cm] \text{if }\ \sum\limits_{i=1}^n x_i = t \\
+	0 & \tab \text{otherwise}
+	\end{array}
+	\right.\\
+	&=\left\{
+	\begin{array}{lr}
+	\frac{\frac{\cancel{e^{-n\lambda}}\cancel{\lambda^{\sum\limits_{i=1}^n x_i}}}{\prod\limits_{i=1}^n x_i !}}{\frac{\cancel{e^{n\lambda}\cancel{(n\lambda)^t}}}{t!}}
+	&\tab[3cm] \text{if }\ \sum\limits_{i=1}^n x_i = t \\
+	0&\tab[3cm]\text{otherwise}
+	\end{array}
+	\right.\\
+	&=\left\{
+	\begin{array}{lr}
+	\frac{t!}{\prod\limits_{i=1}^n x_i!}\cdot\frac{1}{n^t}
+	&\tab[3cm] \text{if }\ \sum\limits_{i=1}^n x_i = t \\
+	0&\tab[3cm]\text{otherwise}
+	\end{array}
+	\right.\tab (2)
 \end{split}
 \end{equation*}
-
-
+Thus:
+$$
+	\boxed{\underset{\sim}{X}\ |_{{_{T_n=t}}}\ \sim\ \text{Multinomial}(t,p_i=\frac{1}{n}, \ i=1,2,\ldots,n)}
+$$
+Recall that: \\
+\mbox{$
+	(Y_1,Y_2,\ldots,Y_k) \sim \text{Multinomial}(n,p_1,p_2.\ldots,p_k) \text{ \ if \ } P(X_1=x_1,\ldots,X_k=x_k) = \binom{n}{x_1,\ldots,x_k}\prod\limits_{i=1}^n p_i^{x_i}
+$} where \mbox{$\ \sum\limits_{i=1}^n x_i = n \ \ \And\ \ \ \sum\limits_{i=1}^kp_i=1$} and \mbox{$\binom{n}{x_1,x_2,\ldots,x_k} = \frac{n!}{x_1!,x_2!\ldots,x_k!}$}
 
 
 
