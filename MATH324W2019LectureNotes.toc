@@ -1,39 +1,41 @@
 \contentsline {section}{\numberline {1}Lecture 1}{4}% 
-\contentsline {section}{\numberline {2}Lecture 2}{5}% 
-\contentsline {subsection}{\numberline {2.1}Markov's Inequality}{5}% 
-\contentsline {subsection}{\numberline {2.2}Tchebyshev's Inequality}{5}% 
-\contentsline {subsection}{\numberline {2.3}Application to Voting}{8}% 
-\contentsline {section}{\numberline {3}Lecture 3}{10}% 
-\contentsline {subsection}{\numberline {3.1}MSE}{10}% 
-\contentsline {subsection}{\numberline {3.2}Unbiased Estimators}{11}% 
-\contentsline {subsection}{\numberline {3.3}Stein's Paradox}{12}% 
-\contentsline {subsection}{\numberline {3.4}Admissibility}{13}% 
-\contentsline {section}{\numberline {4}Lecture 4}{14}% 
-\contentsline {subsection}{\numberline {4.1}Estimating Variance}{16}% 
-\contentsline {section}{\numberline {5}Lecture 5 : Confidence Intervals}{20}% 
-\contentsline {subsection}{\numberline {5.1}Confidence Intervals}{20}% 
-\contentsline {subsection}{\numberline {5.2}Large Sample Confidence Interval}{25}% 
-\contentsline {subsection}{\numberline {5.3}Small Sample Confidence Intervals}{28}% 
-\contentsline {subsection}{\numberline {5.4}Pivotal Quantity and Probability Integral Transform}{32}% 
-\contentsline {section}{\numberline {6}Lecture 6}{34}% 
-\contentsline {subsection}{\numberline {6.1}Small Sample Confidence Interval(general case):}{34}% 
-\contentsline {subsection}{\numberline {6.2}Probability Integral Transform(PIT)}{34}% 
-\contentsline {subsection}{\numberline {6.3}Pivotal Quantity}{36}% 
-\contentsline {subsection}{\numberline {6.4}Small Size Determination}{38}% 
-\contentsline {subsection}{\numberline {6.5}Sample Size Determination For Other Parameters}{39}% 
-\contentsline {subsubsection}{\numberline {6.5.1}Sample Size Determination (Small Sample)}{40}% 
-\contentsline {subsubsection}{\numberline {6.5.2}Sample Size Determination(Two Sample Case)}{41}% 
-\contentsline {section}{\numberline {7}Lecture 7}{43}% 
-\contentsline {subsection}{\numberline {7.1}Chapter 9 - Relative Efficiency}{43}% 
-\contentsline {subsection}{\numberline {7.2}Consistency}{46}% 
-\contentsline {section}{\numberline {8}Lecture 8}{49}% 
-\contentsline {subsection}{\numberline {8.1}Consistency}{49}% 
-\contentsline {subsection}{\numberline {8.2}Markov's Inequality}{49}% 
-\contentsline {subsection}{\numberline {8.3}Kolmogorov's Law of Large Numbers(LLN)}{52}% 
-\contentsline {subsection}{\numberline {8.4}Sufficiency}{55}% 
-\contentsline {section}{\numberline {9}Lecture 9}{57}% 
-\contentsline {subsection}{\numberline {9.1}Sufficiency}{57}% 
-\contentsline {subsection}{\numberline {9.2}Likelihood}{61}% 
-\contentsline {section}{\numberline {10}Lecture 10}{64}% 
-\contentsline {section}{\numberline {11}Lecture 11}{64}% 
-\contentsline {section}{\numberline {12}Lecture 12}{64}% 
+\contentsline {subsubsection}{\numberline {1.0.1}Pivotal Quantities}{4}% 
+\contentsline {subsection}{\numberline {1.1}Overview}{5}% 
+\contentsline {section}{\numberline {2}Lecture 2}{7}% 
+\contentsline {subsection}{\numberline {2.1}Markov's Inequality}{7}% 
+\contentsline {subsection}{\numberline {2.2}Tchebyshev's Inequality}{7}% 
+\contentsline {subsection}{\numberline {2.3}Application to Voting}{10}% 
+\contentsline {section}{\numberline {3}Lecture 3}{12}% 
+\contentsline {subsection}{\numberline {3.1}MSE}{12}% 
+\contentsline {subsection}{\numberline {3.2}Unbiased Estimators}{13}% 
+\contentsline {subsection}{\numberline {3.3}Stein's Paradox}{14}% 
+\contentsline {subsection}{\numberline {3.4}Admissibility}{15}% 
+\contentsline {section}{\numberline {4}Lecture 4}{16}% 
+\contentsline {subsection}{\numberline {4.1}Estimating Variance}{18}% 
+\contentsline {section}{\numberline {5}Lecture 5 : Confidence Intervals}{22}% 
+\contentsline {subsection}{\numberline {5.1}Confidence Intervals}{22}% 
+\contentsline {subsection}{\numberline {5.2}Large Sample Confidence Interval}{27}% 
+\contentsline {subsection}{\numberline {5.3}Small Sample Confidence Intervals}{30}% 
+\contentsline {subsection}{\numberline {5.4}Pivotal Quantity and Probability Integral Transform}{34}% 
+\contentsline {section}{\numberline {6}Lecture 6}{36}% 
+\contentsline {subsection}{\numberline {6.1}Small Sample Confidence Interval(general case):}{36}% 
+\contentsline {subsection}{\numberline {6.2}Probability Integral Transform(PIT)}{36}% 
+\contentsline {subsection}{\numberline {6.3}Pivotal Quantity}{38}% 
+\contentsline {subsection}{\numberline {6.4}Small Size Determination}{40}% 
+\contentsline {subsection}{\numberline {6.5}Sample Size Determination For Other Parameters}{41}% 
+\contentsline {subsubsection}{\numberline {6.5.1}Sample Size Determination (Small Sample)}{42}% 
+\contentsline {subsubsection}{\numberline {6.5.2}Sample Size Determination(Two Sample Case)}{43}% 
+\contentsline {section}{\numberline {7}Lecture 7}{45}% 
+\contentsline {subsection}{\numberline {7.1}Chapter 9 - Relative Efficiency}{45}% 
+\contentsline {subsection}{\numberline {7.2}Consistency}{48}% 
+\contentsline {section}{\numberline {8}Lecture 8}{51}% 
+\contentsline {subsection}{\numberline {8.1}Consistency}{51}% 
+\contentsline {subsection}{\numberline {8.2}Markov's Inequality}{51}% 
+\contentsline {subsection}{\numberline {8.3}Kolmogorov's Law of Large Numbers(LLN)}{54}% 
+\contentsline {subsection}{\numberline {8.4}Sufficiency}{57}% 
+\contentsline {section}{\numberline {9}Lecture 9}{59}% 
+\contentsline {subsection}{\numberline {9.1}Sufficiency}{59}% 
+\contentsline {subsection}{\numberline {9.2}Likelihood}{63}% 
+\contentsline {section}{\numberline {10}Lecture 10}{66}% 
+\contentsline {section}{\numberline {11}Lecture 11}{66}% 
+\contentsline {section}{\numberline {12}Lecture 12}{66}% 

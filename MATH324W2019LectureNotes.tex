@@ -74,6 +74,127 @@
 \tableofcontents
 \newpage
 \section{Lecture 1}
+\textbf{Overview of statistics}
+\subsection*{Point estimation: } Statistic and estimator + examples
+\subsection*{Bias and Mean Square Error}
+	Unbiasedness , Bias , $MSE(\hat{\theta})$ , Decomposition of MSE ($\#\ 8.8\ (\hat{\theta}_1,\hat{\theta}_5) \ , \ page\ 3294\ ,\ \#\ 8.6\ ,\ ,\ page\ 394$)
+\subsection*{Common Unbiased Estimators}
+$\mu ,\ p\ , \ \mu_1-\mu_2\ , \ p_1-p_2\ ,\ \And \sigma^2\ (S^{2}_{n-1}\to S^2\ \text{\ in the textbook})$
+\subsection*{Confidence Interval}
+\subsubsection{Pivotal Quantities}
+$$
+	\text{\#MISSING Graph - lecture 1 - p0}
+$$
+\textbf{Pivotal: } 
+\begin{equation*}
+\begin{split}
+\ X_i\sim F_{\theta}(x) &\implies Y_i = F^{-1}_{\theta}(X_i)\ \sim\ Unif(0,1) \ \implies\ -\log{Y_i}\ \sim\ Exp(1)\\
+	&\implies \sum\limits_{i=1}^n -\log{F_{\theta}^{-1}(X_i)} = \sum\limits_{i=1}^n Y_i \sim G(n,1)\\
+	&\tab Example:\ \ X_i\sim Exp(\lambda)
+\end{split}
+\end{equation*}
+\subsection*{Large n: } $\tab\frac{\hat{\theta}_n - \theta}{\sigma_{_{\hat{\theta}}}} \ \sim \ N(0,1)\ \ \ for\ large\ n$
+\tab Example : $X_i \ \sim \ N(\mu,1)$
+\subsection*{Sample Size Determination: }\ Use the notes for 203.
+\subsection{Overview} \#MISSING GRAPH LECTURE 1 PAGE 1
+
+\begin{enumerate}[*]
+\item In MATH324 we cover statistical Inference (Theory of Point Estimator (TPE) , Testting Statistical Hypothesis (TSH) , Confidence Interval (C.I) and Data Generating Process (DGP).
+\item \textbf{Parametric Models:\ } Model is known up to finitely many unknown parameters.\\
+E.g. $X_i\ \ \underset{i=1,2,\ldots,n}{\distas{iid}}\ \ \ N(\mu,\sigma^2)\ $ where $\ \mu$ and $\sigma^2$ are unknown.\\
+\textbf{Note:}\tab[0.2cm]"$iid$"\ means \textbf{I}ndependent \textbf{i}dentically \textbf{d}istributed\\
+\tab "$\sim$"\ means \textbf{Distributed according to}
+\item \textbf{Nonparametric Models:\ }$\ X_i\distas{iid} F_{_X}(x)\ $ where the cdf $F$ is completely unknown, but we may assume that $F$ is smooth, for instance continuous or differentiable.\\
+In the non-parametric setting $F_{_X}(x)$ should be estimated for every $x$. Thus for a random variable $X$ that can assume infinitely many values, we need to estimate $F(x)$
+ at infinitely many values of $x$. This is, particularly , the case when $X$ is a continuous random variable. Recall that \mbox{$F_{_X}(x) = P(X\leq x)$}. Then the sample counterpart of $F_{_X}(x)$ is $\frac{\# X_i\leq x}{n}$ for a sample $X_1,\ldots,X_n$ . Define:
+ $$
+ 	\mathcal{E}(t) =\left\{
+ 	\begin{array}{lr}
+ 	1 &\tab\text{if } t\geq 0\\
+ 	0 &\tab\text{otherwise}
+	\end{array}\right.
+ $$
+ Then\ \ $\ \frac{\# X_i \leq x}{n} = \frac{1}{n}\sum\limits{i=1}^n \mathcal{E}(x-X_i)\ $ \ and  
+ $\ \hat{F}_n(x)=\frac{1}{n}\sum\limits_{i=1}^n(x-X_i)\ $\ is the \underline{E}mpricial \underline{C}umulative \underline{D}istribution \underline{F}unction\ (ECDF) .
+
+	\item \textbf{Point Estimator:\ } Suppose $\ X_1,\ldots,X_n \distas{iid} N(\mu, 1)\ $ where:
+$$
+	N(\mu,1): f_{_X}(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2}}\ \ , \ \ x\in\mathbb{R} \ , \ \mu\in\mathbb{R}
+$$
+We want to have an estimate of $\mu$ ; i.e. a scientific guess, based on the observations , $X_1,\ldots,X_n$ . Recall that $\ \mathbb{E}(X_i) = \mu \ \ , \ \mu=1,2,\ldots,n \ , \text{$\mu$ is the population mean.}$\\
+\textbf{What is an "estimate"?}\\
+\textbf{Statistic:\ } A function of observations that does not depend on any unknown parameter.\\
+\textbf{Estimator:\ } An estimator is a statistic that aims at estimating a function of the population unknown parameters.
+\begin{example*}
+$\ X_i\distas{iid}N(\mu,1)$
+\end{example*}
+$\bar{X}_n = \frac{1}{n}\sum\limits_{i=1}^n X_i\ $ is a \underline{statistic} and as an \underline{estimator} of $\mu$\\
+$(\bar{X}_n - \mu)$ is \underline{NOT} a \underline{statistic} since it depends on $\mu$ , which is an unknown parameter.\\
+$S^2=\frac{1}{n-1}\sum\limits_{i=1}^n (X_i - \bar{X}_n)^2\ $ is a \underline{statistic} , but not an estimator of $\mu$ . Note that \mbox{$dim(S^2) = (dim\ \mu)^2$} . For instance, if $X_i$s are \#MISSING-lec1-p3 of a fund and measured in dollars $(\$)$ , then $dim$ of $\mu$ is $\$$ while the $dim$ of $S^2$ is $\$^2$ . Besides, $\mu$ can be negative while $S^2$ is \emph{\underline{always positive}}.
+
+\item \textbf{Estimation Error:\ } Going back to the example above \mbox{$(X_i\distas{iid}N(\mu,1) \ , \ i=1,2,\ldots,n)$} and choosing $\bar{X}_n$ as the estimator of $\mu$ . We often want to study \mbox{$\mathcal{E} = \vert \bar{X}_n - \mu\vert$} or a function of $\mathcal{E}$. Starting with $\mathcal{E}$ itself, the first thing that comes to mind is \mbox{$P(\mathcal{E}\geq \delta)$}\ for a prespecified $\delta$ or perhaps $\mathbb{E}(\mathcal{E})$ . A well known tool for studying the latter is \emph{Tchbyshev's Inequality} .
+ \end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
 %Lecture 3
