@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  9 FEB 2019 15:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  9 FEB 2019 16:14
 entering extended mode
 **./MATH324W2019LectureNotes.tex
 (MATH324W2019LectureNotes.tex
@@ -1110,15 +1110,11 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 (MATH324W2019LectureNotes.toc [1
 
-{C:/Users/Sam/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \vbox (badness 2302) has occurred while \output is active []
-
- [2])
+{C:/Users/Sam/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2])
 \tf@toc=\write5
 \openout5 = `MATH324W2019LectureNotes.toc'.
 
-
-[3]
+ [3]
 Overfull \hbox (67.06958pt too wide) in paragraph at lines 80--81
 \OT1/pxr/m/n/10 Unbiasedness , Bias , $\OML/pxmi/m/it/10 MSE\OT1/pxr/m/n/10 ([]
 )$ , De-com-po-si-tion of MSE ($# 8\OML/pxmi/m/it/10 :\OT1/pxr/m/n/10 8 ([]\OML
@@ -1127,31 +1123,24 @@ Overfull \hbox (67.06958pt too wide) in paragraph at lines 80--81
 6 \OML/pxmi/m/it/10 ;  ;  page \OT1/pxr/m/n/10 394$) 
  []
 
-
-LaTeX Warning: The counter will not be printed.
-             The label is: * on input line 101.
-
 [4]
-Overfull \hbox (18.82872pt too wide) in paragraph at lines 123--128
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
+Overfull \hbox (9.93883pt too wide) in paragraph at lines 122--127
 \OT1/pxr/m/n/10 tions , $\OML/pxmi/m/it/10 X[]; [] ; X[]$ \OT1/pxr/m/n/10 . Re-
 call that $ \U/pxsyb/m/n/10 E\OT1/pxr/m/n/10 (\OML/pxmi/m/it/10 X[]\OT1/pxr/m/n
 /10 ) = \OML/pxmi/m/it/10   ;   \OT1/pxr/m/n/10 = 1\OML/pxmi/m/it/10 ; \OT1/p
 xr/m/n/10 2\OML/pxmi/m/it/10 ; [] ; n ; []$ 
  []
 
-[5]
-Overfull \hbox (11.46704pt too wide) in paragraph at lines 135--136
-[]\OT1/pxr/bx/n/10 Estimation Er-ror:  \OT1/pxr/m/n/10 Go-ing back to the ex-am
--ple above []
- []
-
 [6]
-Overfull \hbox (28.41713pt too wide) detected at line 222
+Overfull \hbox (28.41713pt too wide) detected at line 220
  $[][]$ 
  []
 
 
-Overfull \hbox (28.5824pt too wide) in paragraph at lines 228--229
+Overfull \hbox (28.5824pt too wide) in paragraph at lines 226--227
 \OT1/pxr/m/it/10 Tchebyshev's In-equal-ity \OT1/pxr/m/n/10 is a spe-cial case o
 f Markov's In-equal-ity. [],
  []
@@ -1160,12 +1149,12 @@ f Markov's In-equal-ity. [],
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7]
-Underfull \hbox (badness 10000) in paragraph at lines 246--247
+Underfull \hbox (badness 10000) in paragraph at lines 244--245
 
  []
 
 
-Overfull \hbox (78.17296pt too wide) detected at line 261
+Overfull \hbox (78.17296pt too wide) detected at line 259
  $[][]$ 
  []
 
@@ -1173,7 +1162,7 @@ Overfull \hbox (78.17296pt too wide) detected at line 261
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
-Overfull \hbox (70.27792pt too wide) detected at line 273
+Overfull \hbox (70.27792pt too wide) detected at line 271
  $[][]$ 
  []
 
@@ -1181,7 +1170,7 @@ Overfull \hbox (70.27792pt too wide) detected at line 273
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9]
-Underfull \hbox (badness 10000) in paragraph at lines 294--299
+Underfull \hbox (badness 10000) in paragraph at lines 292--297
 
  []
 
@@ -1190,12 +1179,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10]
 [11]
-Overfull \hbox (19.28937pt too wide) detected at line 359
+Overfull \hbox (19.28937pt too wide) detected at line 357
  $[][]$ 
  []
 
 [12]
-Overfull \hbox (60.90976pt too wide) detected at line 381
+Overfull \hbox (60.90976pt too wide) detected at line 379
  $[][]$ 
  []
 
@@ -1203,14 +1192,14 @@ Overfull \hbox (60.90976pt too wide) detected at line 381
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13]
-Overfull \hbox (14.11792pt too wide) in paragraph at lines 385--387
+Overfull \hbox (14.11792pt too wide) in paragraph at lines 383--385
 \OT1/pxr/m/n/10 Suppose fur-ther that $\OML/pxmi/m/it/10 X[]; [] ; X[]$ \OT1/px
 r/m/n/10 have the same vari-ance $\OML/pxmi/m/it/10 []$ \OT1/pxr/m/n/10 and []
 .
  []
 
 
-Overfull \hbox (88.02701pt too wide) detected at line 395
+Overfull \hbox (88.02701pt too wide) detected at line 393
  $[][]$ 
  []
 
@@ -1219,14 +1208,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14]
 [15]
-Overfull \hbox (37.56279pt too wide) in paragraph at lines 424--425
+Overfull \hbox (37.56279pt too wide) in paragraph at lines 422--423
 \OT1/pxr/m/n/10 have the same mean $\OML/pxmi/m/it/10 $ \OT1/pxr/m/n/10 and va
 ri-ance $\OML/pxmi/m/it/10 []$ \OT1/pxr/m/n/10 and they are or-thog-o-nal; i.e
 . [].
  []
 
 
-Overfull \hbox (101.89505pt too wide) detected at line 448
+Overfull \hbox (101.89505pt too wide) detected at line 446
  $[][]$ 
  []
 
@@ -1234,17 +1223,17 @@ Overfull \hbox (101.89505pt too wide) detected at line 448
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16]
-Underfull \hbox (badness 10000) in paragraph at lines 452--466
+Underfull \hbox (badness 10000) in paragraph at lines 450--464
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--466
+Underfull \hbox (badness 10000) in paragraph at lines 450--464
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--466
+Underfull \hbox (badness 10000) in paragraph at lines 450--464
 
  []
 
@@ -1253,7 +1242,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
 [18]
-Overfull \hbox (1.93503pt too wide) detected at line 515
+Overfull \hbox (1.93503pt too wide) detected at line 513
  $[][]$ 
  []
 
@@ -1261,12 +1250,12 @@ Overfull \hbox (1.93503pt too wide) detected at line 515
 Underfull \vbox (badness 5578) has occurred while \output is active []
 
  [19]
-Underfull \hbox (badness 10000) in paragraph at lines 536--540
+Underfull \hbox (badness 10000) in paragraph at lines 534--538
 
  []
 
 
-Overfull \hbox (29.23148pt too wide) in paragraph at lines 536--540
+Overfull \hbox (29.23148pt too wide) in paragraph at lines 534--538
 \OML/pxmi/m/it/10 n \OMS/pxsy/m/n/10   \OT1/pxr/m/n/10 1 = \OML/pxmi/m/it/10 di
 m\OT1/pxr/m/n/10 (\OML/pxmi/m/it/10 span V\OT1/pxr/m/n/10 )$.  Note how-ever $|
  \OML/pxmi/m/it/10 dim\OT1/pxr/m/n/10 (\OML/pxmi/m/it/10 span W\OT1/pxr/m/n/10 
@@ -1274,7 +1263,7 @@ m\OT1/pxr/m/n/10 (\OML/pxmi/m/it/10 span V\OT1/pxr/m/n/10 )$.  Note how-ever $|
  []
 
 
-Overfull \hbox (5.81596pt too wide) in paragraph at lines 536--540
+Overfull \hbox (5.81596pt too wide) in paragraph at lines 534--538
 \OT1/pxr/m/n/10 We dis-cuss these is-sues fur-ther in Chap-ter $11$ where we le
 arn about the []. 
  []
@@ -1289,7 +1278,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [25]
-Underfull \hbox (badness 10000) in paragraph at lines 673--676
+Underfull \hbox (badness 10000) in paragraph at lines 671--674
 
  []
 
@@ -1297,22 +1286,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 673--676
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [26]
-Underfull \hbox (badness 10000) in paragraph at lines 702--703
+Underfull \hbox (badness 10000) in paragraph at lines 700--701
 
  []
 
 
-Overfull \hbox (37.63184pt too wide) in paragraph at lines 720--721
+Overfull \hbox (37.63184pt too wide) in paragraph at lines 718--719
 [][] 
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 757--758
+Underfull \hbox (badness 10000) in paragraph at lines 755--756
 
  []
 
 
-Overfull \hbox (7.69304pt too wide) in paragraph at lines 782--786
+Overfull \hbox (7.69304pt too wide) in paragraph at lines 780--784
 [][] \OT1/pxr/m/n/10 To be more
  []
 
@@ -1323,12 +1312,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 4084) has occurred while \output is active []
 
  [29]
-Underfull \hbox (badness 10000) in paragraph at lines 834--839
+Underfull \hbox (badness 10000) in paragraph at lines 832--837
 
  []
 
 [30]
-Overfull \hbox (59.93498pt too wide) detected at line 861
+Overfull \hbox (59.93498pt too wide) detected at line 859
   $[][]$ 
  []
 
@@ -1336,7 +1325,7 @@ Overfull \hbox (59.93498pt too wide) detected at line 861
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [31]
-Overfull \hbox (27.5106pt too wide) detected at line 879
+Overfull \hbox (27.5106pt too wide) detected at line 877
   $[][]$ 
  []
 
@@ -1344,12 +1333,12 @@ Overfull \hbox (27.5106pt too wide) detected at line 879
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [32]
-Underfull \hbox (badness 10000) in paragraph at lines 892--894
+Underfull \hbox (badness 10000) in paragraph at lines 890--892
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 895--902
+Underfull \hbox (badness 10000) in paragraph at lines 893--900
 
  []
 
@@ -1358,7 +1347,7 @@ Underfull \vbox (badness 1661) has occurred while \output is active []
 
  [33]
 [34]
-Overfull \hbox (16.12659pt too wide) in paragraph at lines 960--962
+Overfull \hbox (16.12659pt too wide) in paragraph at lines 958--960
 \OT1/pxr/m/n/10 provides that a $95%$ $\OML/pxmi/m/it/10 C:I$ \OT1/pxr/m/n/10 f
 or $\OML/pxmi/m/it/10 $ \OT1/pxr/m/n/10 . Note that $\OMS/pxsy/m/n/10 X[]$ \OT
 1/pxr/m/n/10 is such that [] 
@@ -1368,22 +1357,22 @@ or $\OML/pxmi/m/it/10 $ \OT1/pxr/m/n/10 . Note that $\OMS/pxsy/m/n/10 X[]$ \OT
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1018--1020
+Underfull \hbox (badness 10000) in paragraph at lines 1016--1018
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1026--1027
+Underfull \hbox (badness 10000) in paragraph at lines 1024--1025
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1032--1035
+Underfull \hbox (badness 10000) in paragraph at lines 1030--1033
 
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1050--1055
+Underfull \hbox (badness 10000) in paragraph at lines 1048--1053
 
  []
 
@@ -1391,7 +1380,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1050--1055
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [38]
-Overfull \hbox (95.70276pt too wide) detected at line 1095
+Overfull \hbox (95.70276pt too wide) detected at line 1093
  $[][]$ 
  []
 
@@ -1402,7 +1391,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [40]
-Underfull \hbox (badness 10000) in paragraph at lines 1134--1136
+Underfull \hbox (badness 10000) in paragraph at lines 1132--1134
 
  []
 
@@ -1410,17 +1399,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 1134--1136
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [41]
-LaTeX Font Info:    Try loading font information for OMS+pxr on input line 1162
+LaTeX Font Info:    Try loading font information for OMS+pxr on input line 1160
 .
 
 (C:\Users\Sam\AppData\Roaming\MiKTeX\2.9\tex/latex/pxfonts\omspxr.fd
 File: omspxr.fd 2000/12/14 v1.0
 )
 LaTeX Font Info:    Font shape `OMS/pxr/m/n' in size <10> not available
-(Font)              Font shape `OMS/pxsy/m/n' tried instead on input line 1162.
+(Font)              Font shape `OMS/pxsy/m/n' tried instead on input line 1160.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1162--1164
+Underfull \hbox (badness 10000) in paragraph at lines 1160--1162
 
  []
 
@@ -1432,7 +1421,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [43]
 [44]
-Overfull \hbox (98.4815pt too wide) detected at line 1249
+Overfull \hbox (98.4815pt too wide) detected at line 1247
 \OML/pxmi/m/it/10 M[] \OT1/pxr/m/n/10 = []|  []\OML/pxmi/m/it/10 X[] < X[] < []
  < X[] []
  []
@@ -1448,12 +1437,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 3525) has occurred while \output is active []
 
  [48]
-Overfull \hbox (82.78932pt too wide) detected at line 1365
+Overfull \hbox (82.78932pt too wide) detected at line 1363
  $[][]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1373--1376
+Underfull \hbox (badness 10000) in paragraph at lines 1371--1374
 
  []
 
@@ -1462,12 +1451,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [49]
 [50]
-Underfull \hbox (badness 10000) in paragraph at lines 1400--1403
+Underfull \hbox (badness 10000) in paragraph at lines 1398--1401
 
  []
 
 [51]
-Overfull \hbox (4.75098pt too wide) detected at line 1435
+Overfull \hbox (4.75098pt too wide) detected at line 1433
 \OML/pxmi/m/it/10 P[]\OMS/pxsy/m/n/10 j[]   \OML/pxmi/m/it/10 \OMS/pxsy/m/n/10
  j \OML/pxmi/m/it/10 > [] \OMS/pxsy/m/n/10  [] ! \OT1/pxr/m/n/10 0| \OML/pxmi
 /m/it/10 as n \OMS/pxsy/m/n/10 ! 1  8\OML/pxmi/m/it/10  > \OT1/pxr/m/n/10 0   
@@ -1476,7 +1465,7 @@ Overfull \hbox (4.75098pt too wide) detected at line 1435
  []
 
 [52]
-Overfull \hbox (24.65457pt too wide) in paragraph at lines 1477--1478
+Overfull \hbox (24.65457pt too wide) in paragraph at lines 1475--1476
 []\OT1/pxr/bx/n/10 Corollary 8.2. []\OT1/pxr/m/it/10 Sup-pose $[]$ is an asymp-
 tot-i-cally un-bi-ased es-ti-ma-tor of $\OML/pxmi/m/it/10 $ \OT1/pxr/m/it/10 ,
  i.e. [].
@@ -1487,14 +1476,14 @@ Underfull \vbox (badness 4531) has occurred while \output is active []
 
  [53]
 [54]
-Overfull \hbox (34.48573pt too wide) in paragraph at lines 1521--1523
+Overfull \hbox (34.48573pt too wide) in paragraph at lines 1519--1521
 []\OT1/pxr/bx/n/10 Theorem 8.1 \OT1/pxr/m/n/10 (The-o-rem 9.2, page 451)\OT1/px
 r/bx/n/10 . []\OT1/pxr/m/it/10 Sup-pose $[] \OT1/pxr/m/n/10 = [](\OML/pxmi/m/it
 /10 X[]; [] ; X[]\OT1/pxr/m/n/10 )$ \OT1/pxr/m/it/10 and []
  []
 
 
-Overfull \hbox (15.70222pt too wide) in paragraph at lines 1530--1532
+Overfull \hbox (15.70222pt too wide) in paragraph at lines 1528--1530
 \OT1/pxr/m/n/10 Now to es-tab-lish con-sis-tency of $\OML/pxmi/m/it/10 S[]$ \OT
 1/pxr/m/n/10 , we fist es-tab-lish [] 
  []
@@ -1503,7 +1492,7 @@ Overfull \hbox (15.70222pt too wide) in paragraph at lines 1530--1532
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [55]
-Underfull \hbox (badness 10000) in paragraph at lines 1563--1566
+Underfull \hbox (badness 10000) in paragraph at lines 1561--1564
 
  []
 
@@ -1511,25 +1500,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 1563--1566
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [56]
-Overfull \hbox (2.7328pt too wide) in paragraph at lines 1587--1589
+Overfull \hbox (2.7328pt too wide) in paragraph at lines 1585--1587
 \OT1/pxr/m/n/10 hence [] and then ap-ply Kol-go-morov's [] 
  []
 
 [57] [58]
-Overfull \hbox (40.86172pt too wide) in paragraph at lines 1621--1625
+Overfull \hbox (40.86172pt too wide) in paragraph at lines 1619--1623
 \OT1/pxr/m/n/10 any pos-si-ble in-for-ma-tion in the data about $\OML/pxmi/m/it
 /10 $ \OT1/pxr/m/n/10 should be in []
  []
 
 
-Overfull \hbox (141.1858pt too wide) in paragraph at lines 1621--1625
+Overfull \hbox (141.1858pt too wide) in paragraph at lines 1619--1623
 \OT1/pxr/m/n/10 As such $\OML/pxmi/m/it/10 T[] \OT1/pxr/m/n/10 = \OML/pxmi/m/it
 /10 T\OT1/pxr/m/n/10 (\OML/pxmi/m/it/10 X[]; [] ; X[]\OT1/pxr/m/n/10 )$ can pre
 -serve all the per-ti-nent in-for-ma-tion if []. 
  []
 
 [59]
-Overfull \hbox (27.17743pt too wide) detected at line 1627
+Overfull \hbox (27.17743pt too wide) detected at line 1625
 \OML/pxmi/m/it/10 P[][]X[] \OT1/pxr/m/n/10 = \OML/pxmi/m/it/10 x[]; X[] \OT1/px
 r/m/n/10 = \OML/pxmi/m/it/10 x[]; [] ; X[] \OT1/pxr/m/n/10 = \OML/pxmi/m/it/10 
 x[][] \OT1/pxr/m/n/10 = \OML/pxmi/m/it/10 P[][]X[] \OT1/pxr/m/n/10 = \OML/pxmi/
@@ -1540,7 +1529,7 @@ r/m/n/10 )  \OML/pxmi/m/it/10 :
  []
 
 
-Overfull \hbox (73.11293pt too wide) detected at line 1681
+Overfull \hbox (73.11293pt too wide) detected at line 1679
  $[][]$ 
  []
 
@@ -1548,7 +1537,7 @@ Overfull \hbox (73.11293pt too wide) detected at line 1681
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [60]
-Overfull \hbox (71.95496pt too wide) detected at line 1729
+Overfull \hbox (71.95496pt too wide) detected at line 1727
  $[][]$ 
  []
 
@@ -1556,7 +1545,7 @@ Overfull \hbox (71.95496pt too wide) detected at line 1729
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [61]
-Overfull \hbox (33.45792pt too wide) in paragraph at lines 1733--1739
+Overfull \hbox (33.45792pt too wide) in paragraph at lines 1731--1737
 []
  []
 
@@ -1564,22 +1553,22 @@ Overfull \hbox (33.45792pt too wide) in paragraph at lines 1733--1739
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [62]
-Overfull \hbox (65.07957pt too wide) detected at line 1756
+Overfull \hbox (65.07957pt too wide) detected at line 1754
 \U/rsfs/m/n/10 L\OT1/pxr/m/n/10 ([]; []) = []
  []
 
 
-Overfull \hbox (66.01125pt too wide) detected at line 1768
+Overfull \hbox (66.01125pt too wide) detected at line 1766
  $[][]$ 
  []
 
 
-Overfull \hbox (100.51079pt too wide) detected at line 1779
+Overfull \hbox (100.51079pt too wide) detected at line 1777
  $[][]$ 
  []
 
 
-Overfull \hbox (42.37996pt too wide) detected at line 1791
+Overfull \hbox (42.37996pt too wide) detected at line 1789
  $[][]$ 
  []
 
@@ -1587,12 +1576,16 @@ Overfull \hbox (42.37996pt too wide) detected at line 1791
 Underfull \vbox (badness 7047) has occurred while \output is active []
 
  [63]
-Overfull \hbox (33.51381pt too wide) in paragraph at lines 1804--1806
+Overfull \hbox (33.51381pt too wide) in paragraph at lines 1802--1804
 \OT1/pxr/m/n/10 Then de-fine $\OML/pxmi/m/it/10 T \OT1/pxr/m/n/10 = [] \OML/pxm
 i/m/it/10 x[] $ \OT1/pxr/m/n/10 ,  []  and []
  []
 
-[64] [65] [66] (MATH324W2019LectureNotes.aux) ) 
+[64] [65]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [66]
+[67] [68] (MATH324W2019LectureNotes.aux) ) 
 Here is how much of TeX's memory you used:
  34123 strings out of 492946
  760451 string characters out of 3135533
@@ -1601,28 +1594,27 @@ Here is how much of TeX's memory you used:
  567573 words of font info for 131 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  117i,31n,146p,1629b,1110s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fon
-ts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/latxfont/line10.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/pub
-lic/pxfonts/pxex.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/publi
-c/pxfonts/pxexa.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public
-/pxfonts/pxsy.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/p
-xfonts/pxsya.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/px
-fonts/pxsyb.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxf
-onts/pxsyc.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfo
-nts/rpxb.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfont
-s/rpxbi.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts
-/rpxi.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/r
-pxmi.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/rp
-xr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs7.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/urw/palatino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palati
-no/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb
->
-Output written on MATH324W2019LectureNotes.pdf (66 pages, 306012 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/en
+c/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/la
+txfont/line10.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/p
+xfonts/pxex.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxf
+onts/pxexa.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfo
+nts/pxsy.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfont
+s/pxsya.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts
+/pxsyb.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/
+pxsyc.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/r
+pxb.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/rpx
+bi.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/rpxi
+.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/rpxmi.
+pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/rpxr.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs7.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
+w/palatino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/up
+lr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on MATH324W2019LectureNotes.pdf (68 pages, 312310 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
+ 297 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

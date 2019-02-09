@@ -80,12 +80,12 @@
 	Unbiasedness , Bias , $MSE(\hat{\theta})$ , Decomposition of MSE ($\#\ 8.8\ (\hat{\theta}_1,\hat{\theta}_5) \ , \ page\ 3294\ ,\ \#\ 8.6\ ,\ ,\ page\ 394$)
 \subsection*{Common Unbiased Estimators}
 $\mu ,\ p\ , \ \mu_1-\mu_2\ , \ p_1-p_2\ ,\ \And \sigma^2\ (S^{2}_{n-1}\to S^2\ \text{\ in the textbook})$
-\subsection*{Confidence Interval}
-\subsubsection{Pivotal Quantities}
+\textbf{Confidence Interval}
+\subsection*{Pivotal Quantities}
 $$
 	\text{\#MISSING Graph - lecture 1 - p0}
 $$
-\textbf{Pivotal: } 
+\textbf{Pivotal} 
 \begin{equation*}
 \begin{split}
 \ X_i\sim F_{\theta}(x) &\implies Y_i = F^{-1}_{\theta}(X_i)\ \sim\ Unif(0,1) \ \implies\ -\log{Y_i}\ \sim\ Exp(1)\\
@@ -98,13 +98,12 @@ $$
 \subsection*{Sample Size Determination: }\ Use the notes for 203.
 \subsection{Overview} \#MISSING GRAPH LECTURE 1 PAGE 1
 
-\begin{enumerate}[*]
-\item In MATH324 we cover statistical Inference (Theory of Point Estimator (TPE) , Testting Statistical Hypothesis (TSH) , Confidence Interval (C.I) and Data Generating Process (DGP).
-\item \textbf{Parametric Models:\ } Model is known up to finitely many unknown parameters.\\
+In MATH324 we cover statistical Inference (Theory of Point Estimator (TPE) , Testting Statistical Hypothesis (TSH) , Confidence Interval (C.I) and Data Generating Process (DGP).
+\subsection{Parametric Models} Model is known up to finitely many unknown parameters.\\
 E.g. $X_i\ \ \underset{i=1,2,\ldots,n}{\distas{iid}}\ \ \ N(\mu,\sigma^2)\ $ where $\ \mu$ and $\sigma^2$ are unknown.\\
 \textbf{Note:}\tab[0.2cm]"$iid$"\ means \textbf{I}ndependent \textbf{i}dentically \textbf{d}istributed\\
 \tab "$\sim$"\ means \textbf{Distributed according to}
-\item \textbf{Nonparametric Models:\ }$\ X_i\distas{iid} F_{_X}(x)\ $ where the cdf $F$ is completely unknown, but we may assume that $F$ is smooth, for instance continuous or differentiable.\\
+\subsection{Nonparametric Models}$\ X_i\distas{iid} F_{_X}(x)\ $ where the cdf $F$ is completely unknown, but we may assume that $F$ is smooth, for instance continuous or differentiable.\\
 In the non-parametric setting $F_{_X}(x)$ should be estimated for every $x$. Thus for a random variable $X$ that can assume infinitely many values, we need to estimate $F(x)$
  at infinitely many values of $x$. This is, particularly , the case when $X$ is a continuous random variable. Recall that \mbox{$F_{_X}(x) = P(X\leq x)$}. Then the sample counterpart of $F_{_X}(x)$ is $\frac{\# X_i\leq x}{n}$ for a sample $X_1,\ldots,X_n$ . Define:
  $$
@@ -117,7 +116,7 @@ In the non-parametric setting $F_{_X}(x)$ should be estimated for every $x$. Thu
  Then\ \ $\ \frac{\# X_i \leq x}{n} = \frac{1}{n}\sum\limits{i=1}^n \mathcal{E}(x-X_i)\ $ \ and  
  $\ \hat{F}_n(x)=\frac{1}{n}\sum\limits_{i=1}^n(x-X_i)\ $\ is the \underline{E}mpricial \underline{C}umulative \underline{D}istribution \underline{F}unction\ (ECDF) .
 
-	\item \textbf{Point Estimator:\ } Suppose $\ X_1,\ldots,X_n \distas{iid} N(\mu, 1)\ $ where:
+\subsection{Point Estimator} Suppose $\ X_1,\ldots,X_n \distas{iid} N(\mu, 1)\ $ where:
 $$
 	N(\mu,1): f_{_X}(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2}}\ \ , \ \ x\in\mathbb{R} \ , \ \mu\in\mathbb{R}
 $$
@@ -132,8 +131,7 @@ $\bar{X}_n = \frac{1}{n}\sum\limits_{i=1}^n X_i\ $ is a \underline{statistic} an
 $(\bar{X}_n - \mu)$ is \underline{NOT} a \underline{statistic} since it depends on $\mu$ , which is an unknown parameter.\\
 $S^2=\frac{1}{n-1}\sum\limits_{i=1}^n (X_i - \bar{X}_n)^2\ $ is a \underline{statistic} , but not an estimator of $\mu$ . Note that \mbox{$dim(S^2) = (dim\ \mu)^2$} . For instance, if $X_i$s are \#MISSING-lec1-p3 of a fund and measured in dollars $(\$)$ , then $dim$ of $\mu$ is $\$$ while the $dim$ of $S^2$ is $\$^2$ . Besides, $\mu$ can be negative while $S^2$ is \emph{\underline{always positive}}.
 
-\item \textbf{Estimation Error:\ } Going back to the example above \mbox{$(X_i\distas{iid}N(\mu,1) \ , \ i=1,2,\ldots,n)$} and choosing $\bar{X}_n$ as the estimator of $\mu$ . We often want to study \mbox{$\mathcal{E} = \vert \bar{X}_n - \mu\vert$} or a function of $\mathcal{E}$. Starting with $\mathcal{E}$ itself, the first thing that comes to mind is \mbox{$P(\mathcal{E}\geq \delta)$}\ for a prespecified $\delta$ or perhaps $\mathbb{E}(\mathcal{E})$ . A well known tool for studying the latter is \emph{Tchbyshev's Inequality} .
- \end{enumerate}
+\subsection{Estimation Error} Going back to the example above \mbox{$(X_i\distas{iid}N(\mu,1) \ , \ i=1,2,\ldots,n)$} and choosing $\bar{X}_n$ as the estimator of $\mu$ . We often want to study \mbox{$\mathcal{E} = \vert \bar{X}_n - \mu\vert$} or a function of $\mathcal{E}$. Starting with $\mathcal{E}$ itself, the first thing that comes to mind is \mbox{$P(\mathcal{E}\geq \delta)$}\ for a prespecified $\delta$ or perhaps $\mathbb{E}(\mathcal{E})$ . A well known tool for studying the latter is \emph{Tchbyshev's Inequality} .
 
 
 
@@ -1825,34 +1823,47 @@ Note that do identify the sufficient statistic using Fisher-Neyman Theorem,  you
 \end{remark*}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\newpage
+\section{Lecture 10}
+\subsection{The Rao-Blackwell Theorem}[Theorem 9.5 , page 464]
+An interesting and important application of sufficiency is in variance reduction. This application is formalized in a theorem due to Rao(C.R) and Blackwell (David) .\\
+We first need to recall Theorem 5.14 (Page 286) and Theorem 5.15 (page 287):
+\tab Theorem 5.14 (page 286):
+$$
+	\mathbb{E}(X) = \mathbb{E}\ \big\{\mathbb{E}(X | Y)\big\}
+$$
+\tab Theorem 5.15 (page 287):
+$$
+	Var(X) = Var\ \big\{\mathbb{E}(X | Y)\big\} + \mathbb{E}\ \big\{Var(X|Y)\big\}
+$$
+\begin{theorem*}[The Rao-Blackwell Theorem - Thm 9.5 , page 464]
+Let $\hat{\theta}$ be an unbiased estimator for $\theta$ such that $V(\hat{\theta})<\infty$ . Suppose $T$ is a sufficient statistic for $\theta$ . Define \mbox{$\hat{\theta}^{*}=\mathbb{E}(\hat{\theta}\big| T)$}. Then, for all $\theta$ :\\
+\tab $(a) \ \ \mathbb{E}(\hat{\theta}^{*}) = \theta$\\
+\tab $(b) \ \ Var(\hat{\theta}^{*}) \leq Var(\hat{\theta})$ .
+\end{theorem*}
+\begin{proof}
+	First note that $T$ is a sufficient statistic for $\theta$ , thus the distribution of $\hat{\theta}$ given $T$ does not depend on $\theta$ . Therefore $\mathbb{E}(\hat{\theta} | T)$ is a statistic . This is when sufficiency plays its role.\\
+	To prove part $(a)$ of formula, we use Theorem 5.14, page 286:
+	$$
+		\mathbb{E}(\hat{\theta}^{*}) = \mathbb{E}\big[\mathbb{E}(\hat{\theta} | T) \big] = \mathbb{E}(\hat{\theta}) = \theta\tab \forall \ \theta .
+	$$
+To prove part $(b)$, we use Theorem 5.15, page 287:
+$$
+	Var(\hat{\theta}^{*}) = Var\big\{\mathbb{E}(\hat{\theta} | T)\big\} \leq Var\big\{\mathbb{E}(\hat{\theta} | T)\big\} + 
+	\overbrace{\mathbb{E}\{\underbrace{Var(\hat{\theta}| T)}_{\geq 0}\}}^{\geq 0}
+$$
+\end{proof}
+\begin{remark*}[Completeness] A statistic $T$ or its family of distribution \mbox{$\{F_{\theta} \colon \theta\in\Theta\}$} where $\Theta$ is the set of all admissible values of $\theta$, is called \textbf{\underline{complete}}  if for any \underline{reasonable} $g$:
+$$
+	\mathbb{E}_{\theta}[g(T)] = 0 \ \ \ , \ \ \ \forall\ \theta\in\Theta
+$$
+\end{remark*}
+implies that $g(t) = 0$ for all possible values of t. If a sufficient statistic $T$ is also complete, then \mbox{$\hat{\theta}^{*} = \mathbb{E}(\hat{\theta} | T)$} will be the \underline{M}inimum \underline{V}ariance \underline{U}nbiased \underline{E}stimator (MVUE) . This often means that within the class of unbiased estimator $\hat{\theta}^{*}$ is the least; i.e. the closest in the $MSE$  sense,  to the unknown parameter $\theta$. Recall that:
+$$
+	MSE_{\theta}(\hat{\theta}) = Var_{\theta}(\hat{\theta})+Bias_{\theta}^2(\hat{\theta})=Var_{\theta}(\hat{\theta})
+$$
+if $Bias_{\theta}(\hat{\theta}) = 0 $ ; i.e. if $\hat{\theta}$ is an unbiased estimator of $\theta$.\\
+The notion of Completeness is due to \emph{\textbf{Lehmann(Eric Leo) and Scheffe'(Henry)}}.
 
 
 
@@ -1891,7 +1902,6 @@ Note that do identify the sufficient statistic using Fisher-Neyman Theorem,  you
 
 
 \newpage
-\section{Lecture 10}
 \section{Lecture 11}
 \section{Lecture 12}
 
