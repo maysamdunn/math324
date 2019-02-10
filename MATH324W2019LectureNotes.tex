@@ -132,72 +132,6 @@ $(\bar{X}_n - \mu)$ is \underline{NOT} a \underline{statistic} since it depends 
 $S^2=\frac{1}{n-1}\sum\limits_{i=1}^n (X_i - \bar{X}_n)^2\ $ is a \underline{statistic} , but not an estimator of $\mu$ . Note that \mbox{$dim(S^2) = (dim\ \mu)^2$} . For instance, if $X_i$s are \#MISSING-lec1-p3 of a fund and measured in dollars $(\$)$ , then $dim$ of $\mu$ is $\$$ while the $dim$ of $S^2$ is $\$^2$ . Besides, $\mu$ can be negative while $S^2$ is \emph{\underline{always positive}}.
 
 \subsection{Estimation Error} Going back to the example above \mbox{$(X_i\distas{iid}N(\mu,1) \ , \ i=1,2,\ldots,n)$} and choosing $\bar{X}_n$ as the estimator of $\mu$ . We often want to study \mbox{$\mathcal{E} = \vert \bar{X}_n - \mu\vert$} or a function of $\mathcal{E}$. Starting with $\mathcal{E}$ itself, the first thing that comes to mind is \mbox{$P(\mathcal{E}\geq \delta)$}\ for a prespecified $\delta$ or perhaps $\mathbb{E}(\mathcal{E})$ . A well known tool for studying the latter is \emph{Tchbyshev's Inequality} .\\
-Then using the Rao-Blackwell and Lehmann-Schaffe' theorems we have an easy recipe for finding the $MVUE$.\\
-\tab\textbf{Step 1:\ } Using Fisher-Neyman theorem, find a sufficient statistic, say T, for $\theta$ .\\
-\tab\textbf{Step 2:\ } Find an unbiased estimator $\theta$ , say $\hat{\theta}$ .\\
-\tab\textbf{Step 3:\ } Find $\hat{\theta}^{*} = \mathbb{E}(\hat{\theta} | T)$ .
-\begin{remark*}
-For the examples and exercises in the course , the sufficient statistic you find in \textbf{Step 1} using Fisher-Neyman Theorem is also complete.
-\end{remark*}
-\begin{example*}[Ex. 9.6 , page 466]
-	$X_i\distas{iid}\text{Bernoulli}(p)\ \ , \ \ i=1,2,\ldots,n$
-\end{example*}
-\textbf{Step 1:} 
-\begin{equation*}
-\begin{split}
-	\mathcal{L}(p;x_1,\ldots,x_n) &= P_p (X_1=x_1,\ldots,X_n=x_n)\\
-	\text{Independence}\tab &= \prod\limits_{i=1}^n P_p(X_i=x_i)\\
-	\text{Identically distributed}\tab &= \prod\limits_{i=1}^n p^{x_i}(1-p)^{1-x_i}\\
-	&= p^{\sum\limits_{i=1}^n x_i}(1-p)^{n-\sum\limits_{i=1}^n x_i}\\
-	\text{Then $\ T=\sum\limits_{i=1}^n X_i\ $ is a sufficient statistic.}
-\end{split}
-\end{equation*}
-\textbf{Step 2:}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1883,6 +1817,104 @@ $$
 $$
 if $Bias_{\theta}(\hat{\theta}) = 0 $ ; i.e. if $\hat{\theta}$ is an unbiased estimator of $\theta$.\\
 The notion of Completeness is due to \emph{\textbf{Lehmann(Eric Leo) and Scheffe'(Henry)}}.
+
+Then using the Rao-Blackwell and Lehmann-Schaffe' theorems we have an easy recipe for finding the $MVUE$.\\
+\tab\textbf{Step 1:\ } Using Fisher-Neyman theorem, find a sufficient statistic, say T, for $\theta$ .\\
+\tab\textbf{Step 2:\ } Find an unbiased estimator $\theta$ , say $\hat{\theta}$ .\\
+\tab\textbf{Step 3:\ } Find $\hat{\theta}^{*} = \mathbb{E}(\hat{\theta} | T)$ .
+\begin{remark*}
+For the examples and exercises in the course , the sufficient statistic you find in \textbf{Step 1} using Fisher-Neyman Theorem is also complete.
+\end{remark*}
+\begin{example*}[Ex. 9.6 , page 466]
+	$X_i\distas{iid}\text{Bernoulli}(p)\ \ , \ \ i=1,2,\ldots,n$
+\end{example*}
+\textbf{Step 1:} 
+\begin{equation*}
+\begin{split}
+	\mathcal{L}(p;x_1,\ldots,x_n) &= P_p (X_1=x_1,\ldots,X_n=x_n)\\
+	\text{Independence}\tab &= \prod\limits_{i=1}^n P_p(X_i=x_i)\\
+	\text{Identically distributed}\tab &= \prod\limits_{i=1}^n p^{x_i}(1-p)^{1-x_i}\\
+	&= p^{\sum\limits_{i=1}^n x_i}(1-p)^{n-\sum\limits_{i=1}^n x_i}\\
+	\text{Then $\ T=\sum\limits_{i=1}^n X_i\ $ is a sufficient statistic.}
+\end{split}
+\end{equation*}
+\tab\textbf{Step 2:}
+$$
+\hat{p}_n = \frac{1}{n}\sum\limits_{i=1}^n X_i \text{ is an unbiased estimator of } p
+$$
+$$
+	\mathbb{E}(\hat{p}_n) = \mathbb{E}(\frac{1}{n}\sum\limits_{i=1}^n X_i) = \frac{1}{n}\sum\limits_{i=1}^n \underbrace{\mathbb{E}(X_i)}_{p} = \frac{1}{n}\cdot np = p
+$$
+\tab\textbf{Step 3:}
+$$
+	\text{Note that \ } \hat{p}_n = \frac{1}{n}\sum\limits_{i=1}^n X_i = \frac{T}{n}\tab\text{thus}\tab\mathbb{E}(\hat{p}_n | T) = \frac{T}{n} = \hat{p}_n \ \ .
+$$
+\begin{remark*}\emph{
+	What we observed in \emph{step 3} of the above example tells us that \emph{step 3} of our recipe is redundant when $\theta$ found in \emph{step 2} is a function of the sufficient statistic found in \emph{step 1}.}
+\end{remark*}
+\begin{example*}[Ex. 9.8 , page 467]
+$X_i\distas{iid} N(\mu,\sigma^2)$
+\end{example*}
+\textbf{Step 1}
+\begin{equation*}
+\begin{split}
+	\mathcal{L} (\mu,\sigma^2 ; x_1,\ldots,x_n) &= f_{\mu,\sigma^2}(x_1,\ldots,x_n)\\
+	&= \prod\limits_{i=1}^n f_{\mu,\sigma^2} (x_i)\\
+	&= \prod\limits_{i=1}^n \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}\\
+	\text{hence: } \mathcal{L}(\mu,\sigma^2 ; x_1,\ldots,x_n) &= (\frac{1}{\sqrt{2\pi}\sigma})^n\ exp\Big\{-\frac{1}{2\sigma^2}\big[\sum\limits_{i=1}^n x_i^2 - 2\mu\sum\limits_{i=1}^nx_i + n\mu^2\big]\ \Big\}\\
+	\text{Thus:\tab[2.7cm]} T &= \big(\sum\limits_{i=1}^n X_i \ , \ \sum\limits_{i=1}^n X_i^2\big)
+\end{split}
+\end{equation*}
+\tab\textbf{Step 2:\ } \ $\bar{X}_n = \frac{1}{n}\sum\limits_{i=1}^nX_i\ $ is an unbiased estimator of $\ \mu\ $ and \mbox{$\ S_n^2 = \frac{1}{n-1}\sum\limits_{i=1}^n (X_i-\bar{X})^2\ $} \tab is an unbiased estimator of $\ \sigma^2\ $. \\
+\tab\textbf{Step 3:}
+\begin{equation*}
+\begin{split}
+\tab & \mathbb{E}(\bar{X}_n \big| T) = \bar{X}_n\tab[4cm] \text{since $\ \bar{X}_n\ $ is a function of $T$}\\
+& S^2_n = \frac{1}{n-1}\big[\sum\limits_{i=1}^n X_i^2 - n\bar{X}\big]\tab[2.3cm] \text{is also a function of $T$}\\
+\text{Thus \ } &\mathbb{E}(S^2_n | T)= S^2_n\\
+\text{Thus $\ \bar{X}_n\ $ is the $\ MVUE\ $ of $\ \mu\ $ and $\ S^2_n\ $ is the $\ MVUE\ $ of $\ \sigma^2\ $ .}
+\end{split}
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
