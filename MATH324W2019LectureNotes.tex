@@ -1959,6 +1959,100 @@ Note that $\log$ is a monotone increasing function, Thus:
 $$
 	\text{argmax } l\ (\theta ; y_1,\ldots,y_n) = \text{argmax }\mathscr{L}(\theta ; y_1,\ldots, y_n)
 $$
+\begin{example*}
+$X_i\distas{iid}\text{Bernoulli}(p)\ \ ,\ \ i=1,2,\ldots,n$
+\end{example*}
+\tab$
+ P(X=x) = p^x(1-p)^{1-x}\ \ ,\ \ x=0,1$\\
+\textbf{Step 1:\tab[0.5cm]}$\ \mathscr{L}(p ; x_1,\ldots,x_n) = p^{\sum\limits_{i=1}^n x_i}(1-p)^{n-\sum\limits_{i=1}^n x_i}$\\
+\textbf{Step 2:}
+\begin{equation*}
+\begin{split}
+l(p ; x_1,\ldots,x_n) &= \log\ (\ \mathscr{L}(p ; x_1,\ldots, x_n)\ )\\
+&= (\sum\limits_{i=1}^n x_i) \log p + (n-\sum\limits_{i=1}^n)\ \log(1-p)\\
+\frac{\partial}{\partial p} l(p ; x_1,\ldots, x_n) &= \frac{\sum\limits_{i=1}^n x_i}{p} - \frac{n-\sum\limits_{i=1}^nx_i}{1-p}
+\end{split}
+\end{equation*}
+Let $\ t=\sum\limits_{i=1}^n x_i\ $ . The $\ \hat{p}_{ML}\ $ is then the solution to 
+$$
+	\frac{t}{\hat{p}_{ML}}-\frac{n-t}{1-\hat{p}_{ML}} = 0 \iff \frac{t}{n-t} = \frac{\hat{p}_{ML}}{1-\hat{p}_{ML}} \iff \hat{p}_{ML} = \frac{t}{n} = \frac{1}{n} \sum\limits_{i=1}^n X_i = \hat{p}_n
+$$
+Note that
+$$
+	\frac{\partial^2 l}{\partial p^2} = -\frac{\sum\limits_{i=1}^n x_i}{p^2} - \frac{n-\sum\limits_{i=1}^nx_i}{(1-p)^2} < 0
+$$
+Thus $\ \hat{p}_{_{ML}}\ $ is the maximizer of $\ l\ (p ; x_1,\ldots,x_n)$ . 
+\begin{example*}
+$X_i\distas{iid}N(\mu,\sigma^2)\ \ , \ \ i=1,2,\ldots,n$
+\end{example*}
+\textbf{Step 1:}
+$$
+	\mathscr{L}(\mu,\sigma^2 ; x_1,\ldots,x_n) = (\frac{1}{\sqrt{2\pi}})^n\ exp\Big\{-\frac{1}{2\sigma^2}\sum\limits_{i=1}^n(x_i-\mu)^2\Big\}
+$$
+$$
+\text{hence\ \ \ }l\ (\mu,\sigma^2,x_1,\ldots,x_n) = -\frac{n}{2}\log \sqrt{2\pi} - \frac{n}{2}\log \sigma^2 - \frac{1}{2\sigma^2} \sum\limits_{i=1}^n (x_i-\mu)^2
+$$
+
+\textbf{Step 2:}
+\begin{equation*}
+\begin{split}
+\frac{\partial\ l(\mu,\sigma^2)}{\partial \mu} &= -\frac{1}{2\sigma^2}\sum\limits_{i=1}^n -2(x_i-\mu)\\
+\frac{\partial\ l(\mu,\sigma^2)}{\partial\sigma^2} &= -\frac{n}{2\sigma^2} + \frac{1}{2\sigma^4}\sum\limits_{i=1}^n(x_i-\mu)^2\\
+\text{the MLE , }\ & \hat{\mu}_{ML}\And\hat{\sigma^2}_{ML}\ \text{are therefore solutions to:}\\
+&\left\{
+	\begin{array}{lr}
+	-\frac{1}{2\ \hat{\sigma}^2_{ML}} \ \sum\limits_{i=1}^n -2(x_i-\hat{\mu}_{ML}) = 0\\
+	-\frac{n}{2\ \hat{\sigma}^2_{ML}} + \frac{1}{2\ \hat{\sigma}^4_{ML}}\sum\limits_{i=1}^n (x_i - \hat{\mu}_{ML}) = 0
+	\end{array}
+	\right.\\
+	\text{From the }1^{st}& equation we find:\\
+	&\sum\limits_{i=1}^n (x_i-\hat{\mu}_{ML}) = 0 \implies \sum x_i = n\hat{\mu}_{ML} \implies \boxed{\hat{\mu}_{{_ML}} = \bar{x}_n}\\
+	\text{If we plug in for } &\hat{\mu}_{_{ML}}\text{ in the second equation, we find}\\ 
+	 -\frac{n}{\cancel{2}\cancel{\hat{\sigma}^2_{ML}}} + \frac{1}{\cancel{2}\hat{\sigma}^{\cancel{4}}_{ML}} &\sum\limits_{i=1}^n (x_i - \bar{x}_n)^2 = 0\\
+	 \implies\tab
+	 \frac{1}{\hat{\sigma}^2_{ML}}&\sum\limits_{i=1}^n (x_i - \bar{x}_n)^2 = n\\
+	 \implies \tab[1.7cm] &\boxed{\hat{\sigma}^2_{_{ML}} = \frac{1}{n}\sum\limits_{i=1}^n (x_i - \bar{x}_n)^2}
+\end{split}
+\end{equation*}
+To show that this is a maximizer we should check that:
+$$
+\left[
+	\begin{array}{lr}
+	\frac{\partial^2 l}{\partial\mu^2} & \frac{\partial^2 l}{\partial\mu \partial \sigma^2}\\
+	\frac{\partial^2 l}{\partial \sigma^2 \partial\ \mu} & \frac{\partial^2 l}{\partial (\sigma^2)^2}
+	\end{array}
+	\right] \ \ \text{is a negative-definite matrix .\tab[3cm]}
+$$
+This is not a hard task, but it is not required in this course. We only check the $2^{nd}$ derive for cases that there is only one unknown parameter.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
