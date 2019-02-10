@@ -1875,9 +1875,64 @@ $X_i\distas{iid} N(\mu,\sigma^2)$
 \text{Thus $\ \bar{X}_n\ $ is the $\ MVUE\ $ of $\ \mu\ $ and $\ S^2_n\ $ is the $\ MVUE\ $ of $\ \sigma^2\ $ .}
 \end{split}
 \end{equation*}
-
-
-
+\begin{example*}[Ex. 9.7 , page 466-467]\ 
+$\ Y_i \distas{iid}\text{Weibull}(m=2,\theta) \ \ ,\ \ i=1,2,\ldots,n$
+\end{example*}
+$$
+f_{\theta}(y) = \left\{
+	\begin{array}{lr}
+	(\frac{2y}{\theta}) e^{-\frac{y^n}{\theta}}&\tab y>0 \\
+	0&\tab \text{otherwise}
+	\end{array}
+	\right.
+$$
+\tab\textbf{Step 1:}
+\begin{equation*}
+\begin{split}
+	\mathcal{L}(\theta ; y_1,y_2,\ldots,y_n) &= \prod\limits_{i=1}^n (\frac{2y_i}{\theta})e^{-\frac{y_i^2}{\theta}}\\
+	& = (\frac{2}{\theta})^n\ e^{-\frac{1}{\theta}\sum\limits_{i=1}^n y_i^2}\prod\limits_{i=1}^n y_i\\
+\end{split}
+\end{equation*}
+Thus $\ T=\sum\limits_{i=1}^nY_i^2 \ $ is a sufficient statistic for $\theta\ $ .\\
+Note that the Kernel is $ \ exp\Big\{-\frac{1}{\theta}\sum\limits_{i=1}^nY_i^2\Big\}\ $ . We can also see this through Fisher-Neyman by choosing:
+$$
+	g(t;\theta) = (\frac{2}{\theta})^n\ e^{-\frac{t}{\theta}}\ \ \ \text{and}\ \ \ h(y_1,\ldots,y_n)=\prod\limits_{i=1}^n y_i\ \ \ \text{where\ } t=\sum\limits_{i=1}^ny_i^2
+$$
+\tab\textbf{Step 2:\ } Define $\ W_i = Y_i^2\ \ , \ \ i=1,2,\ldots,n\ $. Note that:
+\begin{equation*}
+\begin{split}
+	\tab f_{_W}(w) &= f_{_Y}(\sqrt{w})\ \big|\frac{d\sqrt{w}}{dw} \big|\tab\text{using \emph{Transformation Method}}\\
+	&=\left\{
+	\begin{array}{lr}
+	(\frac{2\sqrt{w}}{\theta})\ e^{-\frac{(\sqrt{w})^2}{\theta}}\cdot\frac{1}{2\sqrt{w}} &\tab \text{if }\ w>0 \\
+	0&\tab \text{otherwise}
+	\end{array}
+	\right. \\
+	&= \left\{
+	\begin{array}{lr}
+	\frac{1}{\theta}\ e^{-\frac{w}{\theta}} &\tab\text{if\ }\ w>0 \\
+	0 &\tab \text{otherwise}
+	\end{array}
+	\right.
+\end{split}
+\end{equation*}
+\tab Thus $\ W\sim Exp(\theta)\ $ and therefore 
+$$
+	\mathbb{E}(T) = \mathbb{E}(\sum\limits_{i=1}^n Y_i^2) = \sum\limits_{i=1}^n \mathbb{E}(Y_i^2) = \sum\limits_{i=1}^n \mathbb{E}(W_i) = n\theta\implies \mathbb{E}(\frac{T}{n})=\theta
+$$
+\tab\textbf{Step 3}
+$$
+	\mathbb{E}(\frac{T}{\theta}\ \big|\ T) = \frac{T}{n}\ \ \ \text{therefore} \ \ \ \ \frac{T}{n}=\frac{1}{n}\sum\limits_{i=1}^n Y_i^2\ \text{\ \ \ is the $\ MVUE\ $ of $\ \theta\ $ .}
+$$
+\begin{remark*}\emph{
+Sufficient statistics can often be used to make a pivotal quantity , in the above example for instance,
+$$
+	\frac{2}{\theta} W\ \sim\ \chi^2_{(2)} \tab\text{(Exercise)}
+$$
+and hence 
+$$\ \frac{2}{\theta}\sum\limits_{i=1}^n W_i = \frac{2}{\theta}\sum\limits_{i=1}^n Y_i^2 \sim \chi^2_{(2n)}\tab\text{i.e.\tab} \frac{2T}{\theta}\sim\chi^2_{2n}$$
+This pivotal quantity can therefore be used to make \emph{exact confidence interval} for $\ \theta\ $. See example 9.10 , page 468, confidence interval made using sufficient statistic based on pivotal quantities often have the shortest possible length for a given confidence level .
+}\end{remark*}
 
 
 

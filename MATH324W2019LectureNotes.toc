@@ -41,5 +41,5 @@
 \contentsline {subsection}{\numberline {9.2}Likelihood}{63}% 
 \contentsline {section}{\numberline {10}Lecture 10}{66}% 
 \contentsline {subsection}{\numberline {10.1}The Rao-Blackwell Theorem}{66}% 
-\contentsline {section}{\numberline {11}Lecture 11}{70}% 
-\contentsline {section}{\numberline {12}Lecture 12}{70}% 
+\contentsline {section}{\numberline {11}Lecture 11}{72}% 
+\contentsline {section}{\numberline {12}Lecture 12}{72}% 
