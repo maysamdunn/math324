@@ -1831,7 +1831,7 @@ For the examples and exercises in the course , the sufficient statistic you find
 \textbf{Step 1:} 
 \begin{equation*}
 \begin{split}
-	\mathcal{L}(p;x_1,\ldots,x_n) &= P_p (X_1=x_1,\ldots,X_n=x_n)\\
+	\mathscr{L}(p;x_1,\ldots,x_n) &= P_p (X_1=x_1,\ldots,X_n=x_n)\\
 	\text{Independence}\tab &= \prod\limits_{i=1}^n P_p(X_i=x_i)\\
 	\text{Identically distributed}\tab &= \prod\limits_{i=1}^n p^{x_i}(1-p)^{1-x_i}\\
 	&= p^{\sum\limits_{i=1}^n x_i}(1-p)^{n-\sum\limits_{i=1}^n x_i}\\
@@ -1858,10 +1858,10 @@ $X_i\distas{iid} N(\mu,\sigma^2)$
 \textbf{Step 1}
 \begin{equation*}
 \begin{split}
-	\mathcal{L} (\mu,\sigma^2 ; x_1,\ldots,x_n) &= f_{\mu,\sigma^2}(x_1,\ldots,x_n)\\
+	\mathscr{L} (\mu,\sigma^2 ; x_1,\ldots,x_n) &= f_{\mu,\sigma^2}(x_1,\ldots,x_n)\\
 	&= \prod\limits_{i=1}^n f_{\mu,\sigma^2} (x_i)\\
 	&= \prod\limits_{i=1}^n \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}\\
-	\text{hence: } \mathcal{L}(\mu,\sigma^2 ; x_1,\ldots,x_n) &= (\frac{1}{\sqrt{2\pi}\sigma})^n\ exp\Big\{-\frac{1}{2\sigma^2}\big[\sum\limits_{i=1}^n x_i^2 - 2\mu\sum\limits_{i=1}^nx_i + n\mu^2\big]\ \Big\}\\
+	\text{hence: } \mathscr{L}(\mu,\sigma^2 ; x_1,\ldots,x_n) &= (\frac{1}{\sqrt{2\pi}\sigma})^n\ exp\Big\{-\frac{1}{2\sigma^2}\big[\sum\limits_{i=1}^n x_i^2 - 2\mu\sum\limits_{i=1}^nx_i + n\mu^2\big]\ \Big\}\\
 	\text{Thus:\tab[2.7cm]} T &= \big(\sum\limits_{i=1}^n X_i \ , \ \sum\limits_{i=1}^n X_i^2\big)
 \end{split}
 \end{equation*}
@@ -1889,7 +1889,7 @@ $$
 \tab\textbf{Step 1:}
 \begin{equation*}
 \begin{split}
-	\mathcal{L}(\theta ; y_1,y_2,\ldots,y_n) &= \prod\limits_{i=1}^n (\frac{2y_i}{\theta})e^{-\frac{y_i^2}{\theta}}\\
+	\mathscr{L}(\theta ; y_1,y_2,\ldots,y_n) &= \prod\limits_{i=1}^n (\frac{2y_i}{\theta})e^{-\frac{y_i^2}{\theta}}\\
 	& = (\frac{2}{\theta})^n\ e^{-\frac{1}{\theta}\sum\limits_{i=1}^n y_i^2}\prod\limits_{i=1}^n y_i\\
 \end{split}
 \end{equation*}
@@ -1935,44 +1935,30 @@ This pivotal quantity can therefore be used to make \emph{exact confidence inter
 }\end{remark*}
 
 
+\newpage
+\section{Lecture 11}
+\textbf{Methods of Estimation:}
+\tab A)\ Method of Maximum Likelihood (ML)\\
+\tab B)\ Method of Moments
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\subsection{Method of Maximum Likelihood (ML)}
+\begin{definition*}
+The \textbf{Maximum Likelihood Estimation (MLE)} of a parameter $\theta$ based on the realized values \mbox{$(y_1,y_2,\ldots,y_n)$} of a sample \mbox{$Y_1,Y_2,\ldots,Y_n$} is:
+$$
+	\hat{\theta}_{_{ML}} = \text{argmax\ }\mathscr{L}(\theta ; y_2,\ldots,y_n)
+$$
+\end{definition*}
+Then we have a two step procedure for finding the $\hat{\theta}_{ML}$:\\
+\textbf{Step 1:\ } Set up the likelihood $\ \mathscr{L}(\theta ; y_1,\ldots, y_n)\ $\\
+\textbf{Step 2:\ } Find the maximizer of the likelihood when we have a random sample, which is the case in this course:
+$$
+	\mathscr{L}(\theta ; y_1,\ldots,y_n) = \prod\limits_{i=1}^n f_{\theta}(x_i)
+$$
+To find $\ \hat{\theta}_{ML}\ $ is often easier to work with \mbox{\ $\mathscr{L}(\theta ; y_1,\ldots,y_n) = \log(\mathscr{L}(\theta;y_1,\ldots,y_n))=\sum\limits_{i=1}^n \log(f_{\theta}(x_i))$}.\\
+Note that $\log$ is a monotone increasing function, Thus:
+$$
+	\text{argmax } l\ (\theta ; y_1,\ldots,y_n) = \text{argmax }\mathscr{L}(\theta ; y_1,\ldots, y_n)
+$$
 
 
 
@@ -2008,7 +1994,6 @@ This pivotal quantity can therefore be used to make \emph{exact confidence inter
 
 
 \newpage
-\section{Lecture 11}
 \section{Lecture 12}
 
 
