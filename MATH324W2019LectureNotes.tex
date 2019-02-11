@@ -2063,13 +2063,36 @@ We can therefore make confidence interval for $\theta$ easily if we use $\hat{\t
 \item \textbf{Invariance: } If $\hat{\theta}_{ML}$ is the $MLE$ of $\theta$ , then $g(\hat{\theta}_{ML})$ is the $MLE$ of $g(\theta)$.\\
 This property simplifies life a bit. Since if we find the $MLE$ of $\theta$ , then we have found $MLE$ of any function of $\theta$. 
 \end{enumerate}
-
-
-
-
-
-
-
+\begin{example*}
+$X_i \distas{iid} \text{Bernoulli}(p) \ \ , \ \ i=1,2,\ldots,n$
+\end{example*}
+We showed that $\ \hat{p}_{_{ML}} = \hat{p}_n = \frac{1}{n}\sum\limits_{i=1}^n X_i$ is a $MLE$ of p. Now suppose that we want to find the $MLE$ of $p(1-p)$ , which is the variance of $\ \text{Bernoulli}(p)$ . Using the Invariance, the $MLE$ of $p(1-p)$ is \mbox{$\hat{p}_{_{ML}} (1-\hat{p}_{_{ML}}) = (\frac{\sum\limits_{i=1}^n X_i}{n})(1-\frac{\sum\limits_{i=1}^nX_i}{n})$}
+\subsection{Method of Moments}
+Let $\mu_{_K} = \mathbb{E}(X^K)$ and $m_{_K} = \frac{1}{n}\sum\limits_{i=1}^nX_i^K$ . Now suppose $X_i \distas{iid} f_{\underset{\sim}{\theta}}\ \ , \ \ i=1,2\ldots,n$ where $\underset{\sim}{\theta} = (\theta_1,\ldots,\theta_r)$.
+Clearly $\mu_{_K}$ is  going to be a function of $\underset{\sim}{\theta}$ . Suppose $\mu_{_K}$ exists. Then the method of moments estimators are the solution to the following equation:
+$$
+	\mu_{_K} (\underset{\sim}{\theta}) = m_{_K} \ \ , \ \ K=1,2,\ldots,r\ \ \ .
+$$
+\begin{example*}
+$X_i \distas{iid}\Gamma(\alpha, \beta) \ \ ,\ \ \ i=1,2,\ldots,n$
+\end{example*}
+$$
+\mathbb{E}(X) = \alpha\beta\tab,\tab Var(X) = \alpha\beta^2
+$$
+Thus $\ \mathbb{E}(X^2) = Var(X)+ [\mathbb{E}(X)]^2 = \alpha\beta^2 +\alpha^2\beta^2 = \alpha\beta(\beta+\alpha\beta)$\\
+Now:\tab$\left\{ \begin{array}{lr}
+	\alpha\beta= \bar{X}_n\\
+	\alpha\beta(\beta+\alpha\beta) = \frac{1}{n}\sum\limits_{i=1}^n X)i^2
+\end{array}
+\right.$\\
+Plugging-in from the $1^{st}$ equation into the $2^{nd}$ equation we find:
+$$
+	\bar{X}_n(\beta + \bar{X}_n) = \frac{1}{n}\sum\limits_{i=1}^n X_i^2\tab\text{hence}\tab\boxed{\beta = \frac{\frac{1}{n}\sum\limits_{i=1}^n X_i^2}{\bar{X}_n} - \bar{X}_n}
+$$
+Using the first equation:
+$$
+	\boxed{\alpha = \frac{\bar{X}_n}{\beta} = \bar{X}_n [\frac{\frac{1}{n}\sum\limits_{i=1}^nX_i^2}{\bar{X}_n} - \bar{X}_n]^{-1}}
+$$
 
 
 
