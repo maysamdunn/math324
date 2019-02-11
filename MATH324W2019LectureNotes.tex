@@ -2024,13 +2024,45 @@ $$
 	\right] \ \ \text{is a negative-definite matrix .\tab[3cm]}
 $$
 This is not a hard task, but it is not required in this course. We only check the $2^{nd}$ derive for cases that there is only one unknown parameter.
-
-
-
-
-
-
-
+\begin{example*}
+$X_i \distas{iid} Unif(0,\theta)\ \ ,\ \ i=1,2,\ldots,n$
+\end{example*}
+$$
+f_{_{\theta}}(x) = \left\{ \begin{array}{lr}
+	\frac{1}{\theta} &\tab 0<x<\theta\\
+	0 &\tab \text{otherwise}
+\end{array}
+	\right.
+$$
+In other words, $\ f_{_{\theta}}(x) = \frac{1}{\theta}\cdot I_{[0,\theta]}(x)\ $ where \mbox{$I_{_A}(x) = \left\{ \begin{array}{lr}
+		1 &\tab \text{if } x\in\ A\\
+		0 &\tab \text{if } x\notin\ A
+\end{array}\right.$}
+\textbf{Step 1:}
+$$
+	\mathscr{L}(\theta ; x_11,\ldots,x_n) = \prod\limits_{i=1}^n f_{_{\theta}}(x_i) = \frac{1}{\theta^n}\prod\limits_{i=1}^n I_{_{[0,\theta]}}(x_i)
+$$
+Now note that
+$$
+	\prod\limits_{i=1}^n I_{[0,\theta]}(x_i) = I_{_{[0,\theta]}}\underset{1\leq i \leq n}{(\text{max }x_i)}
+$$
+Since $\ 0\leq x_i\leq \theta\ \ , \ \ i=1,2,\ldots,n\ $ if and only if $\ 0\leq\underset{1\leq i\leq n}{\text{max }x_i}\leq \theta$ . Therefore:
+$$
+	\mathscr{L}(\theta ; x_1,\ldots,x_n) = \frac{1}{\theta^n}\ I_{_{[0,\theta]}}(\underset{1\leq i \leq n}{\text{max }x_i})
+$$
+\textbf{Step 2:\ } We note that the likelihood is a monotone decreasing function of $\theta$. That is why, the max of $\mathscr{L}(\theta ; x_1,\ldots,x_n)$ happens when $\theta$ takes its smallest possible value. Since that $0\leq \underset{1\leq i \leq n}{\text{max }x_i}\leq \theta$ , the smallest value for $\theta$ is $\underset{1\leq i\leq n}{max\ } x_i$ , thus \mbox{$\hat{\theta}_{ML} = \underset{1\leq i \leq n}{max\ } x_i$}\ .\\
+The method of $ML$ has both the intuitive and theoretical appeal.\\
+\textbf{Intuitive Appeal:\ }
+The $ML$ method is based on the idea that \emph{"What I have observed is what should have expected to observe"}. In other words, we observe the most likely scenario. Now given a sample, we choose the unknown parameter such that what we have observed has its maximum possible chance.\\
+\textbf{Theoretical Appeal:\ }
+\begin{enumerate}[*]
+\item \textbf{Consistency:} $MLE$ is a consistent estimator under rather mild conditions.
+\item \textbf{Asymptotic Normality:} $\ \sqrt{n} (\hat{\theta}_{ML} - \theta)\distas{app} N(0, I^{-1}(\theta))$ for large n where \mbox{$I(\theta) = \mathbb{E}\big\{ [\frac{\partial}{\partial \theta} \log f_{\theta}(X)]^2 \big\}$} , the Fisher information.\\
+We can therefore make confidence interval for $\theta$ easily if we use $\hat{\theta}_n = \hat{\theta}_{ML}$ as the estimator.
+\item \textbf{Asymptotic Efficiency:} $MLE$ is the most concentrated estimator about its estimand among a considerably large class of reasonable estimators called \textbf{\emph{"regular estimators"}}.
+\item \textbf{Invariance: } If $\hat{\theta}_{ML}$ is the $MLE$ of $\theta$ , then $g(\hat{\theta}_{ML})$ is the $MLE$ of $g(\theta)$.\\
+This property simplifies life a bit. Since if we find the $MLE$ of $\theta$ , then we have found $MLE$ of any function of $\theta$. 
+\end{enumerate}
 
 
 

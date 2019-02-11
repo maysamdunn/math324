@@ -43,4 +43,4 @@
 \contentsline {subsection}{\numberline {10.1}The Rao-Blackwell Theorem}{66}% 
 \contentsline {section}{\numberline {11}Lecture 11}{72}% 
 \contentsline {subsection}{\numberline {11.1}Method of Maximum Likelihood (ML)}{72}% 
-\contentsline {section}{\numberline {12}Lecture 12}{75}% 
+\contentsline {section}{\numberline {12}Lecture 12}{77}% 
