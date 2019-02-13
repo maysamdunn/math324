@@ -2095,56 +2095,12 @@ $$
 $$
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \newpage
 \section{Lecture 12}
-
-
-
+\subsection{Section 9.8 - Large Sample Property of the MLEs}
+Let $X\sim f_{_\theta}(x)$ . Suppose we have two observations from $f_{_\theta}$ , $x_1 = 2$ and $x_2 = 5$ . We want to see how we can quantify the amount of information in each of these two observations about $\theta$. Note that our only link between the observations, i.e. $X$, and unobservable , .i.e. $\theta$ , is $f_{_\theta}(x)$ . So this is the channel through which information are transmitted. Now suppose the following figures depict the graph of $f_{_\theta}(2)$ and $f_{_\theta}(5)$ :
+$$
+\text{\#MISSING GRAPHS - Lecture 12 P1}
+$$
+ Since that $f_{\theta}(2)$ is constant, it is not sensitive w.r.t changes in $\theta$ . In contrast $f_{_\theta}(5)$ seems to respond to the changes in $\theta$ values. As such $5$ is much more information about $\theta$ than $2$ . In fact, $2$ does not have any information about $\theta$ . Such sensitivity can be measured by derivative, i.e. $\frac{\partial}{\partial\theta}f_{_\theta}$ . Now Fisher would  believe that information should increase linearly with the sample size $n$ . As such, he would work with $\log f_{_\theta}$ , rather that $f_{_\theta}$ . This then leads us to $\frac{\partial}{\partial\theta}\log f_{_\theta}$ . Now to define the information in the random variable $X$ about $\theta$ , we can look at the (Eucledean) length of \mbox{$\frac{\partial}{\partial\theta}\log_{_\theta}(x)$} which is $\mathbb{E}\big\{[\frac{\partial}{\partial\theta}\log f_{_\theta}]^2\big\}$
 \end{document}
