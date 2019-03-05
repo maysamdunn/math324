@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  19 FEB 2019 16:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  5 MAR 2019 16:32
 entering extended mode
 **./MATH324W2019LectureNotes.tex
 (MATH324W2019LectureNotes.tex
@@ -1647,7 +1647,7 @@ Underfull \vbox (badness 3449) has occurred while \output is active []
 
  [76]
 [77]
-Overfull \hbox (52.73463pt too wide) detected at line 2126
+Overfull \hbox (59.38016pt too wide) detected at line 2134
  $[][]$ 
  []
 
@@ -1655,13 +1655,48 @@ Overfull \hbox (52.73463pt too wide) detected at line 2126
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [78]
-[79] (MATH324W2019LectureNotes.aux) ) 
+Overfull \vbox (10.1169pt too high) has occurred while \output is active []
+
+
+[79]
+Overfull \hbox (66.12875pt too wide) in paragraph at lines 2134--2136
+\OT1/pxr/m/n/10 Provided that $(2)$ holds. Note that a $[]$ for $(2)$ is that [
+]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [80]
+Overfull \hbox (93.59006pt too wide) detected at line 2184
+\OML/pxmi/m/it/10 Y[] [] Ber\OT1/pxr/m/n/10 (\OML/pxmi/m/it/10 p\OT1/pxr/m/n/10
+ ) \OML/pxmi/m/it/10 ;   i \OT1/pxr/m/n/10 = 1\OML/pxmi/m/it/10 ; \OT1/pxr/m/n/
+10 2\OML/pxmi/m/it/10 ; [] ; n  ;   \OT1/pxr/m/n/10 (\OML/pxmi/m/it/10 p\OT1/p
+xr/m/n/10 ) = \OML/pxmi/m/it/10 p\OT1/pxr/m/n/10 (1 \OMS/pxsy/m/n/10   \OML/pxm
+i/m/it/10 p\OT1/pxr/m/n/10 )  \OML/pxmi/m/it/10 ;   []\OT1/pxr/m/n/10 (\OML/pxm
+i/m/it/10 p\OT1/pxr/m/n/10 ) = []\OML/pxmi/m/it/10 \OT1/pxr/m/n/10 (\OML/pxmi/
+m/it/10 p\OT1/pxr/m/n/10 ) = 1 \OMS/pxsy/m/n/10   \OT1/pxr/m/n/10 2\OML/pxmi/m/
+it/10 p  []  P[]\OT1/pxr/m/n/10 (\OML/pxmi/m/it/10 Y \OT1/pxr/m/n/10 = \OML/pxm
+i/m/it/10 y\OT1/pxr/m/n/10 ) = \OML/pxmi/m/it/10 p[]\OT1/pxr/m/n/10 (1 \OMS/pxs
+y/m/n/10   \OML/pxmi/m/it/10 p\OT1/pxr/m/n/10 )[]  \OML/pxmi/m/it/10 ;   y \OT1
+/pxr/m/n/10 = 0\OML/pxmi/m/it/10 ; \OT1/pxr/m/n/10 1
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [81]
+Overfull \hbox (92.45926pt too wide) detected at line 2199
+ $[][]$ 
+ []
+
+[82] (MATH324W2019LectureNotes.aux) ) 
 Here is how much of TeX's memory you used:
- 34123 strings out of 492946
- 760463 string characters out of 3135533
+ 34127 strings out of 492946
+ 760492 string characters out of 3135533
  800163 words of memory out of 3000000
- 37547 multiletter control sequences out of 15000+200000
- 567573 words of font info for 131 fonts, out of 3000000 for 9000
+ 37549 multiletter control sequences out of 15000+200000
+ 569366 words of font info for 135 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  117i,31n,146p,1629b,1110s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvi
@@ -1682,9 +1717,9 @@ MiKTeX 2.9/fonts/type1/public/rsfs/rsfs7.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/pal
 atino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on MATH324W2019LectureNotes.pdf (79 pages, 345426 bytes).
+Output written on MATH324W2019LectureNotes.pdf (82 pages, 355727 bytes).
 PDF statistics:
- 333 PDF objects out of 1000 (max. 8388607)
+ 342 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

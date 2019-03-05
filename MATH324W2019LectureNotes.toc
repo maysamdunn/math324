@@ -46,3 +46,5 @@
 \contentsline {subsection}{\numberline {11.2}Method of Moments}{76}% 
 \contentsline {section}{\numberline {12}Lecture 12}{78}% 
 \contentsline {subsection}{\numberline {12.1}Section 9.8 - Large Sample Property of the MLEs}{78}% 
+\contentsline {subsection}{\numberline {12.2}Asymptotic Distribution of $MLE$ and Approximate Pivotal Quantity}{80}% 
+\contentsline {subsection}{\numberline {12.3}Chapter 10 - Testing Statistical Hypothesis}{82}% 

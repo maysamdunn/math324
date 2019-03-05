@@ -2121,23 +2121,83 @@ is called the \emph{Fisher Information Amount} . Note that :
 	\frac{\partial^2}{\partial\theta^2}\log f_{_\theta}(x) &= \frac{\ddot{f}_{_\theta}(x)}{f_{_\theta}(x)} - \big[\frac{\dot{f}_{_\theta}(x)}{f_{_\theta}(x)}\big]^2\\
 	&= \frac{\ddot{f}_{_\theta}(x)}{f_{_\theta}(x)} - \big[\frac{\partial}{\partial\theta}\log f_{_\theta}(x)\big]^2\\
 	\text{Now taking $\mathbb{E}$ from both sides, we have:}\\
-	\mathbb{E}\Big[ \frac{\partial^2}{\partial\theta^2}\log f_{_\theta}(X) \Big] &= \mathbb{E}\Big[\frac{\ddot{f}_{_\theta}(X)}{f_{_\theta}(X)}- I(\theta)\Big]\tab[2cm] (\dagger)
+	\mathbb{E}\Big[ \frac{\partial^2}{\partial\theta^2}\log f_{_\theta}(X) \Big] &= \mathbb{E}\Big[\frac{\ddot{f}_{_\theta}(X)}{f_{_\theta}(X)}- I(\theta)\Big]\tab[2cm] (\dagger)\\
+	\text{Note that:}\tab\tab&\\
+	\mathbb{E}\big[\frac{\ddot{f}_{_\theta}(X)}{f_{_\theta}(X)}\big] &= \int_x \frac{\ddot{f}_{_\theta}(x)}{\cancel{f_{_\theta}(x)}} \cdot \cancel{f_{_\theta}(x)}dx =\int_x \ddot{f}_{_\theta}(x)dx\\
+		&= \int_x \frac{\partial^2}{\partial\theta^2}f_{_\theta}(x)dx\\
+		\text{Now if:\tab}\frac{\partial^2}{\partial\theta^2}\int_x f_{_\theta}(x)dx &= \int_x\frac{\partial^2}{\partial\theta^2}f_{_\theta}(x)dx\tab[2cm] (2)\\
+		\text{We obtain:\tab}\mathbb{E}\big[\frac{\ddot{f}_{_\theta}(x)}{f_{_\theta}(x)}\big] = \int_x\frac{\partial^2}{\partial\theta^2}f_{_\theta}(x)dx &= \frac{\partial^2}{\partial\theta}\overbrace{\int_x f_{_\theta}(x)dx}^{1} = 0\\
+		\text{Using $(\dagger)$ we therefore have:\tab}&\\
+		\mathbb{E}\big[\frac{\partial^2}{\partial\theta^2}\log{f_{_\theta}(X)}\big] =\ - I(\theta)&\\
+		\text{and hence:\tab}&\boxed{I(\theta) = \mathbb{E}\big[\big\{\frac{\partial}{\partial\theta}\log{f_{_\theta}(X)}\big\}^2\big] =\ -\mathbb{E}\big[\frac{\partial^2}{\partial\theta^2}\log{f_{_\theta}(X)}\big]}
 \end{split}
 \end{equation*}
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+Provided that $(2)$ holds. Note that a \underline{necessary condition} for $(2)$ is that \mbox{$\text{supp }f_{_\theta}(x) = \{x: f_{_\theta}(x) > 0\}$} does not depend on $\theta$ . This is the case for most distributions you have seen, i.e. Bernoulli, Binomial, Poisson, Exponential, Gamma, $\chi^2$, Normal. This is \underline{\textbf{is not}}, however the case for \textbf{\underline{uniform distribution}} .
+\subsection{Asymptotic Distribution of $MLE$ and Approximate Pivotal Quantity}
+ We discussed properties of the $MLE$s . We leaned the invariance property of $MLE$ which says that if $\hat{\theta}_{_{ML}}$ is the $MLE$ of $\theta$ , then $\tau(\hat{\theta}_{_{ML}})$ is the $MLE$ of $\tau(\theta)$ .\\
+ Under some mild conditions:
+ $$
+ 	\sqrt{n}\big(\tau(\hat{\theta}_{_{ML}}) - \tau (\theta)\big) \distas{app} 
+ 	N\big(0,\big[\frac{\partial}{\partial\theta}\tau(\theta)\big]^2 I^{-1}(\theta)\big)\tab\text{for large $n$}\tab[2cm] (*)
+ $$
+ In particular when $\tau(\theta) = \theta$ , we have:
+ $$
+ 	\sqrt{n}\big(\tau(\hat{\theta}_{_{ML}})-\theta\big) \distas{app} N\big(0, I^{-1}(\theta)\big)\tab[6cm](**)
+ $$
+ Note that $\big[\frac{\partial}{\partial\theta}\tau(\theta)\big]^2 I^{-1}(\theta)$ is the amount of information in variable $X$ about $\eta = \tau(\theta)$ . In fact:
+ \begin{equation*}
+ \begin{split}
+ 	I(\eta) &= \mathbb{E}\big[\big\{\frac{\partial}{\partial\theta}\log{f_{_\theta}(X)}\big\}^2\big] = \mathbb{E}\big[\big\{\frac{\partial}{\partial\theta}\log{f_{_\theta}(X)}\cdot\frac{\partial\theta}{\partial\eta}\big\}^2\big]\\
+ &= \big[\frac{\partial\theta}{\partial\eta}\big]^2\ \cdot \mathbb{E}\big[\big\{\frac{\partial}{\partial\theta}\log{f_{_\theta}(X)}\big\}^2\big]\\
+ &= \big[\frac{\partial\theta}{\partial\eta}\big]^2 \cdot I(\theta)
+ \end{split}
+ \end{equation*}
+ Since $\frac{\partial\theta}{\partial\eta}$ is not a function of $X$ . Thus:
+ $$
+ 	I^{-1}(\eta) = \big[\frac{\partial\eta}{\partial\theta}\big]^2 I^{-1}(\theta) = \big[\frac{\partial\tau(\theta)}{\theta}\big]^2 I^{-1}(\theta)
+ $$
+ using the above result:
+ $$
+ 	\frac{\sqrt{n}\big(\tau(\hat{\theta}_{_{ML}}-\tau(\theta))\big)}{\sqrt{\big[\frac{\partial}{\partial\theta}\tau(\theta)\big]^2 I^{-1}(\theta)}}\ \distas{app}\ N(0,1)\ ,\ (\mathscr{L})\ \text{for large $n$} 
+ $$
+ \textbf{For $(*)$ and $(**)$} : When we develop theory for the maximum likelihood estimators, we show that under same mild condition:
+ $$
+ 	\sqrt{n} \big(\hat{\theta}_{_{ML}}-\theta\big) \distas{app} N\big(0, I^{-1}(\theta)\big)
+ $$
+ Now for $\eta = \tau(\theta)$ we have the same result, i.e.:
+ $$
+ 	\sqrt{n}\big(\hat{\eta}_{_{ML}}-\eta\big) \distas{app} N\big(0, I^{-1}(\eta)\big) \ \ \ .
+ $$
+ Then we use the invariance property to conclude that \mbox{$\hat{\eta}_{_{ML}} = \tau(\hat{\theta}_{_{ML}})$} , if further, $\eta$ is continuously differentiable, then:
+ $$
+ 	I^{-1}(\eta) = \big[\frac{\partial}{\partial\theta}\tau(\theta)\big]^2 I^{-1}(\theta)
+ $$ 
+ Thus $\ \tau(\hat{\theta}_{_{ML}}) \pm  \zeta_{\frac{\alpha}{2}} \sqrt{ \frac{[\dot{\tau}(\theta)]^2\ I^{-1}(\theta)}{n}}$ is a $100(1-\alpha)\%\ $ confidence interval for $\tau(\theta)$ , where \mbox{$\dot{\tau}(\theta) = \frac{\partial}{\partial\theta}\tau(\theta)$} . For practical purposes the margin of error should be estimated.\\
+ As long as the estimator is consistent , the asymptotic confidence interval is still valid. Now if $\tau$ is continuously differentiable, $\dot{\tau}(\hat{\theta}_{_{ML}})$ is a consistent estimator of $\dot{\tau}(\theta)$ by continuous mapping theorem. Under mild conditions $I(\theta)$ is a continuous function of $\theta$ , and hence $I(\hat{\theta}_{_{ML}})$ is a consistent estimator of $I(\theta)$ by the continuous mapping theorem. Thus:
+$$
+	\tau(\hat{\theta}_{_{ML}}) \pm \zeta_{_\frac{\alpha}{2}}\ \sqrt{\frac{\dot{\tau}(\hat{\theta}_{_{ML}})I^{-1}(\hat{\theta}_{_{ML}})}{n}}\tab[4cm](\$)
+$$ 
+ is an approximate $100(1-\alpha)\%\ $ confidence interval for $\tau(\theta)$ , where $\zeta_{\frac{\alpha}{2}}$ is chosen such that \mbox{$P(Z>\zeta_{\frac{\alpha}{2}}) = \frac{\alpha}{2}\ , \ Z\sim N(0,1)$} . 
+ \begin{example}[\# 9.14 - page 484]
+ $$
+ 	Y_i \distas{iid} Ber(p) \ ,\ \ i=1,2,\ldots,n\ \ ,\ \ \tau(p) = p(1-p) \ \ , \ \ \dot{\tau}(p) = \frac{\partial}{\partial p}\tau(p) = 1-2p \ \ \text{and} \ \ P_p(Y=y) = p^y(1-p)^{1-y} \ \ ,\ \  y=0,1
+ $$
+ \end{example}
+ \begin{equation*}
+ \begin{split}
+	\log{P_p(Y=y)} &= y\log p + (1-y) \log (1-p)\\
+	\frac{\partial}{\partial p}\log{P_p(Y=y)} &= \frac{y}{p} - \frac{1-y}{1-p}\\
+	\frac{\partial^2}{\partial p^2} \log{P_p(Y=y)} &= -\frac{y}{p^2} - \frac{1-y}{(1-p)^2}\\
+	\text{Now we have:}\\
+	\mathbb{E}\big\{-\frac{\partial^2}{\partial p^2}\log{P_p(Y=y)}\big\} &= I(p)\\
+	I(p) &= \mathbb{E}\big\{\frac{Y}{p^2}+\frac{1-Y}{(1-p)^2}\big\} = \frac{\mathbb{E}(Y)}{p^2} + \frac{\mathbb{E}(1-Y)}{(1-p)^2}\\
+	&= \frac{p}{p^2} + \frac{1-p}{(1-p)^2} = \frac{1}{p} + \frac{1}{1-p} = \frac{1}{p(1-p)}\\
+	\text{Thus:}\tab I^{-1}(p) &= p(1-p)\ \ \ , \ \ \hat{p}_{_{ML}} = \frac{1}{n}\sum\limits_{i=1}^n Y_i\\
+	\text{Using $(\$)$ , we have:}\\
+	\hat{p}_{_{ML}}(1-\hat{p}_{_{ML}}) \pm \zeta_{\frac{\alpha}{2}}&\sqrt{\frac{(1-2\hat{p}_{_{ML}})^2 \hat{p}_{_{ML}}(1-\hat{p}_{_{ML}})}{n}}\tab[0.75cm]\text{is a $100(1-\alpha)\%$ confidence interval for p(1-p) .}
+ \end{split}
+ \end{equation*}
+ \subsection{Chapter 10 - Testing Statistical Hypothesis}
  
  
  
