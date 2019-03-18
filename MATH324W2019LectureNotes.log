@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  18 MAR 2019 13:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  18 MAR 2019 13:16
 entering extended mode
 **./MATH324W2019LectureNotes.tex
 (MATH324W2019LectureNotes.tex
@@ -1811,7 +1811,7 @@ sy/m/n/10   []\OT1/pxr/m/n/10 )[]
 [92] [93] [94] (MATH324W2019LectureNotes.aux) ) 
 Here is how much of TeX's memory you used:
  34167 strings out of 492946
- 761279 string characters out of 3135533
+ 761281 string characters out of 3135533
  800460 words of memory out of 3000000
  37579 multiletter control sequences out of 15000+200000
  571088 words of font info for 140 fonts, out of 3000000 for 9000
@@ -1837,7 +1837,7 @@ les/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/urw/palatino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/u
 plri8a.pfb>
-Output written on MATH324W2019LectureNotes.pdf (94 pages, 389501 bytes).
+Output written on MATH324W2019LectureNotes.pdf (94 pages, 389824 bytes).
 PDF statistics:
  385 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
