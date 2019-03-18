@@ -1,6 +1,6 @@
 \documentclass[14pt,twoside,a4paper,fleqn]{article}
 \usepackage{amsmath,mathtools,latexsym,forest,semantic,amsthm,cancel,stackengine,dcolumn,pxfonts,graphicx,mathrsfs}
-\usepackage{enumerate,tikz}
+\usepackage{enumerate,tikz,dingbat}
 \usetikzlibrary{trees}
 \theoremstyle{plain}
 %theorems and lemmas with numbering
@@ -2194,210 +2194,349 @@ $$
 	&= \frac{p}{p^2} + \frac{1-p}{(1-p)^2} = \frac{1}{p} + \frac{1}{1-p} = \frac{1}{p(1-p)}\\
 	\text{Thus:}\tab I^{-1}(p) &= p(1-p)\ \ \ , \ \ \hat{p}_{_{ML}} = \frac{1}{n}\sum\limits_{i=1}^n Y_i\\
 	\text{Using $(\$)$ , we have:}\\
-	\hat{p}_{_{ML}}(1-\hat{p}_{_{ML}}) \pm \zeta_{\frac{\alpha}{2}}&\sqrt{\frac{(1-2\hat{p}_{_{ML}})^2 \hat{p}_{_{ML}}(1-\hat{p}_{_{ML}})}{n}}\tab[0.75cm]\text{is a $100(1-\alpha)\%$ confidence interval for p(1-p) .}
+	\hat{p}_{_{ML}}(1-\hat{p}_{_{ML}}) \pm \zeta_{\frac{\alpha}{2}}&\sqrt{\frac{(1-2\hat{p}_{_{ML}})^2\ \hat{p}_{_{ML}}(1-\hat{p}_{_{ML}})}{n}}\tab[0.75cm]\text{is a $100(1-\alpha)\%$ confidence interval for p(1-p) .}
  \end{split}
  \end{equation*}
  \subsection{Chapter 10 - Testing Statistical Hypothesis}
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ A statistical hypothesis is a statement about the parameter(s) of a population that specifies , partially or totally , structure of the population . A statistical hypothesis  is tested against observations from the population that the hypothesis describes.
+ \begin{remark*}\emph{
+ The formation of a hypothesis should be independent from the data used to test the hypothesis. We should not use the same data for both \emph{\underline{exploration}} (formation of a hypothesis) and \emph{\underline{validation}} of a theory or hypothesis.
+ }\end{remark*}\hfill\\
+ The essential elements of $TSH$ are:
+ \begin{enumerate}[*]
+ \item A null hypothesis ($\mathcal{H}_{_0}$)
+ \item An alternative hypothesis ($\mathcal{H}_{_A}$)
+ \item A test statistic
+ \item A rejection region
+ \end{enumerate}
+ When testing a hypothesis $\mathcal{H}_{_0}$ two types of errors may happen, Type $I$ and \mbox{Type $II$} . The following table shows thus errors:\hfill\\ \\
+$\mathcal{H}_{_0}$ : \tab
+\begin{tabular}{l*{6}{c}r}
+           & $\mathcal{H}_{_0}$: True & $\mathcal{H}_{_0}$: False \\
+\hline
+Accept 			& \checkmark & Type II error  \\
+Reject            & Type I error & \checkmark \\
+\end{tabular}\hfill\\ \\
+Probability of Type I \& Type II error are respectively denoted by $\alpha$ and $\beta$ , i.e. :
+\begin{equation*}
+\begin{split}
+\alpha &= P(\text{Type I error}) \\
+	&= P(\text{Rejecting $\mathcal{H}_{_0}$ when $\mathcal{H}_{_0}$ is true})\\
+	&=P_{_{\mathcal{H}_{_0}}}(\text{Rejecting }\mathcal{H}_{_0})\\
+\text{and: }\\
+\beta &= P(\text{Type II error})\\
+		&= P(\text{Accepting $\mathcal{H}_{_0}$ when $\mathcal{H}_{_0}$ is false})\\
+		&= P_{_{\mathcal{H}_{_A}}}(\text{Accepting $\mathcal{H}_{_0}$})
+\end{split}
+\end{equation*}
+
+\begin{example}[\# 10.1 , page 491]
+$
+	X_i \distas{iid}Ber(p)\ \ \ , \ \ \ i=1,2,\ldots,\overbrace{15}^n\ \ \ , Y=\sum\limits_{i=1}^{15} X_i \\
+	\mathcal{H}_{_0} :  p= 0.5 \tab \text{vs}\tab \mathcal{H}_{_A}: p> 0.5\\
+	\text{Rejection Region: $(RR)=\{Y\leq 2\}$}\\
+	\alpha = P(\text{Type I error}) = P_{_{p=0.5}}(Y\leq 2)\\
+	\ \ = \sum\limits_{y=0}^2 \binom{15}{y}(\frac{1}{2})^y(1-\frac{1}{2})^{15-y} \approx 0.004\tab\text{(using table $1$ in App $3$)}
+$
+\end{example}
+\begin{example}[example 10.2 , page 492]
+$
+	X_i \distas{iid} Ber(p) \ \ , \ \ i=1,2,\ldots,\overbrace{15}^{\text{n: sample size}}\\
+	\mathcal{H}_{_0} : p=0.5 \tab vs\tab \mathcal{H}_{_A}: p=0.3\\
+	 RR = \{Y\leq 2\}\\
+	 \beta = P(\text{Type II error}) = P_{_{\mathcal{H}_{_0}}}(Y >2)\\
+	 \ \ = P_{_{p=0.3}}(Y>2) = \sum\limits_{y=3}^{15}\binom{15}{y}(0.3)^y(1-0.3)^{15-y}\\
+	 \ \ = 1- \sum\limits_{y=0}^2 \binom{15}{y}(0.3)^y(1-0.3)^{15-y}\approx 0.873\tab\text{(using Table $1$ in App $3$)}\\
+	 $
+	 \emph{For $\ \mathcal{H}_{_A} : p=0.1\ $ we find $\ \beta\approx 0.184\ $ using similar calculation.}
+\end{example}
+
+
+
+\newpage
+\section{Lecture 13}
+\textbf{Question: How do we find an appropriate test statistic and specify an rejection region?}\\
+As mentioned in the previous lecture, statistical hypotheses are often statements about the parameters of the population of interest, i.e. $\theta$ equal something or belong to some set. As test statistic we choose an estimator of $\theta$ , \underline{often the $MLE$} . As for the rejection region (RR) or set, the form of the set is determined by $\mathcal{H}_{_A}$. For example for testing $\mathcal{H}_{_0} : \theta=\theta_{_0}$  versus $\mathcal{H}_{_A}:\theta > \theta_{_0}$ , the rejection  region (or rejection set) is \mbox{$\big\{(x_1,\ldots,x_n) : \hat{\theta}_{ML} = \hat{\theta}(x_1,\ldots,x_n) > K\big\}$} when $K$ is determined in such a way that:
+$$
+	\alpha = P_{_{\mathcal{H}_{_0}}}(\text{Type I error}) = P_{_{\theta = \theta_0}}(\hat{\theta}_{ML} > K)
+$$
+The following two tables summarize the the above discussion for testing \mbox{$\mathcal{H}_{_0} : \theta = \theta_{_0}$} , for most commonly encountered parameters and most common forms of $\mathcal{H}_{_A}$:
+
+\begin{center}Table I : 
+    \begin{tabular}{| l | l | l | l | l | l | }
+    \hline
+    $\theta$ & $\mu$ & $p$ & $\sigma^2$ & $\mu_1 - \mu_2$ &$ \frac{\sigma^2_1}{\sigma^2_2}$  \\ \hline
+    $\hat{\theta}$ & $\bar{X}_n$ & $\hat{p}_n$ & $S^2$ & $\bar{X}_1 - \bar{X}_2$ &$\frac{S^2_1}{S^2_2}$  \\
+    \hline
+    \end{tabular}
+\end{center}
+
+and
+
+\begin{center}Table II : 
+    \begin{tabular}{| l | l | l | l |}
+    \hline
+    $\mathcal{H}_{_A}$ & $\theta > \theta_{_0}$ & $\theta < \theta_{_0}$ & $\theta \neq \theta_{_0}$  \\ \hline
+    $RR$ & $\hat{\theta} > K$ & $\hat{\theta} < K$ & $| \hat{\theta}| > K$  \\
+    \hline
+    \end{tabular}
+\end{center}
+
+where $K$ is chosen such that \mbox{$\ \alpha = P_{_{\theta = \theta_{_0}}}(\text{Type I error})\ ,\ \alpha\ \text{is the \underline{significance level} .}$}\hfill\\
+\textbf{How to determine $K$:}\hfill\\
+As we said above, $K$ is determined such that $\ P_{_{\theta = \theta_0}}(\text{Type I error}) = \alpha\ $\ , thus:\hfill\\
+$
+	\tab\mathcal{H}_{_A} : \theta>\theta_{_0} \rightarrow	P_{_{\theta=\theta_{_0}}}(\hat{\theta} > K)=\alpha	\\
+	\tab\mathcal{H}_{_A} : \theta<\theta_{_0} \rightarrow	P_{_{\theta=\theta_{_0}}}(\hat{\theta}<K)=\alpha	\\
+	\tab\mathcal{H}_{_A} : \theta\neq\theta_{_0} \rightarrow	P_{_{\theta=\theta_{_0}}} (|\hat{\theta}| > K) = \alpha
+$\hfill\\
+We therefore need the distribution of $\hat{\theta}$ . Now we have two cases:\\
+\tab\textbf{A:} We can find the exact distribution of $\hat{\theta}$\hfill\\
+\tab\textbf{B:} The exact distribution cannot be found\hfill\\
+As we will see soon, if $ \theta $ is equal to $\ \mu\ , \sigma^2\ , \ \mu_1-\mu_2 \ \text{ or } \ \frac{\sigma^2_1}{\sigma^2_2}\ \ $ and observations are 
+coming from a normal distribution , then the exact distribution of $\ \hat{\theta}\ $ can be found , under some additional conditions in \emph{Two-Sample} cases , i.e. $\ \mu_1-\mu_2\ $ or $\ \frac{\sigma^2_1}{\sigma^2_2}\ $.\\
+When the exact distribution of $\hat{\theta}$ is not available, we try to approximate it. Our main tools in such cases are $\ (\mathscr{L})\ $ on page $81$ that presents the asymptotic distribution of functions of $MLE$ and the General Limit Theorem ($GLT$).
+ $$
+ 	\frac{\sqrt{n}\big(\tau(\hat{\theta}_{_{ML}}-\tau(\theta))\big)}{\sqrt{\big[\frac{\partial}{\partial\theta}\tau(\theta)\big]^2 I^{-1}(\theta)}}\ \distas{app}\ N(0,1)\ :\tab (\mathscr{L})\ \text{\ for large $n$} 
+ $$
+\subsection{Large Sample Tests}
+\begin{example}[\#10.5 , page 497]\hfill\\
+$n=36 \ , \ \bar{X}_{36} = 17 \ \ , \ S^2_{36-1}=9 \ \ , \ \mathcal{H}_{_0}: \mu=15\  \ , \ \mathcal{H}_{_A}: \mu>15 \ \ , \alpha= 0.05$
+\end{example} 
+- Using Table I, our test statistic is $\bar{X}_n$\\
+- Using Table II, our $\ RR = \{\bar{X}_n > K\} $\\
+We should choose $K$ such that :
+\begin{equation*}
+\begin{split}
+	P_{{\mu=15}}(\bar{X}_{36} > K) &= 0.05\tab \text{then:} \\
+	 	&= P_{{\mu=15}}(\frac{\bar{X}_{36}-15}{\frac{\sigma}{\sqrt{36}}} > \frac{K-15}{\frac{\sigma}{\sqrt{6}}})\tab \text{replace $\sigma^2$ by $S^2=9$}\\
+	 	&=P_{{\mu=15}}(\frac{\bar{X}_{36}-15}{\frac{3}{\sqrt{36}}} > \frac{K-15}{\frac{3}{\sqrt{36}}})\\
+	 	&= P_{{\mu=15}}(Z > 2(K-15))
+\end{split}
+\end{equation*}
+Under $\ \mathcal{H}_{_0}:\mu=15\ $ , $\ Z=\frac{\bar{X}_{36}-15}{\frac{3}{\sqrt{36}}}\ \distas{app} \ N(0,1)$\ . Using Table IV , App3 on page 848 , we have : \mbox{$ \ P(z>1.645) \approx 0.05$}\ \ \ \ \#MISSING GRAPH page 87\\
+Thus \ \ $\ 2(K-15) = 1.645 \ \ $ and hence $\ \boxed{K\approx 15.82} \ $.  The $RR$ is then $\ RR=\{\bar{X}_{36}>15.82\}\ $ . In our example, \underline{the observed value} of $\ \bar{X}_{36}\ $ is $17$ which is greater than $15.82\ $. Thus the data do \textbf{NOT} support $\ \mathcal{H}_{_0}$ and hence $\ \mathcal{H}_{_0}\ $ is \textbf{rejected} .
+
+\begin{example}[\#10.6 , page 498]\hfill\\
+$\mathcal{H}_{_0}:p=0.1 \ \ , \ \mathcal{H}_{_A}: p>0.1 \ \ , \ \alpha=0.01 \ \ , \ n=100 \ \ , \ $\mbox{ $\ \ \hat{p}_n = \hat{p}_{_{ML}} = \frac{1}{n}\sum\limits_1^n X_i = \frac{1}{100}\sum\limits_1^{100} = \frac{15}{100} = 0.15$}\\
+where:\tab$X_i=\left\{ \begin{array}{lr}
+	1 & \text{if the $i^{th}$ item is defective}\\
+	0 & \text{otherwise}
+\end{array}
+\right.$\\  
+$X_i \ \distas{iid} \text{Bern($p$)} \ \ \ , \ \ \i=1,2\ldots,n\tab\text{where $n=100$}$
+\end{example}
+Using Table I , our test statistic is $\ \hat{p}_{_{ML}}\ $ and using Table II $\ RR=\{\hat{p}_{_{ML}} > K\}$ . Now:
+\begin{equation*}
+\begin{split}
+P_{{\mu_{_0}}}(\hat{p}_{_{ML}} < K ) &= P_{_{\mathcal{H}_0}}\big(\frac{\hat{p}_{_{ML}} > 0.1}{\sigma_{\hat{p}_{_{ML}}}} > \frac{K - 0.1}{\sigma_{\hat{p}_{ML}}}\big)\\
+	&= P_{_{\mathcal{H}_0 : p=0.1}} \big( \frac{\hat{p}_{_{ML}} > 0.1}{\sqrt{\frac{p(1-p)}{n}}} > \frac{K-0.1}{\sqrt{\frac{0.1(1-0.1)}{100}}} \big)\\
+	&\approx P_{_{p=0.1}}\big( Z > \frac{K-0.1}{\sqrt{\frac{0.1(1-0.1)}{100}}}\big)
+\end{split}
+\end{equation*}
+where $\ Z \sim N(0,1)\ $ . Using Table IV in App3 , we have $\ P(Z>2.33)\approx0.01\ $ . Thus:
+$$
+	\frac{K-0.1}{\sqrt{\frac{0.1(1-0.1)}{100}}} = 2.33 = \boxed{K = 0.1699}
+$$
+Now the observed value of $ \hat{p}_{_{ML}}\ $ is $0.15$ which is smaller than $\ K (=0.1699)\ $ , hence $\mathcal{H}_{_0}$ cannot be rejected.
+
+\begin{example}[\#10.8 , page 498]\hfill\\
+$
+n=36 \ \ , \ \ \bar{X}_{36} = 17 \ \ , \ \ S^2 = 9 \ \ , \ \ \mathcal{H}_{_0}:\mu=15 \ \ , \ \ \alpha = 0.05
+$
+\end{example}
+From example \#10.5 \ $\ RR=\{\bar{X}_{36} > 15.82\}\ $. Now:
+\begin{equation*}
+\begin{split}
+	\beta &= P_{_{H_A}}\big(\frac{\bar{X}_{36}-\overbrace{16}^{\mu_{_A}}}{\frac{3}{\sqrt{36}}} \leq \frac{15.82 - 16}{\frac{3}{\sqrt{36}}}\big) \\
+		&\approx P_{_{\mu = 16}}\big(Z \leq -0.36\big)\tab[3cm], \text{where }  Z\sim N(0,1)\\
+		&\approx 0.36
+\end{split}
+\end{equation*}
+\subsection{Sample Size Calculation using Type I \& Type II errors}
+We can determine sample size to control both types of error for testing \mbox{$\mathcal{H}_{_A}:\mu=\mu_{_0}$} versus $\mathcal{H}_A: \mu = \mu_{_A}$.\\
+\begin{equation*}
+\begin{split}
+	-\alpha &= P_{{{\mu}_0}} (\bar{X}_n > K) = P_{{{\mu}_0}} \big(\frac{\bar{X}_n - \mu_{_0}}{\frac{\sigma}{\sqrt{n}}} > \frac{K-\mu_{_0}}{\frac{\sigma}{\sqrt{n}}}\big) \\
+	&\approx P_{{{\mu}_0}}(Z > \zeta_\alpha)\ , \ Z \sim N(0,1)\tab[3cm] \text{(for large $n$)}\\
+	\text{Likewise}\tab &\\
+	-\beta & = P_{_{\mu_{_A}}} (\bar{X}_n \leq K) = P_{_{\mu_{_A}}}\big(\frac{\bar{X}_n - \mu_A}{\frac{\sigma}{\sqrt{n}}} \leq \frac{K-\mu_A}{\frac{\sigma}{\sqrt{n}}}\big)\\
+	&\approx  P_{_{\mu_{_A}}}(Z < -\zeta_{_\beta})\ , \ Z\sim N(0,1)\tab[3cm] \text{(for large $n$)}\\
+\text{Thus:}\tab & \left\{ \begin{array}{lr}
+	\frac{K-\mu_{_0}}{\frac{\sigma}{\sqrt{n}}}= \zeta_{_\alpha}\\
+	\frac{K-\mu_{_A}}{\frac{\sigma}{\sqrt{n}}} = -\zeta_{_\beta}
+\end{array}
+\right.\tab \implies\tab K=\mu_{_0} +\zeta_\alpha \frac{\sigma}{\sqrt{n}} = \mu_{_A} - \zeta_\beta \frac{\sigma}{\sqrt{n}}   \\
+\text{and hence}\tab & \mu_{_A} -\mu_{_0} = \frac{\sigma}{\sqrt{n}}(\zeta_\alpha + \zeta_\beta)\\
+\text{therefore}\tab & \boxed{n = \frac{(\zeta_\alpha + \zeta_\beta)^2 \sigma^2}{(\mu_{_A} - \mu_{_0})^2}}\tab[3cm] (\eta)
+\end{split}
+\end{equation*}
+
+\begin{example}[\#10.9 , page 510]\hfill\\
+$
+	\mu_{_0} : \mu = \overbrace{15}^{\mu_{_0}} , \mathcal{H}_A : \mu = \overbrace{16}^{\mu_{_A}} , \alpha=\beta=0.05 \ , \ \sigma^2 = 9
+$
+\end{example}
+Thus $\zeta_\alpha = \zeta_\beta = 1.645$ \tab , \tab $n=\frac{(1.645+1.645)^2 \cdot 9}{(16-15)^2} = 97.4 \rightarrow 98$
+
+
+\subsection{p-value (Fisher's Presentation)}
+What we learned about $TSH$ so far is Nyman-Pearson approach to $TSH$ . Fisher has a different perspective.\\
+For Fisher, a hypothesis is a theory and to test the theory, we weigh the theory against the observations. To this end, we can, for example see how likely it is to see what we have observed if the hypothesis is valid. There are two technical issues here:\textbf{First} , when we are dealing with continuous random variables, the probability of any set of observations \mbox{$\underset{\sim}{x} = \{x_1,\ldots,x_n\}$} is zero.\textbf{Second} , this idea can be futile as the following example shows:\hfill\\
+\textbf{example} $X_i \distas{iid} \text{Ber($p$)} , i=1,2,\ldots,n$ and $\mathcal{H}: p=\frac{1}{2}$\\
+$$
+	P_{_{\mathcal{H} : p=\frac{1}{2}}}(X_i = x_i , i=1,2,\ldots,n) = \prod\limits_{i=1}^n(\frac{1}{2})^{x_i}(1-\frac{n}{2})^{1-x_i} = (\frac{1}{2})^n
+$$
+Thus all the observations are equally likely. Note that if $\mathcal{H}_{_0}$ is true, we expect to observe $\ 50\%$ $1's$ and $\ 50\%$ $0's$ , more or less, at least for large n, i.e. the chance od such observation should be high.\\
+Fisher then suggested to compute the probability of observations which are as bad as what we have observed for the hypothesis that is to be tested. This lid to the notation of \mbox{\emph{p-value}}:\hfill\\
+\textbf{p-value:} The p-value or attained significance level, is the smallest level of significance $\alpha$ for which the obtained data indicate that the null hypothesis should be rejected.\\
+\begin{example}[\#10.7 , page 500 and \#10.11 , page 515]\hfill\\
+$
+\alpha = 0.05 , n_1 = 50 , n_2 = 50 , \bar{Y}_1 = 3.6\ sec , \bar{Y}_2 = 3.8\ sec \ , S^2_1 = 0.18 , S^2_2 = 0.14 ,$\mbox{$\mathcal{H}_{_0} : \mu_1 - \mu_2 = 0 , \mathcal{H}_{_A} : \mu_1-\mu_2\neq 0$}
+\end{example}
+Using Table I , the test statistic is $\bar{Y}_1 - \bar{Y}_2$\\
+\tab[0.4cm] Using Table II, $RR = \big\{|\bar{Y}_1 - \bar{Y}_2 | > K\big\}$
+
+\begin{equation*}
+\begin{split}
+0.05 = \alpha &= P_{_{\mathcal{H}_0}} \big( \vert \bar{Y}_1 - \bar{Y}_2 \vert > K \big)\\
+	&= P_{_{_{\mathcal{H}_0}:\mu_1 - \mu_2 = 0}} \Big( \Big| \frac{(\bar{Y}_1 - \bar{Y}_2) - 0}{\sqrt{\frac{\sigma^2_1}{n_1} + \frac{\sigma^2_2}{n_2}}} \Big| > \frac{K}{\sqrt{\frac{0.18}{50} + \frac{0.14}{50}}}\Big)\\
+	&\approx P\big( |Z| > \frac{K}{\sqrt{\frac{0.18}{50}+\frac{0.14}{50}}}  \big) \tab , \tab Z\sim N(0,1) \\
+	\text{Thus:}\tab &\\
+	\frac{K}{\sqrt{\frac{0.18}{50}+ \frac{0.14}{50}}} &= 1.96\tab\text{Using Table IV in App3 and hence:\ } \ \boxed{K=0.1568}\\
+	RR &= \big\{ |\bar{Y}_1 - \bar{Y}_2| > 0.1568 \big\}\ . \text{ Given that $\bar{y}_1 - \bar{y}_2 = 0.2$ , } \mathcal{H}_{_0} \text{ is \underline{rejected}}.\\
+	\text{Now to computer} & \text{ the p-value}: \\
+	p-value &= P_{_{\mathcal{H}_0}}( |\bar{Y}_1 - \bar{Y}_2  |  >   | 3.6 - 3.8   |  )\\
+	&= P_{_{\mathcal{H}_0}} (|\bar{Y}_1 - \bar{Y}_2| > 2)\\
+	&= P_{_{\mathcal{H}_0}} \Big(\Big|\frac{(\bar{Y}_1 - \bar{Y}_2) - 0}{\sqrt{\frac{\sigma^2_1}{n_1}+ \frac{\sigma^2_2}{n_2}}} \Big| > \frac{2}{\sqrt{\frac{0.18}{50}+\frac{0.14}{50}}} \Big) \\
+	&\approx P_{_{\mathcal{H}_0}} (|Z| > 2.5) \tab , \tab Z\sim N(0,1)\\
+	&= 2P(Z>2.5) = 2(0.0062)\\
+	&= 0.0124
+\end{split}
+\end{equation*}
+
+\newpage
+\section{Lecture 14}
+\subsection{Relationship between $TSA$ and \emph{Confidence Intervals}}
+A $100\%(1-\alpha)\ $ confidence interval $\ \hat{\theta}_{_{ML}}\pm \zeta_{\frac{\alpha}{2}}\sigma_{_{\hat{\theta}_{ML}}}$ is essentially a $100\%(1-\alpha)\ $ acceptance region. Thus:
+$$
+	\overline{RR}_\alpha = \big\{ \hat{\theta}_{_{ML}}\colon\ \ \ \  \big| \frac{\hat{\theta}_{_{ML}}-\theta_{_0}}{\sigma_{_{\hat{\theta}_{_{ML}}}}} \big| \leq \zeta_{_{\frac{\alpha}{2}}} \big\}
+$$
+is the complement of an $\alpha$-level $RR\ $ , i.e:
+$$
+	{RR}_\alpha = \big\{ \hat{\theta}_{_{ML}}\colon\ \ \ \  \big| \frac{\hat{\theta}_{_{ML}}-\theta_{_0}}{\sigma_{_{\hat{\theta}_{_{ML}}}}} \big| > \zeta_{_{\frac{\alpha}{2}}} \big\}
+$$
+This means that $RR_\alpha$ is a rejection region for testing $\mathcal{H}_{_0}\colon \theta = \theta_{_0}$ versus \mbox{$\mathcal{H}_{_A}\colon \theta \neq \theta_{_0}$} at the $\alpha\ $ significance level.\\
+This relationship is two-sided . In other words, any $100\%(1-\alpha)\ $ confidence interval can be translated into an acceptance region and hence its complement can provide an $\alpha$-level $RR$ . On the other hand, the complement of $\alpha$-level $RR$ can provide a $100\%(1-\alpha)\ $ C.I.
+\subsection{Small Sample Tests}
+
+\begin{enumerate}
+\item[•] For $\mu$ (one sample case):\hfill\\
+         Assumptions: $Y_1,\ldots,Y_n$ are $iid$\\
+         \tab[2.3cm]$Y_i \sim N(\mu,\sigma^2)\ \ \ , \ \ i=1,2,\ldots,n$\\
+         $\mathcal{H}_{_0}: \mu - \mu_{_0}$\tab versus \tab $\mathcal{H}_{_0}: \left\{\begin{array}{lr}
+         \mu > \mu_{_0}\ \ \ &:\ \ \ \ \text{(upper tail)}\\
+         \mu < \mu_{_0}\ \ \ &:\ \ \ \ \text{(lower tail)}\\
+         \mu\neq\mu_{_0}\ \ \ &:\ \ \ \ \text{(two-sided)}
+         \end{array}
+         \right.$\\
+         Test statistic $T = \frac{\bar{Y}-\mu_{_0}}{\frac{s}{\sqrt{n}}} \sim T_{(n-1)}\ $ under $\mathcal{H}_{_0}\colon \mu=\mu_{_0}$\\
+         ${RR}_\alpha : \left\{ \begin{array}{lr}
+         t > t_{\alpha , n-1} &: \ \ \ \text{(upper tail)}\\
+         t < -t_{\alpha , n-1} &: \ \ \ \text{(lower tail)}\\
+         |\ t\ | > t_{_\frac{\alpha}{2},n-1} &: \ \ \ \text{(two-sided)}
+         \end{array}\right.$\tab \mbox{$t_{_\alpha}$ is chosen such that $P(T>t_\alpha) = \alpha$}\\
+         Value of $t_{\alpha, n-1}$ are given in Table VI, App.3, page 849.\\
+         $\text{p-value} = P\big(|\ T_{n-1}\ | > |\ t_{\text{obs.}}\ |\big)$ for two sided $\mathcal{H}_{_A}$ where \mbox{$\ t_{_{\text{obs.}}} = \frac{\bar{y} - \mu_{_0}}{\frac{s}{\sqrt{n}}}$} , $\bar{y}$ is the observed sample average.
+         
+\item[•] For $\mu_1 - \mu_2$ (two sample case)\hfill\\
+	Assumption: \ $\ X$'s and $Y$'s are independent\\
+	\tab[2.3cm] $\left\{\begin{array}{lr}
+	X_{_i} \distas{iid} N(\mu_1 , \sigma^2_1) & , \ \ \ i=1,2,\ldots,n_{_1}\\
+	Y_{_j} \distas{iid} N(\mu_2 , \sigma^2_2) & , \ \ \ j=1,2,\ldots,n_{_2}
+	\end{array}
+	\right.$\\
+	\tab[2.3cm] $\sigma^2_1 = \sigma^2_2$\\
+	Note that we need \underline{\textbf{between}} and \underline{\textbf{within}} independence both, i.e $X$-samples are independent from the $Y$-samples and from each other.\\
+	$\mathcal{H}_{_0}: \mu_{_1} - \mu_{_2} = D_{_0}$\tab versus\tab $\mathcal{H}_{_A} : \left\{\begin{array}{lr}
+	\mu_{_1} - \mu_{_2} > D_{_0} &: \ \ \ \text{(upper tail)}\\
+	\mu_{_1} - \mu_{_2} < D_{_0} &: \ \ \ \text{(lower tail)}\\
+	\mu_{_1} - \mu_{_2} \neq D_{_0} &: \ \ \ \text{(two-sided)}
+	\end{array}
+	\right.$\\
+	Test statistic: \ \ $\ T = \frac{(\bar{X}_{_{n_1}} - \bar{Y}_{_{n_2}}) - D_{_0}}{s_p \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}\ $ where:
+	$$
+	s_p = \sqrt{\frac{(n_1 - 1)S^2_{_X} + (n_2 - 1)S^2_{_Y}}{n_{_1}+n_{_2}-2}}  \ \ , \ \ S^2_{_X} = \frac{1}{n_{_1}-1}\sum\limits_{i=1}^{n_1}(X_i - \bar{X}_{n_1})^2 \ \ \text{ and } \ \ S^2_{_Y} = \frac{1}{n_{_2}-1}\sum\limits_{j=1}^{n_2} (Y_j - \bar{Y}_{n_2})^2
+	$$
+	Under $\ \mathcal{H}_{_0}\ $ , $\ T \sim T_{n_1 + n_2 - 2}\ $ and $\ {RR}_\alpha \colon \left\{\begin{array}{lr}
+	t > t_{\alpha, n_{_1}+n_{_2}-2} &\colon \ \ \ \ \text{(upper tail)}\\
+	t < - t_{\alpha, n_{_1}+n_{_2}-2} &\colon \ \ \ \ \text{(lower tail)}\\
+	|\ t\ | > t_{\frac{\alpha}{2}, n_{_1}+n_{_2}-2} &\colon \ \ \ \ \text{(upper tail)}
+	\end{array}\right.$
+	\emph{Values of $\ t_\alpha\ , \ n_{_1}+n_{_2} - 2\ $} are given in Table VI , App.3 , page 849.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Lecture 15}
+
+\newpage
+\section{Lecture 16} 
  
  
  

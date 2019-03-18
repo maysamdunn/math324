@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  5 MAR 2019 16:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.27)  18 MAR 2019 13:11
 entering extended mode
 **./MATH324W2019LectureNotes.tex
 (MATH324W2019LectureNotes.tex
@@ -953,6 +953,9 @@ Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks61
 )
+(C:\Users\Sam\AppData\Roaming\MiKTeX\2.9\tex/latex/dingbat\dingbat.sty
+Package: dingbat 2001/04/27 v1.00 Hands and other dingbats
+)
 (C:\Users\Sam\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/frontendlayer/tikz/lib
 raries\tikzlibrarytrees.code.tex
 File: tikzlibrarytrees.code.tex 2019/01/05 v3.1 (3.1)
@@ -1686,40 +1689,157 @@ y/m/n/10   \OML/pxmi/m/it/10 p\OT1/pxr/m/n/10 )[]  \OML/pxmi/m/it/10 ;   y \OT1
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [81]
-Overfull \hbox (92.45926pt too wide) detected at line 2199
+Overfull \hbox (94.95926pt too wide) detected at line 2199
  $[][]$ 
  []
 
-[82] (MATH324W2019LectureNotes.aux) ) 
+
+LaTeX Warning: The counter will not be printed.
+             The label is: * on input line 2206.
+
+[82]
+LaTeX Font Info:    Try loading font information for U+dingbat on input line 22
+17.
+ (C:\Users\Sam\AppData\Roaming\MiKTeX\2.9\tex/latex/dingbat\udingbat.fd
+File: udingbat.fd 2001/04/27 v1.00 Font definitions for the dingbat font
+)
+Underfull \hbox (badness 10000) in paragraph at lines 2212--2221
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2212--2221
+
+ []
+
+[83] [84]
+Overfull \hbox (11.42342pt too wide) in paragraph at lines 2285--2299
+[]\OT1/pxr/m/n/10 where $\OML/pxmi/m/it/10 K$ \OT1/pxr/m/n/10 is cho-sen such t
+hat [] 
+ []
+
+[85]
+
+LaTeX Warning: Command \i invalid in math mode on input line 2327.
+
+
+Overfull \hbox (33.53886pt too wide) in paragraph at lines 2320--2328
+\OMS/pxsy/m/n/10 H[] \OT1/pxr/m/n/10 : \OML/pxmi/m/it/10 p \OT1/pxr/m/n/10 = 0\
+OML/pxmi/m/it/10 :\OT1/pxr/m/n/10 1  \OML/pxmi/m/it/10 ;  \OMS/pxsy/m/n/10 H[] 
+\OT1/pxr/m/n/10 : \OML/pxmi/m/it/10 p > \OT1/pxr/m/n/10 0\OML/pxmi/m/it/10 :\OT
+1/pxr/m/n/10 1  \OML/pxmi/m/it/10 ;   \OT1/pxr/m/n/10 = 0\OML/pxmi/m/it/10 :\O
+T1/pxr/m/n/10 01  \OML/pxmi/m/it/10 ;  n \OT1/pxr/m/n/10 = 100  \OML/pxmi/m/it/
+10 ; $[] 
+ []
+
+[86]
+Overfull \hbox (4.50705pt too wide) in paragraph at lines 2357--2358
+\OT1/pxr/m/n/10 We can de-ter-mine sam-ple size to con-trol both types of er-ro
+r for test-ing []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2357--2358
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [87]
+Overfull \hbox (5.73288pt too wide) detected at line 2373
+ $[][]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2384--2387
+
+ []
+
+[88]
+Underfull \hbox (badness 10000) in paragraph at lines 2389--2393
+
+ []
+
+
+Overfull \hbox (103.47354pt too wide) in paragraph at lines 2393--2396
+\OML/pxmi/m/it/10  \OT1/pxr/m/n/10 = 0\OML/pxmi/m/it/10 :\OT1/pxr/m/n/10 05\OM
+L/pxmi/m/it/10 ; n[] \OT1/pxr/m/n/10 = 50\OML/pxmi/m/it/10 ; n[] \OT1/pxr/m/n/1
+0 = 50\OML/pxmi/m/it/10 ; [] \OT1/pxr/m/n/10 = 3\OML/pxmi/m/it/10 :\OT1/pxr/m/n
+/10 6 \OML/pxmi/m/it/10 sec; [] \OT1/pxr/m/n/10 = 3\OML/pxmi/m/it/10 :\OT1/pxr/
+m/n/10 8 \OML/pxmi/m/it/10 sec ; S[] \OT1/pxr/m/n/10 = 0\OML/pxmi/m/it/10 :\OT1
+/pxr/m/n/10 18\OML/pxmi/m/it/10 ; S[] \OT1/pxr/m/n/10 = 0\OML/pxmi/m/it/10 :\OT
+1/pxr/m/n/10 14\OML/pxmi/m/it/10 ;$[] 
+ []
+
+
+Overfull \hbox (10.20238pt too wide) detected at line 2416
+ $[][]$ 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [89]
+[90]
+Overfull \hbox (2.1313pt too wide) in paragraph at lines 2428--2431
+\OT1/pxr/m/n/10 This means that $\OML/pxmi/m/it/10 RR[]$ \OT1/pxr/m/n/10 is a r
+e-jec-tion re-gion for test-ing $\OMS/pxsy/m/n/10 H[] [] [] \OML/pxmi/m/it/10 
+ \OT1/pxr/m/n/10 = \OML/pxmi/m/it/10 []$ \OT1/pxr/m/n/10 ver-sus []
+ []
+
+
+Overfull \hbox (26.78503pt too wide) in paragraph at lines 2434--2451
+[][] \OT1/pxr/m/n/10 : []$| [] 
+ []
+
+[91]
+Overfull \hbox (2.77797pt too wide) in paragraph at lines 2452--2468
+\OMS/pxsy/m/n/10 H[] \OT1/pxr/m/n/10 : \OML/pxmi/m/it/10 [] \OMS/pxsy/m/n/10  
+ \OML/pxmi/m/it/10 [] \OT1/pxr/m/n/10 = \OML/pxmi/m/it/10 D[]$| \OT1/pxr/m/n/1
+0 versus| $\OMS/pxsy/m/n/10 H[] \OT1/pxr/m/n/10 : []$ 
+ []
+
+
+Overfull \hbox (61.66864pt too wide) detected at line 2470
+\OML/pxmi/m/it/10 s[] \OT1/pxr/m/n/10 = []  \OML/pxmi/m/it/10 ;   S[] \OT1/pxr/
+m/n/10 = [] [](\OML/pxmi/m/it/10 X[] \OMS/pxsy/m/n/10   []\OT1/pxr/m/n/10 )[]  
+[]  \OML/pxmi/m/it/10 S[] \OT1/pxr/m/n/10 = [] [](\OML/pxmi/m/it/10 Y[] \OMS/px
+sy/m/n/10   []\OT1/pxr/m/n/10 )[]
+ []
+
+[92] [93] [94] (MATH324W2019LectureNotes.aux) ) 
 Here is how much of TeX's memory you used:
- 34127 strings out of 492946
- 760492 string characters out of 3135533
- 800163 words of memory out of 3000000
- 37549 multiletter control sequences out of 15000+200000
- 569366 words of font info for 135 fonts, out of 3000000 for 9000
+ 34167 strings out of 492946
+ 761279 string characters out of 3135533
+ 800460 words of memory out of 3000000
+ 37579 multiletter control sequences out of 15000+200000
+ 571088 words of font info for 140 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,31n,146p,1629b,1110s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvi
-ps/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/latxfon
-t/line10.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfont
-s/pxex.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/
-pxexa.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/p
-xsy.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/pxs
-ya.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/pxsy
-b.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/pxsyc
-.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/rpxb.p
-fb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/rpxbi.pf
-b><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/rpxi.pfb>
-<C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/rpxmi.pfb><
-C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pxfonts/rpxr.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/rsfs/rsfs7.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/pal
-atino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on MATH324W2019LectureNotes.pdf (82 pages, 355727 bytes).
+ 117i,31n,146p,1637b,1110s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Sam\AppData\Local\MiK
+TeX\2.9\fonts/pk/ljfour/public/dingbat/dpi600\dingbat.pk>{C:/Program Files/MiKT
+eX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/latxfont/line10.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts
+/type1/public/pxfonts/pxex.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/t
+ype1/public/pxfonts/pxexa.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/ty
+pe1/public/pxfonts/pxsy.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type
+1/public/pxfonts/pxsya.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1
+/public/pxfonts/pxsyb.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/
+public/pxfonts/pxsyc.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/p
+ublic/pxfonts/rpxb.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/pub
+lic/pxfonts/rpxbi.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/publ
+ic/pxfonts/rpxi.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public
+/pxfonts/rpxmi.pfb><C:/Users/Sam/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/
+pxfonts/rpxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs7.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/u
+plri8a.pfb>
+Output written on MATH324W2019LectureNotes.pdf (94 pages, 389501 bytes).
 PDF statistics:
- 342 PDF objects out of 1000 (max. 8388607)
+ 385 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
