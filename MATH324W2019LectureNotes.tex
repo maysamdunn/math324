@@ -2475,15 +2475,41 @@ This relationship is two-sided . In other words, any $100\%(1-\alpha)\ $ confide
 	\end{array}\right.$
 	\emph{Values of $\ t_\alpha\ , \ n_{_1}+n_{_2} - 2\ $} are given in Table VI , App.3 , page 849.
 \end{enumerate}
-\begin{example}[\#10.14 \& \#10.15 , page 524]
-
+\begin{example}[\#10.14 \& \#10.15 , page 524]\hfill\\
+$ n_{_1} = 9 \ \ , \ \ \bar{y}_{_1} = 35.22 \text{sec} \ \ , \ \ \sum\limits_{i=1}^9 (y_{i_1} - \bar{y}_{_1})^2 = 195.56\\
+	n_{_2} = 9 \ \ , \ \ \bar{y}_{_2} = 31.56 \text{sec} \ \ , \ \ \sum\limits_{i=1}^9 (y_{i_2} - \bar{y}_{_2})^2 = 160.22\\
+	\alpha = 0.05 \ \ , \ \ \mathcal{H}_{_0} \colon \mu_{_1} - \mu_{_2} = 0 \ \ \text{vs.} \ \ \mathcal{H}_{_A}\colon \mu_{_1} - \mu_{_2} \neq 0
+$
 \end{example}
-
-
-
-
-
-
+$
+	T = \frac{(\bar{Y}_1 - \bar{Y}_2) - D_{_0}}{S_p \sqrt{\frac{1}{n_{_1}}+\frac{1}{n_{_2}}}}\tab[1cm], \tab[1cm]$\mbox{$S^2_p = \frac{(n_{_1} - 1)S_1^2 + (n_2 - 1)S^2_2}{n_1 + n_2 -2} = \frac{195.56 + 160.22}{9+9-2} \approx 22.24\implies S_p \approx 4.716$}\\
+	The observed $t$ is:\tab $t_{obs} = \frac{(\bar{y}_1 - \bar{y}_2) - 0}{4.716\sqrt{\frac{1}{9}+\frac{1}{9}}} = \frac{35.22 - 31.56}{4.716 \sqrt{\frac{2}{9}}}\approx 1.56$\\
+	$T = \frac{(\bar{Y}_1 - \bar{Y}_2) - D_{_0}}{S_p \sqrt{\frac{1}{n_{_1}}+\frac{1}{n_{_2}}}} \sim T_{\nu}\tab\text{where }\nu = n_1+n_2-2=9+9-2=16$\\
+	Using Table 5, App.3, page 849:\\
+	$
+		t_{\frac{\alpha}{2} , \nu} = t_{0.025 , 16} = 2.12
+	$\tab\#MISSING GRAPH - LECTURE 14 PAGE 95\\
+	$-2.12 < 1.56 < 2.12 \implies \mathcal{H}_{_0}\ \text{is \underline{NOT} rejected.}$\\
+	\underline{\textbf{For $\sigma^2:$}}\tab Assumption: $\ Y_i\distas{iid} N(\mu,\sigma^2)$\\
+	$\mathcal{H}_{_0} : \sigma^2 = \sigma^2_{_0}$\tab versus \tab $\mathcal{H}_{_A}:\left\{\begin{array}{lr}
+	\sigma^2 > \sigma_{_0}^2\\
+	\sigma^2 < \sigma_{_0}^2\\
+	\sigma^2 \neq \sigma_{_0}^2
+	\end{array}
+	\right.$\\
+	$\chi^2 = \frac{(n-1)S^2}{\sigma^2_{_0}} \sim \chi^2_{(n-1)}\ $ under $\ \mathcal{H}_{_0}:\sigma^2 = \sigma^2_{_0}\ \ \ \ :\tab S^2 = \frac{1}{n-1}\sum\limits_{i=1}^n (Y_i - \bar{Y})^2$\\
+	${RR}_\alpha : \left\{\begin{array}{lr}
+	\chi^2 > \chi^2_{\alpha,\nu}\\
+	\chi^2 < \chi^2_{1-\alpha,\nu}\\
+	\chi^2 > \chi^2_{\frac{\alpha}{2},\nu} \ \ \ \text{ or } \ \ \ \chi^2 > \chi^2_{1-\frac{\alpha}{2},\nu}	
+	\end{array}\right.$\tab \mbox{$\chi^2_{\alpha,\nu} $ is chosen such that $P(\chi^2 > \chi^2_{\alpha,\nu}) = \alpha \ , \ \nu=n-1$}\\
+	Value of $\chi^2_{\alpha,\nu} $ is given in Table 6, App.3, page 850. \#MISSING TABLE - LECTURE 14 PAGE 96.
+\begin{example}[\#10.16 , page 532]\hfill\\
+	$n=10 \ \ , \ \ S^2 = 0.0003 \ \ , \ \ \mathcal{H}_{_0} : \sigma^2 = 0.0002 \ \ , \ \ \alpha=0.05 \ \ , \ \ \mathcal{H}_{_A}: \sigma^2 > 0.0002 $
+\end{example}
+$\chi^2_{obs} = \frac{(10-1)(0.0003)}{0.0002} = 13.5$\hfill\\
+$\tab[0.43cm]\chi^2 = \frac{(n-1)S^2}{\sigma^2_{_0}} \sim \chi^2_{_9} \ \ , \ \ \chi^2_{_{0.05, 9}} = 16.919$\hfill\\
+$\tab[0.43cm]13.5 = \chi^2_{obs} < \chi^2_{0.05 , 9} = 16.919\tab[0.5cm]\implies\tab[0.5cm]\text{Thus $\mathcal{H}_{_0}$ is NOT rejected.}$
 
 
 
